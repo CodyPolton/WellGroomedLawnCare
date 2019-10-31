@@ -3,7 +3,7 @@ from __future__ import print_function
 from mailmerge import MailMerge
 from datetime import date
 
-template = "C:\\Users\\tso2080\\Documents\\Python Scripts\\WellGroomedLawnCare\\InvoiceTemplate.docx"
+template = "InvoiceTemplate.docx"
 document = MailMerge(template)
 print(document.get_merge_fields())
 
@@ -23,7 +23,20 @@ jobs_history = [{
 }
 ]
 
-document.merge(BillingName = "Cody Polton")
+document.merge(
+    BillingName = "Cody Polton",
+    BillingAddress = "810 Cambridge Dr.",
+    BillingJob = "Mowing",
+
+    AccountName = "CodyPolton",
+
+    Date='{:%m-%d-%Y}'.format(date.today()),
+    InvoiceId = '101',
+
+    SubTotal = '$210.00',
+    Total = '$210.00'
+
+)
 document.merge_rows('Qty', jobs_history)
 
 
