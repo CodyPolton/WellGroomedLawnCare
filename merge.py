@@ -40,4 +40,4 @@ document.merge(
 document.merge_rows('Qty', jobs_history)
 
 
-document.write('test-output.docx')
+document.write('Invoices/test-output.docx')
