@@ -3,7 +3,7 @@ from __future__ import print_function
 from mailmerge import MailMerge
 from datetime import date
 
-template = r"C:\Users\tso2080\Documents\Python Scripts\WellGroomedLawnCare\InvoiceTemplate.docx"
+template = "InvoiceTemplate.docx"
 document = MailMerge(template)
 print(document.get_merge_fields())
 
