@@ -1,3 +1,6 @@
 # WellGroomedLawnCare
 
-## **HOW TO RUN THE FRONT END:**
+## Quick Start for Front End
+
+Before running install [npm](https://www.npmjs.com/get-npm).
+
