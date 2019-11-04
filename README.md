@@ -9,9 +9,25 @@
 
 ```bash
 #Create a directory and enter it
+
 mkdir WellGroomedLawnCare
 cd WellGroomedLawnCare
 
 #Download repository
 git clone git@github.com:CodyPolton/WellGroomedLawnCare.git
 ```
+
+### Install and Run the Frontend
+
+```bash
+#Go to front end directory
+cd frontend
+
+#install front end dependencies
+npm install
+
+#Start app for dev on server
+npm run serve
+
+#In browser, navigate to:
+http://localhost:8080/
