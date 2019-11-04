@@ -1,6 +1,7 @@
 # WellGroomedLawnCare
+________________________________________________________________
 
-## Quick Start for Front End
+## Quick Start
 
 **Before running install:**
 1. [Visual Studio Code](https://code.visualstudio.com/download) (Code Editor Used for this projects development)
