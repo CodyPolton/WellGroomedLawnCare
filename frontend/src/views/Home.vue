@@ -4,7 +4,7 @@
       <v-flex>
         <v-img
           src="../assets/WellGroomedLogo.png"
-/>
+        />
       </v-flex>
     </v-layout>
   </v-container>
