@@ -1,28 +1,144 @@
+
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
+
+      <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
+
+      <v-spacer />
+
+      <v-menu
+
+        transition="scale-transition"
+        bottom
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn
+            icon
+            v-on="on"
+          >
+            <v-icon>mdi-account</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="item in options"
+            :key="item.title"
+            @click="() => {}"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      dark
+      temporary
+    >
+      <v-list height="64">
+        <v-list-item>
+          <v-list-item-content class="pa-0">
+            <v-list-item-title class="title">
+              User Name Placeholder
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              Admin/Employee/Customer
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-divider />
+      <v-list>
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-home
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>
+              Home
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-group
+          v-for="item in items"
+          :key="item.title"
+          v-model="item.active"
+          :prepend-icon="item.action"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </template>
+
+          <v-list-item
+            v-for="subItem in item.items"
+            :key="subItem.title"
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="subItem.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+    <v-content>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      drawer: false,
+      items: [
+        {
+          action: 'mdi-leaf',
+          title: 'Lawn Care',
+          active: false,
+          items: [
+            { title: 'test item 1' },
+            { title: 'test item 2' },
+            { title: 'test item 3' },
+          ],
+        },
+        {
+          action: 'mdi-content-cut',
+          title: 'Landscaping',
+          items: [
+            { title: 'test item 1' },
+          ],
+        },
+      ],
+      options: [
+        {
+          title: 'Sign Up',
+          action: null,
+        },
+        {
+          title: 'Login',
+          action: null,
+        },
+
+      ],
+    };
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

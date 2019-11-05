@@ -15,6 +15,9 @@ cd WellGroomedLawnCare
 
 #Download repository
 git clone git@github.com:CodyPolton/WellGroomedLawnCare.git
+
+#Navigate to repository
+cd WellGroomedLawnCare
 ```
 
 ### Install and Run the Frontend
