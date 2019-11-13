@@ -6,19 +6,20 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 subject = "Test Email From Cody"
+Name = "Landen"
+Month = "November"
 body = """\
 <html>
   <body>
-    <p>Hi,<br>
-       How are you?<br>
-       <a href="http://www.realpython.com">Real Python</a> 
-       has many great tutorials.
+    <p style='font-family:"Comic Sans MS", cursive, sans-serif; font-size: 16px;'>Hi """ + Name + """,<br><br> I have attached the invoice for mowing in the month of """ + Month + """. Please let me know if you have any questions or need anything else done. Thank you so much and I hope you have a good rest of your week.
+  <br><br>Landon Wiswall<br>
+  Well-Groomed Lawn Care, LLC<br>
     </p>
   </body>
 </html>
 """
 sender_email = "testEmailWellGroomed@gmail.com"
-receiver_email = "cj.polton@gmail.com"
+receiver_email = "cj.polton@gmail.com" 
 password = "Groomed1!"
 
 # Create a multipart message and set headers
@@ -32,6 +33,7 @@ message["Bcc"] = receiver_email  # Recommended for mass emails
 message.attach(MIMEText(body, "html"))
 
 filename = "Invoices/test-output.docx"  # In same directory as script
+logo = "Images/logo.png"
 
 # Open PDF file in binary mode
 with open(filename, "rb") as attachment:
@@ -50,7 +52,23 @@ part.add_header(
 )
 
 # Add attachment to message and convert message to string
+
+
+with open(logo, "rb") as attachment:
+  # Add file as application/octet-stream
+  # Email client can usually download this automatically as attachment
+  part2 = MIMEBase("application", "octet-stream")
+  part2.set_payload(attachment.read())
+
+encoders.encode_base64(part2)
+
+part2.add_header('Content-Disposition', "attachment; filename={}".format(logo),)
+part2.add_header('X-Attachment-Id', '0')
+part2.add_header('Content-ID', '<0>')
+
+message.attach(part2)
 message.attach(part)
+
 text = message.as_string()
 
 # Log in to server using secure context and send email
