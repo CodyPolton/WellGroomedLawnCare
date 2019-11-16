@@ -93,6 +93,34 @@
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-navigation
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>
+              Routing
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <router-link to="/invoices">
+              Invoices
+            </router-link>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-content>
@@ -126,6 +154,7 @@ export default {
             { title: 'test item 1' },
           ],
         },
+
       ],
       options: [
         {
