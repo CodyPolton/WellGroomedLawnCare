@@ -1,4 +1,3 @@
-
 <template>
   <v-app>
     <v-app-bar
@@ -12,30 +11,17 @@
 
       <v-spacer />
 
-      <v-menu
 
-        transition="scale-transition"
-        bottom
-      >
-        <template v-slot:activator="{ on }">
+
           <v-btn
             icon
-            v-on="on"
+            v-if="!authenticated"
+      @click="login()"
+
           >
             <v-icon>mdi-account</v-icon>
           </v-btn>
-        </template>
 
-        <v-list>
-          <v-list-item
-            v-for="item in options"
-            :key="item.title"
-            @click="() => {}"
-          >
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
@@ -125,6 +111,13 @@
     </v-navigation-drawer>
     <v-content>
       <v-container fluid>
+        <v-btn
+        v-if="authenticated"
+        @click="privateMessage()">Check Private API Permissions</v-btn>
+                <v-btn
+        v-if="authenticated"
+       @click="logout()">Log Out</v-btn>
+       {{ message }}
         <router-view />
       </v-container>
     </v-content>
@@ -132,9 +125,23 @@
 </template>
 
 <script>
+import AuthService from './auth/AuthService'
+import axios from 'axios'
+
+const API_URL = 'http://localhost:8000'
+const auth = new AuthService()
 export default {
+
   data() {
+    this.handleAuthentication()
+    this.authenticated = false
+
+    auth.authNotifier.on('authChange', authState => {
+      this.authenticated = authState.authenticated
+    })
     return {
+      authenticated: false,
+      message: '',
       drawer: false,
       items: [
         {
@@ -154,20 +161,28 @@ export default {
             { title: 'test item 1' },
           ],
         },
-
       ],
-      options: [
-        {
-          title: 'Sign Up',
-          action: null,
-        },
-        {
-          title: 'Login',
-          action: null,
-        },
 
-      ],
     };
   },
+  methods: {
+    // this method calls the AuthService login() method
+    login () {
+      auth.login()
+    },
+    handleAuthentication () {
+      auth.handleAuthentication()
+    },
+    logout () {
+      auth.logout()
+    },
+    privateMessage () {
+      const url = `${API_URL}/api/private/`
+      return axios.get(url, {headers: {Authorization: `Bearer ${auth.getAuthToken()}`}}).then((response) => {
+        console.log(response.data)
+        this.message = response.data || ''
+      })
+    }
+  }
 };
 </script>

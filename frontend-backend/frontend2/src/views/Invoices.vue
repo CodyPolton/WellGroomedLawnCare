@@ -10,12 +10,9 @@
 
 <script>
 // @ is an alias to /src
-
-
 export default {
   name: 'Invoices',
   components: {
-
   },
 };
 </script>
