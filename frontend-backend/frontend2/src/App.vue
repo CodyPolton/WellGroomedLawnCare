@@ -93,7 +93,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item
+        <v-list-item @click="$router.push('/invoices')"
           link
         >
           <v-list-item-icon>
@@ -102,9 +102,10 @@
             </v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <router-link to="/invoices">
+            Invoices
+            <!-- <router-link to="/invoices">
               Invoices
-            </router-link>
+            </router-link> -->
           </v-list-item-content>
         </v-list-item>
       </v-list>
