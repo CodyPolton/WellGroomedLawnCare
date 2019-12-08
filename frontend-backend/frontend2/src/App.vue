@@ -1,13 +1,38 @@
 <template>
   <v-app>
+    <!-- Navbar that customer will see -->
     <v-app-bar
       app
       color="primary"
       dark
+      v-if="!authenticated"
+    >
+
+      <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
+
+      <v-spacer />
+
+      <v-btn
+        icon
+        v-if="!authenticated"
+        @click="login()"
+
+      >
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
+
+    </v-app-bar>
+
+<!-- Navbar once you are logged in for employees -->
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      v-if="authenticated"
     >
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
-      <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
+      <v-toolbar-title>Well Groomed Lawn Care Management</v-toolbar-title>
 
       <v-spacer />
 
@@ -93,7 +118,37 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item @click="$router.push('/invoices')"
+        <v-list-item to='/accounts'
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Accounts
+            <!-- <router-link to="/invoices">
+              Invoices
+            </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item to='/crews'
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Crews
+            <!-- <router-link to="/invoices">
+              Invoices
+            </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item to='/invoices'
           link
         >
           <v-list-item-icon>
@@ -108,6 +163,22 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item @click="logout"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Logout
+            <!-- <router-link to="/invoices">
+              Invoices
+            </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-content>
@@ -115,9 +186,7 @@
         <v-btn
         v-if="authenticated"
         @click="privateMessage()">Check Private API Permissions</v-btn>
-                <v-btn
-        v-if="authenticated"
-       @click="logout()">Log Out</v-btn>
+              
        {{ message }}
         <router-view />
       </v-container>

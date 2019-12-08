@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Invoices from '../views/Invoices.vue';
+import Crews from '../views/Crews.vue';
+import Accounts from '../views/Accounts.vue';
+import AddAccounts from '../views/AddAccounts.vue';
+import AccountView from '../views/AccountView.vue';
+import YardView from '../views/YardView.vue';
 
 Vue.use(VueRouter)
 
@@ -15,6 +20,31 @@ const routes = [
     path: '/invoices',
     name: 'invoices',
     component: Invoices,
+  },
+  {
+    path: '/crews',
+    name: 'crews',
+    component: Crews,
+  },
+  {
+    path: '/accounts',
+    name: 'accounts',
+    component: Accounts,
+  },
+  {
+    path: '/addaccount',
+    name: 'addaccounts',
+    component: AddAccounts,
+  },
+  {
+    path: '/account/:id',
+    name: 'accountview',
+    component: AccountView,
+  },
+  {
+    path: '/yard/:id',
+    name: 'yardview',
+    component: YardView,
   },
 ]
 
