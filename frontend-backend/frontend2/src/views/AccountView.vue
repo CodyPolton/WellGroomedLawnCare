@@ -5,11 +5,11 @@
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">Details</v-tab>
       <v-tab key="yards">Yards</v-tab>
-      <v-tab key="invoice">Invoice</v-tab>
+      <v-tab key="invoice">Invoices</v-tab>
       <v-tab key="edit">Edit</v-tab>
       <v-tab-item key="details">hi</v-tab-item>
       <v-tab-item key="yards">
-        <v-btn to="addyard">Add Yard</v-btn>
+        <v-btn to="/addyard">Add Yard</v-btn>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
           :headers="headers"

@@ -7,6 +7,8 @@ import Accounts from '../views/Accounts.vue';
 import AddAccounts from '../views/AddAccounts.vue';
 import AccountView from '../views/AccountView.vue';
 import YardView from '../views/YardView.vue';
+import AddYard from '../views/AddYard.vue';
+import InvoiceView from '../views/InvoiceView.vue';
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,16 @@ const routes = [
     path: '/yard/:id',
     name: 'yardview',
     component: YardView,
+  },
+  {
+    path: '/invoice/:id',
+    name: 'invoiceview',
+    component: InvoiceView,
+  },
+  {
+    path: '/addyard',
+    name: 'addyard',
+    component: AddYard,
   },
 ]
 
