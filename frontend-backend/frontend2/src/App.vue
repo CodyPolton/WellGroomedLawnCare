@@ -5,7 +5,7 @@
       app
       color="primary"
       dark
-      v-if="!authenticated"
+      v-if="authenticated"
     >
 
       <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
@@ -14,7 +14,7 @@
 
       <v-btn
         icon
-        v-if="!authenticated"
+        v-if="authenticated"
         @click="login()"
 
       >
@@ -28,7 +28,7 @@
       app
       color="primary"
       dark
-      v-if="authenticated"
+      v-if="!authenticated"
     >
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
@@ -195,8 +195,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import AuthService from './auth/AuthService'
 import axios from 'axios'
+
 
 const API_URL = 'http://localhost:8000'
 const auth = new AuthService()
@@ -256,3 +258,4 @@ export default {
   }
 };
 </script>
+

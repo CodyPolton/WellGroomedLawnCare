@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
-import VueTelInput from 'vue-tel-input'
+import VueTelInput from 'vue-tel-input';
  
 Vue.use(VueTelInput)
 
