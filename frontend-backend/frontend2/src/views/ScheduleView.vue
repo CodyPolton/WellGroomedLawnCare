@@ -1,9 +1,17 @@
 <template>
   <v-app>
       <h1>Day 1</h1>
-      <v-btn @click="route(addresses)">Route</v-btn>
+      <v-btn @click="route(addresses1)">Route</v-btn>
       <ul id="example-1" >
-        <li v-for="address in addresses">
+        <li v-for="address in addresses1">
+         {{address.address}}
+        </li>
+    </ul>
+
+    <h1>Day 2</h1>
+      <v-btn @click="route(addresses2)">Route</v-btn>
+      <ul id="example-1" >
+        <li v-for="address in addresses2">
          {{address.address}}
         </li>
     </ul>
@@ -19,7 +27,7 @@ export default {
   },
   data (){
       return {
-          addresses: [
+          addresses1: [
               {
                 address: "810 Cambridge Dr., Columbia, MO"
               },
@@ -29,7 +37,17 @@ export default {
               {
                 address: "18001 Old Hwy 63 North, Sturgeon, MO"
               }
-
+          ],
+          addresses2: [
+              {
+                address: "810 Cambridge Dr., Columbia, MO"
+              },
+              {
+                address: "2909 Falling Leaf Ln, Columbia, MO"
+              },
+              {
+                address: "1800 Parkside Dr, Columbia, MO"
+              }
           ]
       }
   },

@@ -1,8 +1,8 @@
 <template>
   <v-app>
-      Route
+      <v-btn @click="back">Back</v-btn>
 
-      <div id="map" style="width: 100%; height: 100%; position: absolute;">
+      <div id="map" style="width: 100%; height: 90%; position: absolute;">
                  <div id="map-canvas"></div>
      </div>
   </v-app>
@@ -74,8 +74,10 @@ data() {
                 window.alert('Directions request failed due to ' + status);
               }
             });
-      }
-
+      },
+      back: function() {
+      this.$router.go(-1);
+    },
   }
 };
 </script>

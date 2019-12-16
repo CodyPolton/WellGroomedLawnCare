@@ -6,10 +6,8 @@
       <v-tab key="details">View Invoice</v-tab>
       <v-tab-item >
         <div class="tab-item-wrapper" >
-         <ejs-documenteditor id="container"  style="width: 100%;height: 1000px;" :isReadOnly='false' :enablePrint='true' :enableSelection='true' :enableContextMenu='true' :enableSearch='true' :enableOptionsPane='true' :enableWordExport='true' :enableEditor='true' :enableImageResizer='true' :enableEditorHistory='true' :enableHyperlinkDialog='true' :enableTableDialog='true' :enableBookmarkDialog='true' :enableTableOfContentsDialog='true' :enablePageSetupDialog='true' :enableStyleDialog='true' :enableListDialog='true' ></ejs-documenteditor>
-          
+         <VueDocPreview :value='docValue' :type="type" /> 
         </div>
-        <span> hello </span>
       </v-tab-item>
       <v-tab key="yards">Jobs</v-tab>
       
@@ -20,14 +18,16 @@
 
 <script>
 import Vue from 'vue';
-import { DocumentEditorPlugin, DocumentEditorComponent, Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog } from '@syncfusion/ej2-vue-documenteditor';
+import VueDocPreview from 'vue-doc-preview'
 
-Vue.use(DocumentEditorPlugin);
    
 // @ is an alias to /src
 export default {
   data() {
     return {
+      publicPath: process.env.BASE_URL,
+      type: 'office',
+      docValue: '',
       id: null,
       mowprice: null,
       state: null,
@@ -37,28 +37,21 @@ export default {
       
     };
   },
-  name: "Crews",
-  components: {},
+  name: "InvoiceView",
+  components: {VueDocPreview},
   created() {
     this.id = this.$route.params.id;
-    loadTextFromFile('') 
+    this.docValue =  'https://www.codypolton.com/InvoiceTemplate.docx'
+    console.log(this.docValue)
+
   },
   methods: {
     back: function() {
       this.$router.go(-1);
     },
-    loadTextFromFile: function(ev) {
-      const file = ev.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => console.log(e.target.result);
-
-      // reader.onload = e => this.$emit("load", e.target.result);
-      // reader.readAsText(file);
-    }
   }
 };
 </script>
 
 <style>
- @import "../../node_modules/@syncfusion/ej2-vue-documenteditor/styles/material.css";
 </style>
