@@ -9,6 +9,8 @@ import AccountView from '../views/AccountView.vue';
 import YardView from '../views/YardView.vue';
 import AddYard from '../views/AddYard.vue';
 import InvoiceView from '../views/InvoiceView.vue';
+import ScheduleView from '../views/ScheduleView.vue';
+import Route from '../views/Route.vue';
 
 Vue.use(VueRouter)
 
@@ -57,6 +59,16 @@ const routes = [
     path: '/addyard',
     name: 'addyard',
     component: AddYard,
+  },
+  {
+    path: '/schedule',
+    name: 'scheduleview',
+    component: ScheduleView,
+  },
+  {
+    path: '/route*',
+    name: 'route',
+    component: Route,
   },
 ]
 

@@ -148,6 +148,21 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
+        <v-list-item to='/schedule'
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Schedule
+            <!-- <router-link to="/invoices">
+              Invoices
+            </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item to='/invoices'
           link
         >
