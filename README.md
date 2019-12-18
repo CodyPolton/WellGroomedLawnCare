@@ -24,7 +24,7 @@ cd WellGroomedLawnCare
 
 ```bash
 #Go to front end directory
-cd frontend
+cd wellgroomed
 
 #install front end dependencies
 npm install
