@@ -31,3 +31,22 @@ npm run serve
 #In browser, navigate to:
 http://localhost:8080/
 ```
+
+### Install and Run the Backend
+
+```bash
+#Go to front end directory
+cd backend
+
+#install backend dependences
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+#go into django framework folder
+cd backend-framework
+
+#Start django dev server
+django manage.py runserver
+
+```

@@ -12,7 +12,7 @@ module.exports = {
       sourceType: "module"
     },
     extends: [
-      // use the recommended rule set for both plain javascript and vue
+      'plugin:vue/recommended'
 
     ],
     rules: {

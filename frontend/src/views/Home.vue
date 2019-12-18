@@ -3,6 +3,8 @@
     <v-layout>
       <v-flex>
         <v-img
+          contain
+          aspect-ratio="2"
           src="../assets/WellGroomedLogo.png"
         />
       </v-flex>

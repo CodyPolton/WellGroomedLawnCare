@@ -11,6 +11,7 @@ import AddYard from '../views/AddYard.vue';
 import InvoiceView from '../views/InvoiceView.vue';
 import ScheduleView from '../views/ScheduleView.vue';
 import Route from '../views/Route.vue';
+import Login from '../components/Login.vue';
 
 Vue.use(VueRouter)
 
@@ -70,6 +71,11 @@ const routes = [
     name: 'route',
     component: Route,
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  }
 ]
 
 const router = new VueRouter({

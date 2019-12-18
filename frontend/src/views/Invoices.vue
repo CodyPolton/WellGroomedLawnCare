@@ -1,6 +1,11 @@
 <template>
   <v-app>
-    <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+    <v-text-field 
+      v-model="search" 
+      append-icon="search" 
+      label="Search" 
+      single-line 
+      hide-details/>
     <v-data-table
       :headers="headers"
       :items="invoices"
@@ -8,13 +13,15 @@
       :items-per-page="10"
       class="elevation-1"
       @click:row="handleClick"
-    ></v-data-table>
+    />
   </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
 export default {
+  name: "Invoices",
+  components: {},
   data() {
     return {
       search: null,
@@ -42,13 +49,11 @@ export default {
       ]
     };
   },
-  name: "Invoices",
-  components: {},
   methods: {
       handleClick: function(value){
           console.log(value)
           this.$router.push('/invoice/' + value.id);
-          
+
       },
   }
 };

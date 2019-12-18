@@ -1,40 +1,42 @@
 <template>
   <v-app>
-      <v-btn @click="back">Back</v-btn>
+    <v-btn @click="back">Back</v-btn>
 
-      <div id="map" style="width: 100%; height: 90%; position: absolute;">
-                 <div id="map-canvas"></div>
-     </div>
+    <div 
+      id="map" 
+      style="width: 100%; height: 90%; position: absolute;">
+      <div id="map-canvas"/>
+    </div>
   </v-app>
-  
+
 </template>
 
 <script>
 import GoogleMapsLoader from 'google-maps'
 // @ is an alias to /src
 export default {
+  name: 'Route',
+  components: {
+  },
 data() {
     return {
         params: null,
         origin: '721 North Denninghoff Rd, Columbia, MO'
     }
 },
-  name: 'Route',
-  components: {
-  },
   created() {
     this.params = this.$route.query;
     console.log(this.params)
-    
+
   },
   mounted () {
       this.initMap()
-  
+
 
     },
   methods: {
       initMap: function(){
-        var self = this; 
+        var self = this;
          GoogleMapsLoader.KEY = 'AIzaSyAKCyU_Na3n2DiQ7Z5aJ2OQaET2QHRZw2s';
       GoogleMapsLoader.load(function(google) {
         console.log("1");
@@ -46,8 +48,8 @@ data() {
         })
         directionsRenderer.setMap(map);
         self.calculateAndDisplayRoute(directionsService, directionsRenderer);
-        
-    
+
+
         })
       },
       calculateAndDisplayRoute: function(directionsService, directionsRenderer) {

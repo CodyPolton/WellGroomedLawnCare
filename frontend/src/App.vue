@@ -2,10 +2,11 @@
   <v-app>
     <!-- Navbar that customer will see -->
     <v-app-bar
+      v-if="authenticated"
       app
       color="primary"
       dark
-      v-if="authenticated"
+      dense
     >
 
       <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
@@ -13,8 +14,8 @@
       <v-spacer />
 
       <v-btn
-        icon
         v-if="authenticated"
+        icon
         @click="login()"
 
       >
@@ -23,14 +24,17 @@
 
     </v-app-bar>
 
-<!-- Navbar once you are logged in for employees -->
+    <!-- Navbar once you are logged in for employees -->
     <v-app-bar
-      app
+
       color="primary"
       dark
-      v-if="!authenticated"
+      app
+      dense
     >
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
+      <v-app-bar-nav-icon
+        v-if="authenticated"
+        @click="drawer = !drawer" />
 
       <v-toolbar-title>Well Groomed Lawn Care Management</v-toolbar-title>
 
@@ -38,17 +42,19 @@
 
 
 
-          <v-btn
-            icon
-            v-if="!authenticated"
-      @click="login()"
+      <v-btn
+        v-if="!authenticated"
+        icon
+        to="/login"
+        link
 
-          >
-            <v-icon>mdi-account</v-icon>
-          </v-btn>
+      >
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
 
     </v-app-bar>
     <v-navigation-drawer
+      v-if="authenticated"
       v-model="drawer"
       app
       dark
@@ -118,7 +124,8 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to='/accounts'
+        <v-list-item
+          to="/accounts"
           link
         >
           <v-list-item-icon>
@@ -133,7 +140,8 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to='/crews'
+        <v-list-item
+          to="/crews"
           link
         >
           <v-list-item-icon>
@@ -148,7 +156,8 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to='/schedule'
+        <v-list-item
+          to="/schedule"
           link
         >
           <v-list-item-icon>
@@ -163,7 +172,8 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
-        <v-list-item to='/invoices'
+        <v-list-item
+          to="/invoices"
           link
         >
           <v-list-item-icon>
@@ -178,9 +188,26 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
-
-        <v-list-item @click="logout"
+        <v-list-item
+          to="/login"
           link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Log in
+            <!-- <router-link to="/invoices">
+              Invoices
+            </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
+          link
+          @click="logout"
         >
           <v-list-item-icon>
             <v-icon>
@@ -197,12 +224,14 @@
       </v-list>
     </v-navigation-drawer>
     <v-content>
-      <v-container fluid>
+      <v-container
+        fluid
+        class="fill-height">
         <v-btn
-        v-if="authenticated"
-        @click="privateMessage()">Check Private API Permissions</v-btn>
-              
-       {{ message }}
+          v-if="authenticated"
+          @click="privateMessage()">Check Private API Permissions</v-btn>
+
+        {{ message }}
         <router-view />
       </v-container>
     </v-content>
@@ -220,7 +249,6 @@ const auth = new AuthService()
 export default {
 
   data() {
-    this.handleAuthentication()
     this.authenticated = false
 
     auth.authNotifier.on('authChange', authState => {
@@ -252,16 +280,16 @@ export default {
 
     };
   },
+  mounted() {
+this.checkLoggedIn();
+console.log(this.$store.state.authenticated);
+  },
   methods: {
-    // this method calls the AuthService login() method
-    login () {
-      auth.login()
-    },
-    handleAuthentication () {
-      auth.handleAuthentication()
-    },
-    logout () {
-      auth.logout()
+
+    checkLoggedIn() {
+      if (this.$store.state.authenticated){
+        this.authenticated = true;
+      }
     },
     privateMessage () {
       const url = `${API_URL}/api/private/`
