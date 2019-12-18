@@ -5,7 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import VueTelInput from 'vue-tel-input';
 import VueSession from 'vue-session';
-import axios from 'axios';
+import Axios from 'axios';
 import Vuex from 'vuex';
 
 Vue.prototype.$http = Axios;
