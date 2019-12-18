@@ -1,4 +1,4 @@
-/frontend/node_modules/
-/backend/venv/
+wellgroomed/frontend/node_modules/
 .DS_Store
 /node_modules
+.vscode
