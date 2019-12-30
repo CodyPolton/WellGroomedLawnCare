@@ -2,7 +2,7 @@
   <v-app>
     <!-- Navbar that customer will see -->
     <v-app-bar
-      v-if="authenticated"
+      v-if="!authenticated"
       app
       color="primary"
       dark
@@ -14,7 +14,7 @@
       <v-spacer />
 
       <v-btn
-        v-if="authenticated"
+        v-if="!authenticated"
         icon
         @click="login()"
 
@@ -33,7 +33,7 @@
       dense
     >
       <v-app-bar-nav-icon
-        v-if="authenticated"
+        v-if="!authenticated"
         @click="drawer = !drawer" />
 
       <v-toolbar-title>Well Groomed Lawn Care Management</v-toolbar-title>
@@ -54,7 +54,7 @@
 
     </v-app-bar>
     <v-navigation-drawer
-      v-if="authenticated"
+      v-if="!authenticated"
       v-model="drawer"
       app
       dark
@@ -188,7 +188,7 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
-        <v-list-item
+        <!-- <v-list-item
           to="/login"
           link
         >
@@ -202,7 +202,7 @@
             <!-- <router-link to="/invoices">
               Invoices
             </router-link> -->
-          </v-list-item-content>
+          <!-- </v-list-item-content>
         </v-list-item>
 
         <v-list-item
@@ -218,9 +218,9 @@
             Logout
             <!-- <router-link to="/invoices">
               Invoices
-            </router-link> -->
+            </router-link>
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
     <v-content>
@@ -244,7 +244,7 @@ import AuthService from './auth/AuthService'
 import axios from 'axios'
 
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'http://127.0.0.1:8000/api/'
 const auth = new AuthService()
 export default {
 

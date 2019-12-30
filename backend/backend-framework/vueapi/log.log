@@ -1,0 +1,153 @@
+2019-12-29 20:04:29,545 INFO autoreload 92414 4511223104 Watching for file changes with StatReloader
+2019-12-29 20:05:18,554 INFO autoreload 92414 4511223104 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+2019-12-29 20:05:19,178 INFO autoreload 92454 4697787712 Watching for file changes with StatReloader
+2019-12-29 20:05:28,898 INFO basehttp 92454 123145565216768 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:05:51,963 INFO autoreload 92454 4697787712 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+2019-12-29 20:05:52,735 INFO autoreload 92479 4723739968 Watching for file changes with StatReloader
+2019-12-29 20:06:01,262 INFO autoreload 92479 4723739968 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+2019-12-29 20:06:01,844 INFO autoreload 92491 4466494784 Watching for file changes with StatReloader
+2019-12-29 20:06:10,940 INFO basehttp 92491 123145545838592 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:06:50,836 INFO autoreload 92491 4466494784 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+2019-12-29 20:06:51,529 INFO autoreload 92515 4667022656 Watching for file changes with StatReloader
+2019-12-29 20:07:03,441 INFO basehttp 92515 123145429790720 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:07:36,225 INFO autoreload 92515 4667022656 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+2019-12-29 20:07:36,808 INFO autoreload 92534 4690328896 Watching for file changes with StatReloader
+2019-12-29 20:07:40,782 INFO basehttp 92534 123145432395776 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:11:20,960 INFO autoreload 92534 4690328896 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+"GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+"GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+/Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+/Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+INFO 2019-12-29 20:15:19,225 autoreload 92665 4552310080 Watching for file changes with StatReloader
+INFO 2019-12-29 20:15:25,582 basehttp 92665 123145517584384 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:16:41,985 autoreload 92665 4552310080 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+INFO 2019-12-29 20:16:43,169 autoreload 92691 4751547712 Watching for file changes with StatReloader
+INFO 2019-12-29 20:16:54,111 basehttp 92691 123145515585536 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:16:54,111 basehttp 92691 123145515585536 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:21:19,313 autoreload 92691 4751547712 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+INFO 2019-12-29 20:21:20,811 autoreload 92760 4564266304 Watching for file changes with StatReloader
+INFO 2019-12-29 20:21:24,223 basehttp 92760 123145437958144 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:21:24,223 basehttp 92760 123145437958144 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:26:26,605 autoreload 92760 4564266304 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+INFO 2019-12-29 20:27:31,619 autoreload 92884 4618267968 Watching for file changes with StatReloader
+INFO 2019-12-29 20:27:36,726 basehttp 92884 123145471770624 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:27:36,726 basehttp 92884 123145471770624 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:29:01,360 autoreload 92884 4618267968 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+INFO 2019-12-29 20:29:02,155 autoreload 92907 4618026304 Watching for file changes with StatReloader
+INFO 2019-12-29 20:29:09,270 basehttp 92907 123145443532800 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:29:09,270 basehttp 92907 123145443532800 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+INFO 2019-12-29 20:30:25,870 autoreload 92907 4618026304 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 20:30:27,621 INFO autoreload 4526734656 Watching for file changes with StatReloader
+2019-12-29 20:32:02,079 INFO autoreload 4526734656 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/views.py changed, reloading.
+2019-12-29 20:32:02,815 INFO autoreload 4588174656 Watching for file changes with StatReloader
+2019-12-29 20:32:06,295 INFO basehttp 123145337257984 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:32:06,295 INFO basehttp 123145337257984 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:33:20,937 INFO autoreload 4588174656 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 20:33:22,064 INFO autoreload 4635430208 Watching for file changes with StatReloader
+2019-12-29 20:33:24,318 INFO basehttp 123145493975040 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:33:24,318 INFO basehttp 123145493975040 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:33:41,037 INFO basehttp 123145493975040 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:33:41,037 INFO basehttp 123145493975040 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:34:12,310 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:34:12,310 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:36:21,678 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:36:21,678 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:37:04,165 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:37:04,165 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:43:11,336 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:43:11,336 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:43:11,384 INFO basehttp 123145504485376 "GET /api/accountsyards?id=89 HTTP/1.1" 200 2
+2019-12-29 20:43:11,384 INFO basehttp 123145504485376 "GET /api/accountsyards?id=89 HTTP/1.1" 200 2
+2019-12-29 20:43:51,577 INFO basehttp 123145504485376 "OPTIONS /api/yard/ HTTP/1.1" 200 0
+2019-12-29 20:43:51,577 INFO basehttp 123145504485376 "OPTIONS /api/yard/ HTTP/1.1" 200 0
+2019-12-29 20:43:52,210 INFO basehttp 123145504485376 "POST /api/yard/ HTTP/1.1" 201 224
+2019-12-29 20:43:52,210 INFO basehttp 123145504485376 "POST /api/yard/ HTTP/1.1" 201 224
+2019-12-29 20:44:04,708 INFO basehttp 123145504485376 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 20:44:04,708 INFO basehttp 123145504485376 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 20:44:08,777 INFO basehttp 123145504485376 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:44:08,777 INFO basehttp 123145504485376 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:44:08,942 INFO basehttp 123145499230208 "GET /api/accountsyards?id=89 HTTP/1.1" 200 226
+2019-12-29 20:44:08,942 INFO basehttp 123145499230208 "GET /api/accountsyards?id=89 HTTP/1.1" 200 226
+2019-12-29 20:47:48,435 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:47:48,435 INFO basehttp 123145499230208 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:47:48,460 INFO basehttp 123145504485376 "GET /api/accountsyards?id=89 HTTP/1.1" 200 226
+2019-12-29 20:47:48,460 INFO basehttp 123145504485376 "GET /api/accountsyards?id=89 HTTP/1.1" 200 226
+2019-12-29 20:52:53,589 INFO autoreload 4635430208 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 20:52:54,898 INFO autoreload 4480539968 Watching for file changes with StatReloader
+2019-12-29 20:53:09,128 INFO autoreload 4480539968 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 20:53:10,515 INFO autoreload 4607036736 Watching for file changes with StatReloader
+2019-12-29 20:53:15,728 INFO basehttp 123145361825792 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:53:15,728 INFO basehttp 123145361825792 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:54:13,054 INFO basehttp 123145361825792 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:54:13,054 INFO basehttp 123145361825792 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:55:01,988 INFO autoreload 4607036736 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 20:55:02,582 INFO autoreload 4548296000 Watching for file changes with StatReloader
+2019-12-29 20:55:04,006 DEBUG utils 123145489768448 (0.026) 
+            SELECT c.relname,
+            CASE WHEN c.relispartition THEN 'p' WHEN c.relkind IN ('m', 'v') THEN 'v' ELSE 't' END
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None
+2019-12-29 20:55:04,034 DEBUG utils 123145489768448 (0.025) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=()
+2019-12-29 20:55:10,291 DEBUG utils 123145496096768 (0.025) SELECT "yards"."yardid", "yards"."account_id", "yards"."address", "yards"."zip_code", "yards"."city", "yards"."state", "yards"."mow_price", "yards"."date_created", "yards"."date_updated" FROM "yards" WHERE "yards"."account_id" = 103 ORDER BY "yards"."yardid" ASC LIMIT 21; args=(103,)
+2019-12-29 20:55:10,316 DEBUG utils 123145496096768 (0.024) SELECT "yards"."yardid", "yards"."account_id", "yards"."address", "yards"."zip_code", "yards"."city", "yards"."state", "yards"."mow_price", "yards"."date_created", "yards"."date_updated" FROM "yards" WHERE "yards"."account_id" = 103 ORDER BY "yards"."yardid" ASC; args=(103,)
+2019-12-29 20:55:10,376 INFO basehttp 123145496096768 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:55:10,376 INFO basehttp 123145496096768 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 20:59:04,370 DEBUG utils 123145506607104 (0.042) SELECT "yards"."yardid", "yards"."account_id", "yards"."address", "yards"."zip_code", "yards"."city", "yards"."state", "yards"."mow_price", "yards"."date_created", "yards"."date_updated" FROM "yards" WHERE "yards"."account_id" = 89 ORDER BY "yards"."yardid" ASC LIMIT 21; args=(89,)
+2019-12-29 20:59:04,394 DEBUG utils 123145501351936 (0.054) SELECT "accounts"."accountid", "accounts"."f_name", "accounts"."l_name", "accounts"."address", "accounts"."zip_code", "accounts"."city", "accounts"."state", "accounts"."phone_no", "accounts"."email", "accounts"."auto_invoice", "accounts"."date_created", "accounts"."date_updated" FROM "accounts" WHERE "accounts"."accountid" = 89 LIMIT 21; args=(89,)
+2019-12-29 20:59:04,396 INFO basehttp 123145501351936 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:59:04,396 INFO basehttp 123145501351936 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 20:59:04,422 DEBUG utils 123145506607104 (0.050) SELECT "yards"."yardid", "yards"."account_id", "yards"."address", "yards"."zip_code", "yards"."city", "yards"."state", "yards"."mow_price", "yards"."date_created", "yards"."date_updated" FROM "yards" WHERE "yards"."account_id" = 89 ORDER BY "yards"."yardid" ASC; args=(89,)
+2019-12-29 20:59:04,425 INFO basehttp 123145506607104 "GET /api/accountsyards?id=89 HTTP/1.1" 200 226
+2019-12-29 20:59:04,425 INFO basehttp 123145506607104 "GET /api/accountsyards?id=89 HTTP/1.1" 200 226
+2019-12-29 20:59:32,112 INFO autoreload 4548296000 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 20:59:32,733 INFO autoreload 4603170112 Watching for file changes with StatReloader
+2019-12-29 20:59:56,766 INFO basehttp 123145458532352 "POST /api/yard/ HTTP/1.1" 201 222
+2019-12-29 20:59:56,766 INFO basehttp 123145458532352 "POST /api/yard/ HTTP/1.1" 201 222
+2019-12-29 20:59:58,692 INFO basehttp 123145458532352 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 20:59:58,692 INFO basehttp 123145458532352 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:00:03,693 INFO basehttp 123145458532352 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:00:03,693 INFO basehttp 123145458532352 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:00:03,694 INFO basehttp 123145463787520 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:00:03,694 INFO basehttp 123145463787520 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:00:19,823 INFO basehttp 123145463787520 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:00:19,823 INFO basehttp 123145463787520 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:00:19,849 INFO basehttp 123145458532352 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:00:19,849 INFO basehttp 123145458532352 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:00:24,772 INFO basehttp 123145458532352 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:00:24,772 INFO basehttp 123145458532352 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:00:26,910 INFO basehttp 123145458532352 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:00:26,910 INFO basehttp 123145458532352 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:00:26,937 INFO basehttp 123145463787520 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:00:26,937 INFO basehttp 123145463787520 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:00:30,950 INFO basehttp 123145463787520 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:00:30,950 INFO basehttp 123145463787520 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:01:15,029 INFO autoreload 4603170112 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/vueapi/settings.py changed, reloading.
+2019-12-29 21:02:46,842 INFO autoreload 4461661504 Watching for file changes with StatReloader
+2019-12-29 21:02:54,524 INFO basehttp 123145359945728 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 21:02:54,524 INFO basehttp 123145359945728 "GET /api/accountsyards?id=103 HTTP/1.1" 200 447
+2019-12-29 21:03:11,481 INFO basehttp 123145365200896 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:03:11,481 INFO basehttp 123145365200896 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:03:11,495 INFO basehttp 123145370456064 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:03:11,495 INFO basehttp 123145370456064 "GET /api/accountsyards?id=89 HTTP/1.1" 200 449
+2019-12-29 21:09:33,199 INFO basehttp 123145365200896 "POST /api/yard/ HTTP/1.1" 201 221
+2019-12-29 21:09:33,199 INFO basehttp 123145365200896 "POST /api/yard/ HTTP/1.1" 201 221
+2019-12-29 21:10:15,903 INFO basehttp 123145365200896 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:10:15,903 INFO basehttp 123145365200896 "GET /api/account/ HTTP/1.1" 200 4050
+2019-12-29 21:10:17,939 INFO basehttp 123145365200896 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:10:17,939 INFO basehttp 123145365200896 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:10:18,010 INFO basehttp 123145370456064 "GET /api/accountsyards?id=89 HTTP/1.1" 200 671
+2019-12-29 21:10:18,010 INFO basehttp 123145370456064 "GET /api/accountsyards?id=89 HTTP/1.1" 200 671
+2019-12-29 21:10:30,152 INFO basehttp 123145370456064 "POST /api/yard/ HTTP/1.1" 201 221
+2019-12-29 21:10:30,152 INFO basehttp 123145370456064 "POST /api/yard/ HTTP/1.1" 201 221
+2019-12-29 21:10:31,348 INFO basehttp 123145370456064 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:10:31,348 INFO basehttp 123145370456064 "GET /api/account/89/ HTTP/1.1" 200 305
+2019-12-29 21:10:31,395 INFO basehttp 123145365200896 "GET /api/accountsyards?id=89 HTTP/1.1" 200 893
+2019-12-29 21:10:31,395 INFO basehttp 123145365200896 "GET /api/accountsyards?id=89 HTTP/1.1" 200 893

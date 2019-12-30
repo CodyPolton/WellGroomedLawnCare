@@ -57,7 +57,7 @@ const routes = [
     component: InvoiceView,
   },
   {
-    path: '/addyard',
+    path: '/addyard/:id',
     name: 'addyard',
     component: AddYard,
   },

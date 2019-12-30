@@ -1,15 +1,15 @@
-<template>
-  <v-app>
+<template >
+  <v-app style="width: 100%;">
       <v-btn @click='back'>Back</v-btn>
     Accounts id = {{id}}
-    <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
+    <v-tabs background-color="grey accent-4" centered class="elevation-2"  dark>
       <v-tab key="details">Details</v-tab>
       <v-tab key="yards">Yards</v-tab>
       <v-tab key="invoice">Invoices</v-tab>
       <v-tab key="edit">Edit</v-tab>
       <v-tab-item key="details">hi</v-tab-item>
       <v-tab-item key="yards">
-        <v-btn to="/addyard">Add Yard</v-btn>
+        <v-btn @click="addYard">Add Yard</v-btn>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
           :headers="headers"
@@ -22,80 +22,61 @@
       </v-tab-item>
       <v-tab-item key="invoices">Invoices</v-tab-item>
       <v-tab-item key="edit">
-        <v-text-field v-model="fname" :counter="40" :rules="rule" label="First Name" required></v-text-field>
-        <v-text-field v-model="lname" :counter="40" :rules="rule" label="Last Name" required></v-text-field>
-        <v-text-field v-model="address" :counter="40" :rules="rule" label="Address" required></v-text-field>
+        <v-text-field v-model="account.f_name" ref="name" :counter="40" :rules="rule" autofocus label="First Name" required></v-text-field>
+        <v-text-field v-model="account.l_name" :counter="40" :rules="rule" label="Last Name" required></v-text-field>
+        <v-text-field v-model="account.address" :counter="40" :rules="rule" label="Address" required></v-text-field>
         <v-text-field
-          v-model="zipcode"
+          v-model="account.zip_code"
           :counter="5"
           :rules="zipRules"
           type="number"
           label="Zip Code"
           required
         ></v-text-field>
-        <v-text-field v-model="city" :counter="40" :rules="rule" label="City" required></v-text-field>
+        <v-text-field v-model="account.city" :counter="40" :rules="rule" label="City" required></v-text-field>
         <v-select
-          v-model="state"
+          v-model="account.state"
           :items="states"
           :rules="[v => !!v || 'State is required']"
           label="State"
           required
         ></v-select>
-        <vue-tel-input v-model="phone" placeholder="Enter phone number"></vue-tel-input>
-        <v-text-field v-model="email" :counter="40" :rules="[]" label="Email"></v-text-field>
-        <v-checkbox v-model="auto" color="green">
+        <vue-tel-input v-model="account.phone_no" placeholder="Enter phone number" ></vue-tel-input>
+        <v-text-field v-model="account.email" :counter="40" :rules="[]" label="Email"></v-text-field>
+        <v-checkbox v-model="account.auto_invoice" color="green">
           <template v-slot:label>Automatic Invoices</template>
         </v-checkbox>
-        <v-checkbox v-model="sameaddress" color="green">
-          <template v-slot:label>Does the account have a yard with the same address</template>
-        </v-checkbox>
-
-        <v-btn :disabled="!valid" color="success" class="mr-4">Save</v-btn>
+        <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
       </v-tab-item>
     </v-tabs>
   </v-app>
 </template>
 
 <script>
+import axios from 'axios'
 // @ is an alias to /src
 export default {
   name: "AccountView",
   data() {
     return {
+      false: false,
       id: null,
       search: null,
       headers: [
         {
-          text: "First Name",
+          text: "Address", value: "address",
           align: "left",
-          sortable: false,
-          value: "fname"
         },
-        { text: "Last Name", align: "left", value: "lname" },
-        { text: "Address", value: "address" },
-        { text: "Phone Number", value: "phone" },
-        { text: "Mow Cost", value: "mowcost" }
+        { text: "City", align: "left", value: "city" },
+        { text: "Zip Code", value: "zip_code" },
+        { text: "State", value: "state" },
+        { text: "Mow Price", value: "mow_price" }
       ],
       yards: [
-        {
-          fname: "Cody",
-          lname: "Polton",
-          address: "812 Cambridge dr.",
-          phone: "5734893326",
-          mowcost: "25",
-          id: "1"
-        }
       ],
-      address: "812 Cambridge Dr.",
-      city: "Columbia",
-      state: "MO",
-      zipcode: 65203,
-      phone: "5732223366",
-      fname: "Test",
-      lname: "Name",
-      email: "test@gmail.com",
-      auto: true,
-      sameaddress: null,
+      account: {
+
+      },
       states: [
         "MO",
         "AL",
@@ -164,6 +145,23 @@ export default {
   },
   created() {
     this.id = this.$route.params.id;
+    axios.get('http://127.0.0.1:8000/api/account/' + this.id + "/").then((response)=> {
+        console.log(response.data)
+        this.account = response.data
+        console.log(this.account)    
+    })
+
+    axios.get('http://127.0.0.1:8000/api/accountsyards?id=' + this.id).then((response)=> {
+        console.log(response.data)
+        response.data.forEach((item)=> {
+          this.yards.push(item)
+
+        })
+
+        
+      })
+  },
+  mounted(){
   },
   components: {},
   methods: {
@@ -172,6 +170,16 @@ export default {
       },
       back: function(){
           this.$router.go(-1)
+      },
+      addYard: function(){
+          this.$router.replace('/addyard/' + this.id)
+      },
+      save: function(){
+        axios.put('http://127.0.0.1:8000/api/account/'+ this.id + "/", this.account).then((response)=>{
+          console.log(response.data)
+        this.account = response.data
+        console.log(this.account)
+        })
       }
   }
 };
