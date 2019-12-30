@@ -233,6 +233,8 @@
 
         {{ message }}
         <router-view />
+        <notifications group="success" position="bottom right" width='500'/>
+        <notifications group="error" position="bottom right" duration='-1' width='400'/>
       </v-container>
     </v-content>
   </v-app>
@@ -301,4 +303,20 @@ console.log(this.$store.state.authenticated);
   }
 };
 </script>
+
+<style lang="scss" scoped>
+
+.warn{
+
+ &.success {
+      background: #68CD86;
+    }
+    &.warn {
+      background: #ffb648;
+    }
+    &.error {
+      background: #E54D42;
+    }
+}
+</style>
 

@@ -4,7 +4,7 @@
     <v-form ref="form" v-model="valid">
       <span>Enter yard information:</span>
       <v-text-field v-model="yard.address" :counter="40" :rules="rule" label="Address" required></v-text-field>
-      <v-text-field v-model="yard.zip_code" :counter="5" :rules="zipRules" type='number' label="Zip Code" required></v-text-field>
+      <v-text-field v-model="yard.zip_code" :counter="5" :rules="[v => !!v || 'Zipcode is required']" type='number' label="Zip Code" required></v-text-field>
       <v-text-field v-model="yard.city" :counter="40" :rules="rule" label="City" required></v-text-field>
       <v-select
         v-model="yard.state"
@@ -13,7 +13,7 @@
         label="State"
         required
       ></v-select>
-      <v-text-field v-model="yard.mow_price" :counter="5" type='number' label="Mow Price" required></v-text-field>
+      <v-text-field v-model="yard.mow_price" :counter="6" type='number' label="Mow Price" required></v-text-field>
        
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="addYard">Create Yard</v-btn>
@@ -51,10 +51,6 @@ export default {
         v => !!v || 'Required',
         v => (v && v.length <= 40) || 'Entry must be less than 40 characters',
         ],
-        zipRules: [
-        v => !!v || 'Required',
-        v => (v && v.length == 5 ) || 'Zip code must be 5 numbers',
-        ],
         valid: true
 
       }
@@ -70,10 +66,31 @@ export default {
       addYard: function(){
         console.log(this.yard)
         axios.post('http://127.0.0.1:8000/api/yard/', this.yard).then((response) =>{
-        console.log(response.data)
-        if(response.status == 201)
+        this.$notify({
+              group: "success",
+              title: "Added Yard Succesfully",
+              type: "success"
+            });
         this.$router.replace('/account/' + this.yard.account)
-        })
+        }).catch(error => {
+          if (error.response) {
+            for (var prop in this.yard) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error adding yard. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
 
       }
     }

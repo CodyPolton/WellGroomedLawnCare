@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator
 
 # Create your models here.
 class Account(models.Model):
@@ -6,7 +7,7 @@ class Account(models.Model):
     f_name = models.CharField(max_length=255)
     l_name = models.CharField(max_length=255, blank=True)
     address = models.CharField(max_length=255)
-    zip_code = models.IntegerField()
+    zip_code = models.PositiveIntegerField(validators=[MaxValueValidator(99999)])
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=2)
     phone_no = models.CharField(max_length=20, blank=True)
@@ -23,7 +24,7 @@ class Yard(models.Model):
     yardid = models.AutoField(primary_key=True)
     account = models.ForeignKey('Account', on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
-    zip_code = models.IntegerField()
+    zip_code = models.PositiveIntegerField(validators=[MaxValueValidator(99999)])
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=2)
     mow_price = models.DecimalField( max_digits=6, decimal_places=2, null=True)

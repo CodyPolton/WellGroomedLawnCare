@@ -47,7 +47,7 @@ const routes = [
     component: AccountView,
   },
   {
-    path: '/yard/:id',
+    path: '/yard/:accountid/:yardid',
     name: 'yardview',
     component: YardView,
   },

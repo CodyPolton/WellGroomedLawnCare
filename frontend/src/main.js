@@ -7,6 +7,10 @@ import VueTelInput from 'vue-tel-input';
 import VueSession from 'vue-session';
 import Axios from 'axios';
 import Vuex from 'vuex';
+import Notifications from 'vue-notification'
+
+
+
 
 Vue.prototype.$http = Axios;
 
@@ -15,6 +19,7 @@ if (token) {
   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
 }
 
+Vue.use(Notifications)
 Vue.use(VueTelInput)
 Vue.use(VueSession)
 Vue.use(Vuex);
