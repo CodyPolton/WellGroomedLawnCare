@@ -4,3 +4,4 @@ backend/venv
 /node_modules
 .vscode
 backend/backend-framework/framework/__pycache__
+backend/backend-framework/vueapi/log.log

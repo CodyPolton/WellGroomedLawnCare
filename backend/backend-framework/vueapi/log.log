@@ -545,3 +545,61 @@ INFO 2019-12-29 20:30:25,870 autoreload 92907 4618026304 /Users/Cody/Documents/W
 2019-12-30 14:32:19,412 INFO autoreload 13080 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
 2019-12-30 14:32:20,382 INFO autoreload 17368 Watching for file changes with StatReloader
 2019-12-30 14:32:37,268 INFO autoreload 16072 Watching for file changes with StatReloader
+2019-12-30 14:32:45,418 WARNING log 12200 Bad Request: /api/account/89/
+2019-12-30 14:32:45,419 WARNING basehttp 12200 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:32:45,419 WARNING basehttp 12200 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:32:56,808 WARNING log 12200 Bad Request: /api/account/89/
+2019-12-30 14:32:56,808 WARNING basehttp 12200 "PUT /api/account/89/ HTTP/1.1" 400 65
+2019-12-30 14:32:56,808 WARNING basehttp 12200 "PUT /api/account/89/ HTTP/1.1" 400 65
+2019-12-30 14:33:02,215 INFO basehttp 12200 "PUT /api/account/89/ HTTP/1.1" 200 308
+2019-12-30 14:33:02,215 INFO basehttp 12200 "PUT /api/account/89/ HTTP/1.1" 200 308
+2019-12-30 14:33:59,297 INFO basehttp 12200 "GET /api/account/89/ HTTP/1.1" 200 308
+2019-12-30 14:33:59,297 INFO basehttp 12200 "GET /api/account/89/ HTTP/1.1" 200 308
+2019-12-30 14:33:59,322 INFO basehttp 18388 "GET /api/accountsyards?id=89 HTTP/1.1" 200 898
+2019-12-30 14:33:59,322 INFO basehttp 18388 "GET /api/accountsyards?id=89 HTTP/1.1" 200 898
+2019-12-30 14:34:06,495 WARNING log 18388 Bad Request: /api/account/89/
+2019-12-30 14:34:06,495 WARNING basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:34:06,495 WARNING basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:34:24,695 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 308
+2019-12-30 14:34:24,695 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 308
+2019-12-30 14:38:02,260 WARNING log 18388 Bad Request: /api/account/89/
+2019-12-30 14:38:02,260 WARNING basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 400 44
+2019-12-30 14:38:02,260 WARNING basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 400 44
+2019-12-30 14:38:26,399 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:38:26,399 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:38:30,917 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:38:30,917 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:38:31,320 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:38:31,320 INFO basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:39:42,558 WARNING log 18388 Bad Request: /api/account/89/
+2019-12-30 14:39:42,558 WARNING basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:39:42,558 WARNING basehttp 18388 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:40:27,420 INFO basehttp 18388 "GET /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:40:27,420 INFO basehttp 18388 "GET /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:40:27,433 INFO basehttp 20084 "GET /api/accountsyards?id=89 HTTP/1.1" 200 898
+2019-12-30 14:40:27,433 INFO basehttp 20084 "GET /api/accountsyards?id=89 HTTP/1.1" 200 898
+2019-12-30 14:40:32,889 WARNING log 20084 Bad Request: /api/account/89/
+2019-12-30 14:40:32,890 WARNING basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:40:32,890 WARNING basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 400 66
+2019-12-30 14:40:39,560 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:40:39,560 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:40:45,622 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:40:45,622 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 304
+2019-12-30 14:41:07,692 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 315
+2019-12-30 14:41:07,692 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 315
+2019-12-30 14:41:14,291 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 309
+2019-12-30 14:41:14,291 INFO basehttp 20084 "PUT /api/account/89/ HTTP/1.1" 200 309
+2019-12-30 14:43:53,693 INFO basehttp 20084 "OPTIONS /api/yard/ HTTP/1.1" 200 0
+2019-12-30 14:43:53,693 INFO basehttp 20084 "OPTIONS /api/yard/ HTTP/1.1" 200 0
+2019-12-30 14:43:53,924 INFO basehttp 20084 "POST /api/yard/ HTTP/1.1" 201 214
+2019-12-30 14:43:53,924 INFO basehttp 20084 "POST /api/yard/ HTTP/1.1" 201 214
+2019-12-30 14:43:54,162 INFO basehttp 20084 "GET /api/account/89/ HTTP/1.1" 200 309
+2019-12-30 14:43:54,162 INFO basehttp 20084 "GET /api/account/89/ HTTP/1.1" 200 309
+2019-12-30 14:43:54,187 INFO basehttp 18388 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1113
+2019-12-30 14:43:54,187 INFO basehttp 18388 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1113
+2019-12-30 14:45:58,353 WARNING log 18388 Bad Request: /api/yard/
+2019-12-30 14:45:58,354 WARNING basehttp 18388 "POST /api/yard/ HTTP/1.1" 400 110
+2019-12-30 14:45:58,354 WARNING basehttp 18388 "POST /api/yard/ HTTP/1.1" 400 110
+2019-12-30 14:46:52,672 WARNING log 18388 Bad Request: /api/yard/
+2019-12-30 14:46:52,673 WARNING basehttp 18388 "POST /api/yard/ HTTP/1.1" 400 66
+2019-12-30 14:46:52,673 WARNING basehttp 18388 "POST /api/yard/ HTTP/1.1" 400 66
