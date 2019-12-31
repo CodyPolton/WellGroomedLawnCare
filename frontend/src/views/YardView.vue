@@ -8,7 +8,7 @@
       <v-tab key="edit">Edit</v-tab>
       <v-tab-item key="details">hi</v-tab-item>
       <v-tab-item key="yards">
-        <v-btn to="/addyard">Add Yard</v-btn>
+        <v-btn @click="addJob">Add Job</v-btn>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
           :headers="headers"
@@ -84,56 +84,13 @@ export default {
         { text: "Mow Cost", value: "mowcost" }
       ],
       states: [
-        "MO",
-        "AL",
-        "AK",
-        "AZ",
-        "AR",
-        "CA",
-        "CO",
-        "CT",
-        "DE",
-        "FL",
-        "GA",
-        "HI",
-        "ID",
-        "IL",
-        "IN",
-        "IA",
-        "KS",
-        "KY",
-        "LA",
-        "ME",
-        "MD",
-        "MA",
-        "MI",
-        "MN",
-        "MS",
-        "MT",
-        "NE",
-        "NV",
-        "NH",
-        "NJ",
-        "NM",
-        "NY",
-        "NC",
-        "ND",
-        "OH",
-        "OK",
-        "OR",
-        "PA",
-        "RI",
-        "SC",
-        "SD",
-        "TN",
-        "TX",
-        "UT",
-        "VT",
-        "VA",
-        "WA",
-        "WV",
-        "WI",
-        "WY"
+        "MO",        "AL",        "AK",        "AZ",        "AR",        "CA",        "CO",        "CT",
+        "DE",        "FL",        "GA",        "HI",        "ID",        "IL",        "IN",        "IA",
+        "KS",        "KY",        "LA",        "ME",        "MD",        "MA",        "MI",        "MN",
+        "MS",        "MT",        "NE",        "NV",        "NH",        "NJ",        "NM",        "NY",
+        "NC",        "ND",        "OH",        "OK",        "OR",        "PA",        "RI",        "SC",
+        "SD",        "TN",        "TX",        "UT",        "VT",        "VA",        "WA",        "WV",
+        "WI",        "WY"
       ],
       rules: {
         required: value => !!value || "Required."
@@ -199,7 +156,10 @@ export default {
             }
           }
         });
-    }
+    },
+    addJob: function() {
+      this.$router.replace("/addjob/" + this.yardid);
+    },
   }
 };
 </script>

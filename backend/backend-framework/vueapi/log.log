@@ -545,3 +545,22 @@ INFO 2019-12-29 20:30:25,870 autoreload 92907 4618026304 /Users/Cody/Documents/W
 2019-12-30 14:32:19,412 INFO autoreload 13080 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
 2019-12-30 14:32:20,382 INFO autoreload 17368 Watching for file changes with StatReloader
 2019-12-30 14:32:37,268 INFO autoreload 16072 Watching for file changes with StatReloader
+2019-12-30 22:22:59,167 INFO autoreload 4421373248 Watching for file changes with StatReloader
+2019-12-30 22:23:34,211 INFO autoreload 4421373248 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-30 22:23:35,050 INFO autoreload 4461395264 Watching for file changes with StatReloader
+2019-12-30 22:23:47,637 INFO autoreload 4461395264 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-30 22:23:48,237 INFO autoreload 4574838080 Watching for file changes with StatReloader
+2019-12-30 22:26:03,914 INFO autoreload 4574838080 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-30 22:26:04,681 INFO autoreload 4389264704 Watching for file changes with StatReloader
+2019-12-30 22:26:43,283 INFO autoreload 4389264704 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-30 22:26:43,815 INFO autoreload 4630670656 Watching for file changes with StatReloader
+2019-12-30 22:27:32,114 INFO autoreload 4630670656 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-30 22:27:33,052 INFO autoreload 4654480704 Watching for file changes with StatReloader
+2019-12-30 22:27:36,086 INFO autoreload 4654480704 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/serializers.py changed, reloading.
+2019-12-30 22:27:36,665 INFO autoreload 4703964480 Watching for file changes with StatReloader
+2019-12-30 22:28:13,936 INFO autoreload 4703964480 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/serializers.py changed, reloading.
+2019-12-30 22:28:14,753 INFO autoreload 4660366656 Watching for file changes with StatReloader
+2019-12-30 22:29:25,030 INFO autoreload 4660366656 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/viewsets.py changed, reloading.
+2019-12-30 22:29:25,532 INFO autoreload 4649385280 Watching for file changes with StatReloader
+2019-12-30 22:30:36,875 INFO autoreload 4649385280 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-30 22:30:37,966 INFO autoreload 4663745856 Watching for file changes with StatReloader

@@ -188,6 +188,22 @@
             </router-link> -->
           </v-list-item-content>
         </v-list-item>
+        <v-list-item
+          to="/configuration"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-tools
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Configurations
+            <!-- <router-link to="/invoices">
+              Invoices
+            </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
         <!-- <v-list-item
           to="/login"
           link
@@ -233,8 +249,8 @@
 
         {{ message }}
         <router-view />
-        <notifications group="success" position="bottom right" width='500'/>
-        <notifications group="error" position="bottom right" duration='-1' width='400'/>
+        <notifications group="success" position="bottom right" :duration=1000 width='500'/>
+        <notifications group="error" position="bottom right" :duration=-1 width='400'/>
       </v-container>
     </v-content>
   </v-app>

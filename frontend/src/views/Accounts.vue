@@ -21,6 +21,7 @@
 
 <script>
 import axios from 'axios'
+
 // @ is an alias to /src
 export default {
   data() {
@@ -38,10 +39,11 @@ export default {
         { text: "Auto Invoices", value: "auto_invoice" },
       ],
       accounts: [
-      ]
+      ],
     };
   }, 
   created() {
+      this.isLoading = true
       axios.get('http://127.0.0.1:8000/api/account/').then((response)=> {
         console.log(response.data)
         response.data.forEach((item)=> {
@@ -51,11 +53,9 @@ export default {
             item.auto_invoice = "NO"
           }
           this.accounts.push(item)
-
-        })
-
-        
+        })        
       })
+      this.isLoading = false
   },
   methods: {
       handleClick: function(value){
