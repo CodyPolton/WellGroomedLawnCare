@@ -41,7 +41,7 @@ class JobType(models.Model):
 
     class Meta:
         db_table = 'job_types'
-        ordering = 'job_typeid'
+        ordering = ['job_typeid']
 
 class Job(models.Model):
     jobid = models.AutoField(primary_key=True)
@@ -56,7 +56,7 @@ class Job(models.Model):
 
     class Meta:
         db_table = 'jobs'
-        ordering = 'jobid'
+        ordering = ['jobid']
 
 
 

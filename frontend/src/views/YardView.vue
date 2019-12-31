@@ -8,6 +8,7 @@
       <v-tab key="edit">Edit</v-tab>
       <v-tab-item key="details">hi</v-tab-item>
       <v-tab-item key="yards">
+        <add-job></add-job>
         <v-btn @click="addJob">Add Job</v-btn>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
@@ -53,7 +54,7 @@
             label="Mow Price"
             required
           ></v-text-field>
-
+    
           <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
       </v-tab-item>
@@ -63,6 +64,7 @@
 
 <script>
 import axios from "axios";
+import addJob from '../views/AddJob.vue'
 // @ is an alias to /src
 export default {
   data() {
@@ -104,7 +106,9 @@ export default {
     };
   },
   name: "Yard",
-  components: {},
+  components: {
+    addJob
+  },
   created() {
     this.yardid = this.$route.params.yardid;
     this.accountid = this.$route.params.accountid;

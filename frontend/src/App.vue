@@ -215,7 +215,7 @@
           </v-list-item-icon>
           <v-list-item-content>
             Log in
-            <!-- <router-link to="/invoices">
+             <router-link to="/invoices">
               Invoices
             </router-link> -->
           <!-- </v-list-item-content>
@@ -232,7 +232,7 @@
           </v-list-item-icon>
           <v-list-item-content>
             Logout
-            <!-- <router-link to="/invoices">
+            <router-link to="/invoices">
               Invoices
             </router-link>
           </v-list-item-content>

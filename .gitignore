@@ -3,5 +3,6 @@ backend/venv
 .DS_Store
 /node_modules
 .vscode
+.pyc
 backend/backend-framework/framework/__pycache__
 backend/backend-framework/vueapi/log.log

@@ -605,3 +605,51 @@ INFO 2019-12-29 20:30:25,870 autoreload 92907 4618026304 /Users/Cody/Documents/W
 2019-12-30 14:46:52,673 WARNING basehttp 18388 "POST /api/yard/ HTTP/1.1" 400 66
 2019-12-31 06:46:23,016 INFO autoreload 16072 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
 2019-12-31 06:46:24,810 INFO autoreload 7740 Watching for file changes with StatReloader
+2019-12-31 06:50:23,540 INFO autoreload 7740 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2019-12-31 06:50:24,462 INFO autoreload 16144 Watching for file changes with StatReloader
+2019-12-31 06:50:32,787 INFO basehttp 22912 "GET /api/account/ HTTP/1.1" 200 4611
+2019-12-31 06:50:32,787 INFO basehttp 22912 "GET /api/account/ HTTP/1.1" 200 4611
+2019-12-31 06:50:37,328 INFO basehttp 22912 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 06:50:37,328 INFO basehttp 22912 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 06:50:37,347 INFO basehttp 20952 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 06:50:37,347 INFO basehttp 20952 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 06:51:24,579 INFO autoreload 13796 Watching for file changes with StatReloader
+2019-12-31 07:04:30,592 WARNING log 15220 Not Found: /api/jobtype
+2019-12-31 07:04:30,593 WARNING basehttp 15220 "PUT /api/jobtype HTTP/1.1" 404 4104
+2019-12-31 07:04:30,593 WARNING basehttp 15220 "PUT /api/jobtype HTTP/1.1" 404 4104
+2019-12-31 07:05:39,434 INFO autoreload 13796 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\vueapi\routers.py changed, reloading.
+2019-12-31 07:05:40,464 INFO autoreload 15868 Watching for file changes with StatReloader
+2019-12-31 07:06:40,942 ERROR log 4980 Internal Server Error: /api/jobtype
+Traceback (most recent call last):
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\middleware\common.py", line 94, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to 127.0.0.1:8000/api/jobtype/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2019-12-31 07:06:40,943 ERROR basehttp 4980 "PUT /api/jobtype HTTP/1.1" 500 69935
+2019-12-31 07:06:40,943 ERROR basehttp 4980 "PUT /api/jobtype HTTP/1.1" 500 69935
+2019-12-31 07:06:49,030 INFO basehttp 12076 "GET /api/jobtype HTTP/1.1" 301 0
+2019-12-31 07:06:49,030 INFO basehttp 12076 "GET /api/jobtype HTTP/1.1" 301 0
+2019-12-31 07:06:49,238 INFO basehttp 12076 "GET /api/jobtype/ HTTP/1.1" 200 2
+2019-12-31 07:06:49,238 INFO basehttp 12076 "GET /api/jobtype/ HTTP/1.1" 200 2
+2019-12-31 07:08:01,201 ERROR log 12076 Internal Server Error: /api/jobtype
+Traceback (most recent call last):
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\middleware\common.py", line 94, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/jobtype/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2019-12-31 07:08:01,203 ERROR basehttp 12076 "POST /api/jobtype HTTP/1.1" 500 70243
+2019-12-31 07:08:01,203 ERROR basehttp 12076 "POST /api/jobtype HTTP/1.1" 500 70243
+2019-12-31 07:08:17,735 INFO basehttp 19780 "POST /api/jobtype/ HTTP/1.1" 201 36
+2019-12-31 07:08:17,735 INFO basehttp 19780 "POST /api/jobtype/ HTTP/1.1" 201 36
+2019-12-31 07:08:21,844 INFO basehttp 19780 "GET /api/jobtype/ HTTP/1.1" 200 38
+2019-12-31 07:08:21,844 INFO basehttp 19780 "GET /api/jobtype/ HTTP/1.1" 200 38
