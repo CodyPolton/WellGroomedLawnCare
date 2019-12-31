@@ -12,6 +12,8 @@ import InvoiceView from '../views/InvoiceView.vue';
 import ScheduleView from '../views/ScheduleView.vue';
 import Route from '../views/Route.vue';
 import Login from '../components/Login.vue';
+import AddJob from '../views/AddJob.vue';
+import Config from '../views/Configuration.vue'
 
 Vue.use(VueRouter)
 
@@ -62,6 +64,11 @@ const routes = [
     component: AddYard,
   },
   {
+    path: '/addjob/:id',
+    name: 'addjob',
+    component: AddJob,
+  },
+  {
     path: '/schedule',
     name: 'scheduleview',
     component: ScheduleView,
@@ -75,6 +82,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/configuration',
+    name: 'Configuration',
+    component: Config
   }
 ]
 

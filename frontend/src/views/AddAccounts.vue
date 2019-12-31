@@ -85,9 +85,31 @@ export default {
       },
       addAccount: function(){
         axios.post('http://127.0.0.1:8000/api/account/', this.account).then((response) =>{
-          console.log(response.data)
-          router.replace('/accounts')
-        })
+        this.$notify({
+              group: "success",
+              title: "Added Account Succesfully",
+              type: "success"
+            });
+        router.replace('/accounts')
+        }).catch(error => {
+          if (error.response) {
+            for (var prop in this.account) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error adding account. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
       }
 
     }
