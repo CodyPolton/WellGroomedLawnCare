@@ -653,3 +653,765 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2019-12-31 07:08:17,735 INFO basehttp 19780 "POST /api/jobtype/ HTTP/1.1" 201 36
 2019-12-31 07:08:21,844 INFO basehttp 19780 "GET /api/jobtype/ HTTP/1.1" 200 38
 2019-12-31 07:08:21,844 INFO basehttp 19780 "GET /api/jobtype/ HTTP/1.1" 200 38
+2019-12-31 15:10:22,302 INFO autoreload 4516531520 Watching for file changes with StatReloader
+2019-12-31 15:11:01,574 INFO basehttp 123145327681536 "GET /api/account/ HTTP/1.1" 200 4611
+2019-12-31 15:11:01,574 INFO basehttp 123145327681536 "GET /api/account/ HTTP/1.1" 200 4611
+2019-12-31 15:11:03,314 INFO basehttp 123145327681536 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 15:11:03,314 INFO basehttp 123145327681536 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 15:11:03,389 INFO basehttp 123145332936704 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 15:11:03,389 INFO basehttp 123145332936704 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 15:11:05,501 INFO basehttp 123145332936704 "GET /api/yard/10/ HTTP/1.1" 200 224
+2019-12-31 15:11:05,501 INFO basehttp 123145332936704 "GET /api/yard/10/ HTTP/1.1" 200 224
+2019-12-31 15:11:06,843 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:11:06,843 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:21:26,469 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:21:26,469 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:21:29,074 INFO basehttp 123145327681536 "OPTIONS /api/job/ HTTP/1.1" 200 0
+2019-12-31 15:21:29,074 INFO basehttp 123145327681536 "OPTIONS /api/job/ HTTP/1.1" 200 0
+2019-12-31 15:21:29,108 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:21:29,109 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 202
+2019-12-31 15:21:29,109 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 202
+2019-12-31 15:22:36,138 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:22:36,139 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 15:22:36,139 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 15:24:30,965 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:24:30,965 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:24:44,473 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:24:44,473 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:24:44,473 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:24:50,648 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:24:50,652 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:24:50,652 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:25:26,255 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:25:26,255 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:26:05,886 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:26:05,888 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:26:05,888 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:26:17,111 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:26:17,112 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:26:17,112 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:30:17,198 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:30:17,198 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:31:57,543 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:31:57,543 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:32:06,177 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:32:06,178 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:32:06,178 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 117
+2019-12-31 15:34:44,690 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:34:44,690 INFO basehttp 123145327681536 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:34:52,264 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:34:52,266 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 78
+2019-12-31 15:34:52,266 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 78
+2019-12-31 15:34:58,244 WARNING log 123145327681536 Bad Request: /api/job/
+2019-12-31 15:34:58,244 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 78
+2019-12-31 15:34:58,244 WARNING basehttp 123145327681536 "POST /api/job/ HTTP/1.1" 400 78
+2019-12-31 15:35:15,904 INFO basehttp 123145327681536 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 15:35:15,904 INFO basehttp 123145327681536 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 15:35:15,950 INFO basehttp 123145332936704 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 15:35:15,950 INFO basehttp 123145332936704 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 15:35:18,408 INFO basehttp 123145332936704 "GET /api/yard/12/ HTTP/1.1" 200 226
+2019-12-31 15:35:18,408 INFO basehttp 123145332936704 "GET /api/yard/12/ HTTP/1.1" 200 226
+2019-12-31 15:35:19,788 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 15:35:19,788 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:33:51,150 INFO basehttp 123145327144960 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:33:51,150 INFO basehttp 123145327144960 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:41:02,953 INFO basehttp 123145326608384 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:41:02,953 INFO basehttp 123145326608384 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:41:04,067 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:41:04,067 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:41:08,772 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:41:08,772 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:42:27,324 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:42:27,324 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:42:52,177 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:42:52,177 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:44:32,142 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:44:32,142 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:47:46,457 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:47:46,457 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:50:22,506 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:50:22,506 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:51:03,829 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:51:03,829 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:51:45,077 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:51:45,077 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:54:36,424 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:54:36,424 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:58:49,349 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 16:58:49,349 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:01:05,044 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:01:05,044 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:01:37,452 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:01:37,452 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:02:48,693 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:02:48,693 INFO basehttp 123145332936704 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:13:00,488 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:13:00,488 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:13:26,622 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:13:26,622 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:13:33,846 WARNING log 123145328218112 Bad Request: /api/job/
+2019-12-31 17:13:33,849 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:13:33,849 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:13:38,211 WARNING log 123145328218112 Bad Request: /api/job/
+2019-12-31 17:13:38,211 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:13:38,211 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:14:07,146 WARNING log 123145328218112 Bad Request: /api/job/
+2019-12-31 17:14:07,148 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:14:07,148 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:14:12,337 WARNING log 123145328218112 Bad Request: /api/job/
+2019-12-31 17:14:12,337 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:14:12,337 WARNING basehttp 123145328218112 "POST /api/job/ HTTP/1.1" 400 142
+2019-12-31 17:14:37,822 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:14:37,822 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:17:37,659 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:17:37,659 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:19:46,546 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:19:46,546 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:20:21,520 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:20:21,520 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:22:43,262 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:22:43,262 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:25:04,083 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:25:04,083 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:25:58,150 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:25:58,150 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:26:08,090 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 17:26:08,090 INFO basehttp 123145328218112 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:40:50,681 INFO autoreload 4516531520 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-31 18:40:52,958 INFO autoreload 4645399872 Watching for file changes with StatReloader
+2019-12-31 18:41:29,866 INFO autoreload 4399131968 Watching for file changes with StatReloader
+2019-12-31 18:42:46,493 INFO basehttp 123145530044416 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:42:46,493 INFO basehttp 123145530044416 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:43:54,901 INFO basehttp 123145530044416 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:43:54,901 INFO basehttp 123145530044416 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:44:37,114 INFO basehttp 123145530044416 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:44:37,114 INFO basehttp 123145530044416 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 18:47:50,026 WARNING log 123145530044416 Bad Request: /api/job/
+2019-12-31 18:47:50,028 WARNING basehttp 123145530044416 "POST /api/job/ HTTP/1.1" 400 78
+2019-12-31 18:47:50,028 WARNING basehttp 123145530044416 "POST /api/job/ HTTP/1.1" 400 78
+2019-12-31 18:49:11,165 WARNING log 123145535299584 Bad Request: /api/job/
+2019-12-31 18:49:11,166 WARNING basehttp 123145535299584 "POST /api/job/ HTTP/1.1" 400 41
+2019-12-31 18:49:11,166 WARNING basehttp 123145535299584 "POST /api/job/ HTTP/1.1" 400 41
+2019-12-31 18:49:27,233 INFO autoreload 4399131968 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-31 18:49:27,861 INFO autoreload 4630310208 Watching for file changes with StatReloader
+2019-12-31 18:49:50,544 INFO autoreload 4593593664 Watching for file changes with StatReloader
+2019-12-31 18:49:59,736 ERROR log 123145471135744 Internal Server Error: /api/job/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "date_completed" violates not-null constraint
+DETAIL:  Failing row contains (1, Cody, Polton, null, null, f, 2020-01-01 00:49:59.552193+00, 2020-01-01 00:49:59.552217+00, Mowing).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 948, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 886, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 925, in _do_insert
+    using=using, raw=raw,
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1377, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "date_completed" violates not-null constraint
+DETAIL:  Failing row contains (1, Cody, Polton, null, null, f, 2020-01-01 00:49:59.552193+00, 2020-01-01 00:49:59.552217+00, Mowing).
+
+2019-12-31 18:49:59,742 ERROR basehttp 123145471135744 "POST /api/job/ HTTP/1.1" 500 19854
+2019-12-31 18:49:59,742 ERROR basehttp 123145471135744 "POST /api/job/ HTTP/1.1" 500 19854
+2019-12-31 18:50:53,779 INFO autoreload 4593593664 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-31 18:50:54,396 INFO autoreload 4729834816 Watching for file changes with StatReloader
+2019-12-31 18:58:41,852 INFO autoreload 4735663424 Watching for file changes with StatReloader
+2019-12-31 18:59:13,309 ERROR log 123145511313408 Internal Server Error: /api/job/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "job_total" violates not-null constraint
+DETAIL:  Failing row contains (2, Cody, Polton, null, null, f, 2020-01-01 00:59:13.116326+00, 2020-01-01 00:59:13.116369+00, Mowing).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 948, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 886, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/base.py", line 925, in _do_insert
+    using=using, raw=raw,
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1377, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "job_total" violates not-null constraint
+DETAIL:  Failing row contains (2, Cody, Polton, null, null, f, 2020-01-01 00:59:13.116326+00, 2020-01-01 00:59:13.116369+00, Mowing).
+
+2019-12-31 18:59:13,313 ERROR basehttp 123145511313408 "POST /api/job/ HTTP/1.1" 500 19839
+2019-12-31 18:59:13,313 ERROR basehttp 123145511313408 "POST /api/job/ HTTP/1.1" 500 19839
+2019-12-31 18:59:37,304 INFO autoreload 4735663424 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2019-12-31 18:59:37,942 INFO autoreload 4630785344 Watching for file changes with StatReloader
+2019-12-31 18:59:51,661 INFO autoreload 4425993536 Watching for file changes with StatReloader
+2019-12-31 18:59:58,229 INFO basehttp 123145411923968 "POST /api/job/ HTTP/1.1" 201 222
+2019-12-31 18:59:58,229 INFO basehttp 123145411923968 "POST /api/job/ HTTP/1.1" 201 222
+2019-12-31 19:01:36,812 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:01:36,812 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:01:45,428 WARNING log 123145417179136 Bad Request: /api/job/
+2019-12-31 19:01:45,429 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 38
+2019-12-31 19:01:45,429 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 38
+2019-12-31 19:02:43,336 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:02:43,336 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:02:51,831 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:02:51,831 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:02:58,898 WARNING log 123145417179136 Bad Request: /api/job/
+2019-12-31 19:02:58,899 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 38
+2019-12-31 19:02:58,899 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 38
+2019-12-31 19:04:17,255 INFO basehttp 123145411923968 "POST /api/job/ HTTP/1.1" 201 222
+2019-12-31 19:04:17,255 INFO basehttp 123145411923968 "POST /api/job/ HTTP/1.1" 201 222
+2019-12-31 19:04:53,425 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:04:53,425 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:05:10,617 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:05:10,617 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:05:17,300 WARNING log 123145417179136 Bad Request: /api/job/
+2019-12-31 19:05:17,302 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 38
+2019-12-31 19:05:17,302 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 38
+2019-12-31 19:05:49,466 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:05:49,466 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:05:54,967 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:05:54,967 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:06:04,837 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 222
+2019-12-31 19:06:04,837 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 222
+2019-12-31 19:07:15,185 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:07:15,185 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:07:22,431 INFO basehttp 123145417179136 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 19:07:22,431 INFO basehttp 123145417179136 "GET /api/account/89/ HTTP/1.1" 200 312
+2019-12-31 19:07:22,462 INFO basehttp 123145422434304 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 19:07:22,462 INFO basehttp 123145422434304 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2019-12-31 19:07:26,756 INFO basehttp 123145422434304 "GET /api/yard/11/ HTTP/1.1" 200 222
+2019-12-31 19:07:26,756 INFO basehttp 123145422434304 "GET /api/yard/11/ HTTP/1.1" 200 222
+2019-12-31 19:07:28,110 INFO basehttp 123145422434304 "GET /api/jobtype/ HTTP/1.1" 200 154
+2019-12-31 19:07:28,110 INFO basehttp 123145422434304 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 10:45:57,967 INFO basehttp 123145417179136 "GET /api/account/89/ HTTP/1.1" 200 312
+2020-01-01 10:45:57,967 INFO basehttp 123145417179136 "GET /api/account/89/ HTTP/1.1" 200 312
+2020-01-01 10:45:58,019 INFO basehttp 123145422434304 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2020-01-01 10:45:58,019 INFO basehttp 123145422434304 "GET /api/accountsyards?id=89 HTTP/1.1" 200 1338
+2020-01-01 10:47:46,928 INFO basehttp 123145422434304 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 10:47:46,928 INFO basehttp 123145422434304 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 10:47:47,865 INFO basehttp 123145422434304 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 10:47:47,865 INFO basehttp 123145422434304 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 10:56:24,572 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 10:56:24,572 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 10:56:26,893 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 10:56:26,893 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:10:02,265 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:10:02,265 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:10:08,248 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:10:08,248 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:11:41,591 INFO basehttp 123145417179136 "OPTIONS /api/job/ HTTP/1.1" 200 0
+2020-01-01 11:11:41,591 INFO basehttp 123145417179136 "OPTIONS /api/job/ HTTP/1.1" 200 0
+2020-01-01 11:11:42,113 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 224
+2020-01-01 11:11:42,113 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 224
+2020-01-01 11:14:23,747 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 224
+2020-01-01 11:14:23,747 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 224
+2020-01-01 11:15:17,768 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:15:17,768 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:15:19,325 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:15:19,325 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:15:45,651 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:15:45,651 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:15:48,032 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:15:48,032 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:18:46,451 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:18:46,451 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:18:58,467 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:18:58,467 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:18:59,709 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:18:59,709 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:10,979 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:10,979 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:48,387 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:48,387 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:51,990 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:20:51,990 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:20:54,589 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:54,589 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:20:57,166 WARNING log 123145417179136 Bad Request: /api/job/
+2020-01-01 11:20:57,167 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 129
+2020-01-01 11:20:57,167 WARNING basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 400 129
+2020-01-01 11:21:06,097 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 220
+2020-01-01 11:21:06,097 INFO basehttp 123145417179136 "POST /api/job/ HTTP/1.1" 201 220
+2020-01-01 11:32:14,285 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:32:14,285 INFO basehttp 123145417179136 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:32:18,010 WARNING log 123145422434304 Not Found: /api/job/11/
+2020-01-01 11:32:18,010 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:32:18,010 INFO basehttp 123145417179136 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:32:18,027 WARNING basehttp 123145422434304 "GET /api/job/11/ HTTP/1.1" 404 23
+2020-01-01 11:32:18,027 WARNING basehttp 123145422434304 "GET /api/job/11/ HTTP/1.1" 404 23
+2020-01-01 11:32:18,906 INFO autoreload 4425993536 /Users/Cody/Documents/WellGroomedLawnCare/backend/backend-framework/vueapi/account/models.py changed, reloading.
+2020-01-01 11:32:21,008 INFO autoreload 4570496320 Watching for file changes with StatReloader
+2020-01-01 11:32:29,311 INFO basehttp 123145439719424 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:32:29,311 INFO basehttp 123145439719424 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:32:39,008 WARNING log 123145439719424 Bad Request: /api/job/
+2020-01-01 11:32:39,009 WARNING basehttp 123145439719424 "POST /api/job/ HTTP/1.1" 400 166
+2020-01-01 11:32:39,009 WARNING basehttp 123145439719424 "POST /api/job/ HTTP/1.1" 400 166
+2020-01-01 11:41:35,554 INFO basehttp 123145439182848 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:41:35,554 INFO basehttp 123145439182848 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:41:35,802 ERROR log 123145444438016 Internal Server Error: /api/job/11/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 411, in get
+    num = len(clone)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 258, in __len__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1137, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+2020-01-01 11:41:35,810 ERROR basehttp 123145444438016 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:41:35,810 ERROR basehttp 123145444438016 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:43:10,410 INFO basehttp 123145450229760 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:43:10,410 INFO basehttp 123145450229760 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:43:10,438 INFO basehttp 123145444438016 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:43:10,438 INFO basehttp 123145444438016 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:43:10,688 ERROR log 123145439182848 Internal Server Error: /api/job/11/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 411, in get
+    num = len(clone)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 258, in __len__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1137, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+2020-01-01 11:43:10,689 ERROR basehttp 123145439182848 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:43:10,689 ERROR basehttp 123145439182848 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:44:06,780 INFO basehttp 123145439182848 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:44:06,780 INFO basehttp 123145439182848 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:44:06,946 INFO basehttp 123145450229760 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:44:06,946 INFO basehttp 123145450229760 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:44:07,245 ERROR log 123145444438016 Internal Server Error: /api/job/11/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 411, in get
+    num = len(clone)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 258, in __len__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1137, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+2020-01-01 11:44:07,246 ERROR basehttp 123145444438016 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:44:07,246 ERROR basehttp 123145444438016 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:44:20,996 WARNING log 123145444438016 Bad Request: /api/job/
+2020-01-01 11:44:20,997 WARNING basehttp 123145444438016 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:44:20,997 WARNING basehttp 123145444438016 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:44:22,955 WARNING log 123145444438016 Bad Request: /api/job/
+2020-01-01 11:44:22,956 WARNING basehttp 123145444438016 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:44:22,956 WARNING basehttp 123145444438016 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:44:25,720 WARNING log 123145444438016 Bad Request: /api/job/
+2020-01-01 11:44:25,720 WARNING basehttp 123145444438016 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:44:25,720 WARNING basehttp 123145444438016 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:45:32,873 INFO basehttp 123145439182848 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:45:32,873 INFO basehttp 123145439182848 "GET /api/jobtype/ HTTP/1.1" 200 154
+2020-01-01 11:45:33,237 INFO basehttp 123145444438016 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:45:33,237 INFO basehttp 123145444438016 "GET /api/yard/11/ HTTP/1.1" 200 222
+2020-01-01 11:45:33,388 ERROR log 123145450229760 Internal Server Error: /api/job/11/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 411, in get
+    num = len(clone)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 258, in __len__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1137, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+2020-01-01 11:45:33,390 ERROR basehttp 123145450229760 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:45:33,390 ERROR basehttp 123145450229760 "GET /api/job/11/ HTTP/1.1" 500 19003
+2020-01-01 11:45:47,669 WARNING log 123145450229760 Bad Request: /api/job/
+2020-01-01 11:45:47,670 WARNING basehttp 123145450229760 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:45:47,670 WARNING basehttp 123145450229760 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:45:51,688 WARNING log 123145450229760 Bad Request: /api/job/
+2020-01-01 11:45:51,689 WARNING basehttp 123145450229760 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:45:51,689 WARNING basehttp 123145450229760 "POST /api/job/ HTTP/1.1" 400 38
+2020-01-01 11:48:41,179 ERROR log 123145455484928 Internal Server Error: /api/job/11/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 411, in get
+    num = len(clone)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 258, in __len__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1137, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column jobs.yardid_id does not exist
+LINE 1: SELECT "jobs"."jobid", "jobs"."yardid_id", "jobs"."name", "j...
+                               ^
+
+2020-01-01 11:48:41,180 ERROR basehttp 123145455484928 "GET /api/job/11/ HTTP/1.1" 500 18842
+2020-01-01 11:48:41,180 ERROR basehttp 123145455484928 "GET /api/job/11/ HTTP/1.1" 500 18842
+2020-01-01 16:55:14,215 INFO autoreload 4361198912 Watching for file changes with StatReloader
+2020-01-01 16:55:35,502 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:55:35,502 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:56:59,172 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:56:59,172 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:57:03,105 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:57:03,105 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:57:06,739 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2
+2020-01-01 16:57:06,739 INFO basehttp 123145561833472 "GET /api/account/ HTTP/1.1" 200 2

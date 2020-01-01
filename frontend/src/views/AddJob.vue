@@ -1,38 +1,8 @@
 <template>
-  <v-app style="width: 100%;">
-    <v-btn @click="back">Back</v-btn>
-    <v-form ref="form" v-model="valid">
-      <span>Enter job information:</span>
-      <v-text-field
-        v-model="job.name"
-        :counter="40"
-        :rules="[v => !!v || 'Name is required']"
-        label="Job Name"
-        required
-      ></v-text-field>
-      <v-col cols="12">
-        <v-textarea
-          v-model="job.description"
-          color="teal"
-          :rules="[v => !!v || 'Description is required']"
-          label="Job Description"
-          required
-        ></v-textarea>
-      </v-col>
-      <v-select
-        v-model="job.job_type"
-        :items="jobTypes"
-        name="job_type"
-        item-text="job_type"
-        :rules="[v => !!v || 'Job type is required']"
-        label="Job Type"
-        required
-      ></v-select>
+  <v-app style="width: 100%; heigth: 30px;">
+    
 
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="addJob">Create Job</v-btn>
-    </v-form>
-
-    <v-dialog v-model="dialog"  max-width="600px">
+    <v-dialog v-model="dialog" max-width="600px">
       <template v-slot:activator="{ on }">
         <v-btn color="primary" dark v-on="on">Add Job</v-btn>
       </template>
@@ -44,10 +14,22 @@
           <v-container>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Job Name*" required></v-text-field>
+                <v-text-field
+                  v-model="job.name"
+                  :counter="40"
+                  :rules="[v => !!v || 'Name is required']"
+                  label="Job Name"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-textarea label="Job Description*" required></v-textarea>
+                <v-textarea
+                  v-model="job.description"
+                  color="teal"
+                  :rules="[v => !!v || 'Description is required']"
+                  label="Job Description*"
+                  required
+                ></v-textarea>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
@@ -66,8 +48,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+          <v-btn color="blue darken-1"  text @click="addJob">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -79,23 +60,33 @@
 import axios from "axios";
 
 export default {
-  dialog: false,
   name: "AddJob",
   data() {
     return {
+        dialog: false,
       yardid: null,
       valid: null,
+      jobtypes: {
+        job_typeid: null,
+        job_type: null
+      },
       jobTypes: [],
       job: {
         name: null,
         description: null,
-        type: null
+        job_type: null,
+        date_completed: null,
+        job_total: null,
+        billed: false,
+        date_created: null,
+        date_updated: null
       }
     };
   },
   components: {},
   created() {
     this.yardid = this.$route.params.id;
+    console.log(this.yardid)
     axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
@@ -109,28 +100,33 @@ export default {
     back: function() {
       this.$router.go(-1);
     },
+    typeCallback: function(val) {
+      console.log("hi");
+      this.job.job_type = val;
+    },
     addJob: function() {
-      console.log(this.yard);
+      console.log(this.job);
+
       axios
-        .post("http://127.0.0.1:8000/api/job/", this.yard)
+        .post("http://127.0.0.1:8000/api/job/", this.job)
         .then(response => {
           this.$notify({
             group: "success",
-            title: "Added Yard Succesfully",
+            title: "Added Job Succesfully",
             type: "success"
           });
-          this.$router.replace("/account/" + this.yard.account);
+          this.dialog = false;
         })
         .catch(error => {
           if (error.response) {
-            for (var prop in this.yard) {
+            for (var prop in this.job) {
               if (
                 Object.prototype.hasOwnProperty.call(error.response.data, prop)
               ) {
                 this.$notify({
                   group: "error",
                   title:
-                    "Error adding yard. " +
+                    "Error adding job. " +
                     prop +
                     ": " +
                     error.response.data[prop],

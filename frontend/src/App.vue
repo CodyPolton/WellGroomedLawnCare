@@ -250,7 +250,7 @@
         {{ message }}
         <router-view />
         <notifications group="success" position="bottom right" :duration=1000 width='500'/>
-        <notifications group="error" position="bottom right" :duration=-1 width='400'/>
+        <notifications group="error" position="bottom right" :duration=2000 width='400'/>
       </v-container>
     </v-content>
   </v-app>
