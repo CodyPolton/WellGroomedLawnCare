@@ -18,11 +18,14 @@ from django.conf.urls import url
 from django.urls import path, include
 from .routers import router
 from account import views
+from rest_framework_simplejwt import views as jwt_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     url('api/accountsyards', views.YardsOfAccount.as_view()),
-    url('api/yardjobs', views.JobsOfYard.as_view())
+    url('api/yardjobs', views.JobsOfYard.as_view()),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
