@@ -7,3 +7,4 @@ backend/venv
 *.log
 backend/backend-framework/framework/__pycache__
 backend/backend-framework/vueapi/log.log
+backend/backend-framework/vueapi/log.log
