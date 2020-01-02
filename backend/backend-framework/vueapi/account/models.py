@@ -11,7 +11,7 @@ class Account(models.Model):
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=2)
     phone_no = models.CharField(max_length=20, blank=True)
-    email = models.CharField(max_length=255, blank=True)
+    email = models.EmailField(max_length=255, blank=True)
     auto_invoice = models.BooleanField()
     date_created = models.DateTimeField(auto_now_add=True, blank=True)
     date_updated = models.DateTimeField(auto_now=True, blank=True)
