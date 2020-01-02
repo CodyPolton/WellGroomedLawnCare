@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Yard
-from .serializers import YardSerializer
+from .models import Yard, Job
+from .serializers import YardSerializer, JobSerializer
 import logging
 
 logger = logging.getLogger(__name__)
@@ -18,6 +18,20 @@ class YardsOfAccount(APIView):
         if yards is None:
             return Response({"message": "Hello, world! " + id})
         
+        else:
+           return Response(serializer.data) 
+
+
+class JobsOfYard(APIView):
+
+    def get(self,request):
+        id = request.GET.get('yardid', '0')
+        jobs = Job.objects.filter(yard=id)
+        logger.info(jobs)
+        serializer = JobSerializer(jobs, many=True)
+        if jobs is None:
+            return Response({"message": "No jobs " + id})
+
         else:
            return Response(serializer.data) 
         

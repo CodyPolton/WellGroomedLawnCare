@@ -4,60 +4,60 @@
     Yard id = {{yardid}}
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">Details</v-tab>
-      <v-tab key="yards">Jobs</v-tab>
+      <v-tab key="jobs">Jobs</v-tab>
       <v-tab key="edit">Edit</v-tab>
       <v-tab-item key="details">hi</v-tab-item>
-      <v-tab-item key="yards">
+      <v-tab-item key="jobs">
         <v-dialog v-model="dialog" max-width="600px">
-      <template v-slot:activator="{ on }">
-        <v-btn color="primary" dark v-on="on">Add Job</v-btn>
-      </template>
-      <v-card>
-        <v-card-title>
-          <span class="headline">Create Job</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12" sm="6" md="4">
-                <v-text-field
-                  v-model="job.name"
-                  :counter="40"
-                  :rules="[v => !!v || 'Name is required']"
-                  label="Job Name"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-textarea
-                  v-model="job.description"
-                  color="teal"
-                  :rules="[v => !!v || 'Description is required']"
-                  label="Job Description*"
-                  required
-                ></v-textarea>
-              </v-col>
-              <v-col cols="12" sm="6">
-                <v-select
-                  v-model="job.job_type"
-                  :items="jobTypes"
-                  name="job_type"
-                  item-text="job_type"
-                  :rules="[v => !!v || 'Job type is required']"
-                  label="Job Type*"
-                  required
-                ></v-select>
-              </v-col>
-            </v-row>
-          </v-container>
-          <small>*indicates required field</small>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" :disabled='valid'  text @click="addJob">Save</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+          <template v-slot:activator="{ on }">
+            <v-btn color="primary" dark v-on="on">Add Job</v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline">Create Job</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="job.name"
+                      :counter="40"
+                      :rules="[v => !!v || 'Name is required']"
+                      label="Job Name"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea
+                      v-model="job.description"
+                      color="teal"
+                      :rules="[v => !!v || 'Description is required']"
+                      label="Job Description*"
+                      required
+                    ></v-textarea>
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-select
+                      v-model="job.job_type"
+                      :items="jobTypes"
+                      name="job_type"
+                      item-text="job_type"
+                      :rules="[v => !!v || 'Job type is required']"
+                      label="Job Type*"
+                      required
+                    ></v-select>
+                  </v-col>
+                </v-row>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" :disabled="valid" text @click="addJob">Save</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
           :headers="headers"
@@ -102,7 +102,7 @@
             label="Mow Price"
             required
           ></v-text-field>
-    
+
           <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
       </v-tab-item>
@@ -112,7 +112,6 @@
 
 <script>
 import axios from "axios";
-import addJob from '../views/AddJob.vue'
 // @ is an alias to /src
 export default {
   data() {
@@ -124,6 +123,7 @@ export default {
       },
       jobTypes: [],
       job: {
+        yard: null,
         name: null,
         description: null,
         job_type: null,
@@ -144,16 +144,59 @@ export default {
           value: "name"
         },
         { text: "Desciption", align: "middle", value: "description" },
-        { text: "Job Type", value: "job_type" },
+        { text: "Job Type", value: "job_type" }
       ],
       states: [
-        "MO",        "AL",        "AK",        "AZ",        "AR",        "CA",        "CO",        "CT",
-        "DE",        "FL",        "GA",        "HI",        "ID",        "IL",        "IN",        "IA",
-        "KS",        "KY",        "LA",        "ME",        "MD",        "MA",        "MI",        "MN",
-        "MS",        "MT",        "NE",        "NV",        "NH",        "NJ",        "NM",        "NY",
-        "NC",        "ND",        "OH",        "OK",        "OR",        "PA",        "RI",        "SC",
-        "SD",        "TN",        "TX",        "UT",        "VT",        "VA",        "WA",        "WV",
-        "WI",        "WY"
+        "MO",
+        "AL",
+        "AK",
+        "AZ",
+        "AR",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "FL",
+        "GA",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "KY",
+        "LA",
+        "ME",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "MS",
+        "MT",
+        "NE",
+        "NV",
+        "NH",
+        "NJ",
+        "NM",
+        "NY",
+        "NC",
+        "ND",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WA",
+        "WV",
+        "WI",
+        "WY"
       ],
       rules: {
         required: value => !!value || "Required."
@@ -169,34 +212,33 @@ export default {
   },
   name: "Yard",
   components: {
-    addJob
   },
   created() {
     this.yardid = this.$route.params.yardid;
+    this.job.yard = this.yardid;
     this.accountid = this.$route.params.accountid;
 
     axios
       .get("http://127.0.0.1:8000/api/yard/" + this.yardid + "/")
       .then(response => {
-        console.log(response.data);
         this.yard = response.data;
-        console.log(this.yard);
       });
 
     axios
-      .get("http://127.0.0.1:8000/api/job/" + this.yardid + "/")
+      .get("http://127.0.0.1:8000/api/yardjobs?yardid=" + this.yardid)
       .then(response => {
-        console.log(response.data);
-        this.yard = response.data;
-        console.log(this.yard);
+        if (response.data) {
+          response.data.forEach(item => {
+            this.jobs.push(item);
+          });
+        }
       });
 
-      axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
+    axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
           this.jobTypes.push(item);
         });
-        console.log(this.jobTypes);
       }
     });
   },
@@ -205,7 +247,8 @@ export default {
       this.$router.go(-1);
     },
     handleClick: function(value) {
-      this.$router.push("/yard/" + value.yardid);
+      console.log(value.jobid)
+      this.$router.push("/job/" + value.jobid);
     },
     save: function() {
       axios
@@ -251,6 +294,7 @@ export default {
             title: "Added Job Succesfully",
             type: "success"
           });
+          this.jobs.push(response.data)
           this.dialog = false;
         })
         .catch(error => {

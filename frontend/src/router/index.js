@@ -4,20 +4,18 @@ import Home from '../views/Home.vue'
 import Invoices from '../views/Invoices.vue';
 import Crews from '../views/Crews.vue';
 import Accounts from '../views/Accounts.vue';
-import AddAccounts from '../views/AddAccounts.vue';
 import AccountView from '../views/AccountView.vue';
 import YardView from '../views/YardView.vue';
-import AddYard from '../views/AddYard.vue';
 import InvoiceView from '../views/InvoiceView.vue';
 import ScheduleView from '../views/ScheduleView.vue';
 import Route from '../views/Route.vue';
 import Login from '../components/Login.vue';
-import AddJob from '../views/AddJob.vue';
 import Config from '../views/Configuration.vue'
+import JobView from '../views/JobView.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes = [ 
   {
     path: '/',
     name: 'home',
@@ -39,11 +37,6 @@ const routes = [
     component: Accounts,
   },
   {
-    path: '/addaccount',
-    name: 'addaccounts',
-    component: AddAccounts,
-  },
-  {
     path: '/account/:id',
     name: 'accountview',
     component: AccountView,
@@ -57,16 +50,6 @@ const routes = [
     path: '/invoice/:id',
     name: 'invoiceview',
     component: InvoiceView,
-  },
-  {
-    path: '/addyard/:id',
-    name: 'addyard',
-    component: AddYard,
-  },
-  {
-    path: '/addjob/:id',
-    name: 'addjob',
-    component: AddJob,
   },
   {
     path: '/schedule',
@@ -87,6 +70,11 @@ const routes = [
     path: '/configuration',
     name: 'Configuration',
     component: Config
+  },
+  {
+    path: '/job/:id',
+    name: 'JobView',
+    component: JobView
   }
 ]
 

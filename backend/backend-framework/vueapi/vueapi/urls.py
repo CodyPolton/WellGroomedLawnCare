@@ -23,5 +23,6 @@ from account import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    url('api/accountsyards', views.YardsOfAccount.as_view())
+    url('api/accountsyards', views.YardsOfAccount.as_view()),
+    url('api/yardjobs', views.JobsOfYard.as_view())
 ]

@@ -8,8 +8,8 @@
             <v-expansion-panel-content>
               <v-col cols="12">
                 <v-text-field
-                  v-model="message"
-                  :append-outer-icon="message ? 'mdi-plus-box' : ''"
+                  v-model="add.job_type"
+                  :append-outer-icon="add.job_type ? 'mdi-plus-box' : ''"
                   filled
                   clear-icon="mdi-close-circle"
                   clearable
@@ -52,7 +52,6 @@ export default {
       add: {
         job_type: ""
       },
-      message: ""
     };
   },
   created() {
@@ -67,8 +66,7 @@ export default {
   },
   methods: {
     addJobType: function() {
-      console.log("hi " + this.message);
-      this.add.job_type = this.message;
+      console.log("hi " + this.add.job_type);
       axios
         .post("http://127.0.0.1:8000/api/jobtype/", this.add)
         .then(response => {
@@ -77,8 +75,7 @@ export default {
             title: "Added Job Type Succesfully",
             type: "success"
           });
-          this.job_type = "";
-          console.log(response.data);
+          this.add.job_type = "";
           this.jobType.push(response.data);
         })
         .catch(error => {
