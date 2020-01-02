@@ -14,10 +14,6 @@ import Notifications from 'vue-notification'
 
 Vue.prototype.$http = Axios;
 
-const token = localStorage.getItem('user-token')
-if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
-}
 
 Vue.use(Notifications)
 Vue.use(VueTelInput)

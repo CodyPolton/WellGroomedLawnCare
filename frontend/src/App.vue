@@ -2,7 +2,7 @@
   <v-app>
     <!-- Navbar that customer will see -->
     <v-app-bar
-      v-if="!authenticated"
+
       app
       color="primary"
       dark
@@ -14,7 +14,7 @@
       <v-spacer />
 
       <v-btn
-        v-if="!authenticated"
+
         icon
         @click="login()"
 
@@ -43,7 +43,7 @@
 
 
       <v-btn
-        v-if="!authenticated"
+
         icon
         to="/login"
         link
@@ -54,7 +54,7 @@
 
     </v-app-bar>
     <v-navigation-drawer
-      v-if="!authenticated"
+
       v-model="drawer"
       app
       dark
@@ -258,22 +258,13 @@
 
 <script>
 import Vue from 'vue'
-import AuthService from './auth/AuthService'
 import axios from 'axios'
-
-
-const API_URL = 'http://127.0.0.1:8000/api/'
-const auth = new AuthService()
 export default {
 
   data() {
-    this.authenticated = false
 
-    auth.authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-    })
     return {
-      authenticated: false,
+
       message: '',
       drawer: false,
       items: [
@@ -299,23 +290,10 @@ export default {
     };
   },
   mounted() {
-this.checkLoggedIn();
-console.log(this.$store.state.authenticated);
   },
   methods: {
 
-    checkLoggedIn() {
-      if (this.$store.state.authenticated){
-        this.authenticated = true;
-      }
-    },
-    privateMessage () {
-      const url = `${API_URL}/api/private/`
-      return axios.get(url, {headers: {Authorization: `Bearer ${auth.getAuthToken()}`}}).then((response) => {
-        console.log(response.data)
-        this.message = response.data || ''
-      })
-    }
+
   }
 };
 </script>

@@ -72,9 +72,12 @@ export default {
 
   data() {
     return {
-    credentials: {},
+    credentials: {
+      username: "",
+      password: ""
+    },
     valid: true,
-loading:false,
+    loading:false,
         rules: {
           username: [
             v => !!v || "Username is required",
@@ -90,16 +93,12 @@ loading:false,
   },
   methods: {
     login() {
-            if (this.$refs.form.validate()) {
-              axios.post('http://localhost:8000/auth/', this.credentials).then(res => {
-                this.$session.start();
-                this.$session.set('token', res.data.token);
-                this.$store.commit('loggedIn')
-                router.replace('/');
-              }).catch(e => {
 
-              })
-            }
+      this.$store.dispatch('obtainToken', this.credentials);
+      if (this.$store.state.loggedIn == true){
+        this.$router.push("/");
+      }
+
     }
   }
 };

@@ -15,6 +15,7 @@
     "eslint-plugin-vue": "^6.0.1",
     "eventemitter3": "^4.0.0",
     "google-maps": "^3.3.0",
+    "jwt-decode": "^2.2.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-doc-preview": "^0.3.2",
