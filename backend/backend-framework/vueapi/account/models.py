@@ -59,5 +59,29 @@ class Job(models.Model):
         db_table = 'jobs'
         ordering = ['jobid']
 
+class JobExpenseType(models.Model):
+    job_expense_typeid = models.AutoField(primary_key=True)
+    job_expense_type = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'job_expense_types'
+        ordering = ['job_expense_typeid']
+
+class JobExpense(models.Model):
+    job_expenseid = models.AutoField(primary_key=True)
+    job = models.ForeignKey('Job', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    job_expense_type = models.CharField(max_length=255)
+    cost = models.DecimalField( max_digits=10, decimal_places=2)
+    date_purchased = models.DateField(blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, blank=True)
+    date_updated = models.DateTimeField(auto_now=True, blank=True)
+
+    class Meta:
+        db_table = 'job_expense'
+        ordering = ['job_expenseid']
+
+
 
 

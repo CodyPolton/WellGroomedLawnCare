@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Yard, Job
-from .serializers import YardSerializer, JobSerializer
+from .models import Yard, Job, JobExpense
+from .serializers import YardSerializer, JobSerializer, JobExpenseSerializer
 import logging
 
 logger = logging.getLogger(__name__)
@@ -31,6 +31,19 @@ class JobsOfYard(APIView):
         serializer = JobSerializer(jobs, many=True)
         if jobs is None:
             return Response({"message": "No jobs " + id})
+
+        else:
+           return Response(serializer.data) 
+
+class ExpensesOfJob(APIView):
+
+    def get(self,request):
+        id = request.GET.get('jobid', '0')
+        expenses = JobExpense.objects.filter(job=id)
+        logger.info(expenses)
+        serializer = JobExpenseSerializer(expenses, many=True)
+        if expenses is None:
+            return Response({"message": "No expenses " + id})
 
         else:
            return Response(serializer.data) 

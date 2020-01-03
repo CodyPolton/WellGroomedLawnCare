@@ -2643,3 +2643,482 @@ django.db.utils.OperationalError: could not translate host name "wellgroomeddata
 2020-01-02 16:27:34,828 INFO basehttp 123145342230528 "GET /api/jobtype/ HTTP/1.1" 200 117
 2020-01-02 16:27:35,331 INFO basehttp 123145347485696 "GET /api/job/1/ HTTP/1.1" 200 429
 2020-01-02 16:27:35,331 INFO basehttp 123145347485696 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:06:16,851 INFO autoreload 13748 Watching for file changes with StatReloader
+2020-01-03 07:06:41,305 INFO basehttp 9136 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-03 07:06:41,305 INFO basehttp 9136 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-03 07:06:42,810 INFO basehttp 9136 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-03 07:06:42,810 INFO basehttp 9136 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-03 07:06:42,836 INFO basehttp 11220 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-03 07:06:42,836 INFO basehttp 11220 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-03 07:06:44,720 INFO basehttp 9136 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-03 07:06:44,720 INFO basehttp 9136 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-03 07:06:44,722 INFO basehttp 11220 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-03 07:06:44,722 INFO basehttp 11220 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-03 07:06:44,723 INFO basehttp 9804 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:06:44,723 INFO basehttp 9804 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:06:46,604 INFO basehttp 9804 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-03 07:06:46,604 INFO basehttp 9804 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-03 07:06:46,818 INFO basehttp 11220 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:06:46,818 INFO basehttp 11220 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:06:46,824 INFO basehttp 9136 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:06:46,824 INFO basehttp 9136 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:06:46,991 INFO basehttp 11220 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:06:46,991 INFO basehttp 11220 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:16:04,967 INFO autoreload 13748 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 07:16:05,767 INFO autoreload 12512 Watching for file changes with StatReloader
+2020-01-03 07:17:10,023 INFO autoreload 13592 Watching for file changes with StatReloader
+2020-01-03 07:18:50,357 INFO autoreload 13592 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\serializers.py changed, reloading.
+2020-01-03 07:18:51,156 INFO autoreload 13624 Watching for file changes with StatReloader
+2020-01-03 07:19:48,710 INFO autoreload 13624 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\viewsets.py changed, reloading.
+2020-01-03 07:19:49,425 INFO autoreload 7212 Watching for file changes with StatReloader
+2020-01-03 07:21:27,866 INFO autoreload 7212 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\vueapi\routers.py changed, reloading.
+2020-01-03 07:21:28,682 INFO autoreload 11372 Watching for file changes with StatReloader
+2020-01-03 07:21:40,843 INFO basehttp 10728 "GET /api/jobexpensetype HTTP/1.1" 301 0
+2020-01-03 07:21:40,843 INFO basehttp 10728 "GET /api/jobexpensetype HTTP/1.1" 301 0
+2020-01-03 07:21:41,180 ERROR log 10728 Internal Server Error: /api/jobexpensetype/
+Traceback (most recent call last):
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\fields.py", line 454, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\fields.py", line 94, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Job' object has no attribute 'job_expense_type'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\serializers.py", line 760, in data
+    ret = super().data
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\serializers.py", line 260, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\serializers.py", line 678, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\serializers.py", line 678, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\serializers.py", line 516, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\fields.py", line 487, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `job_expense_type` on serializer `JobExpenseTypeSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Job` instance.
+Original exception text was: 'Job' object has no attribute 'job_expense_type'.
+2020-01-03 07:21:41,183 ERROR basehttp 10728 "GET /api/jobexpensetype/ HTTP/1.1" 500 21314
+2020-01-03 07:21:41,183 ERROR basehttp 10728 "GET /api/jobexpensetype/ HTTP/1.1" 500 21314
+2020-01-03 07:22:45,741 INFO autoreload 11372 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\viewsets.py changed, reloading.
+2020-01-03 07:22:46,580 INFO autoreload 6404 Watching for file changes with StatReloader
+2020-01-03 07:22:48,626 INFO basehttp 9432 "GET /api/jobexpensetype HTTP/1.1" 301 0
+2020-01-03 07:22:48,626 INFO basehttp 9432 "GET /api/jobexpensetype HTTP/1.1" 301 0
+2020-01-03 07:22:48,817 INFO basehttp 9432 "GET /api/jobexpensetype/ HTTP/1.1" 200 2
+2020-01-03 07:22:48,817 INFO basehttp 9432 "GET /api/jobexpensetype/ HTTP/1.1" 200 2
+2020-01-03 07:23:11,077 INFO basehttp 13156 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:23:11,077 INFO basehttp 13156 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:29:36,720 INFO basehttp 13700 "GET /api/jobexpensetype/ HTTP/1.1" 200 2
+2020-01-03 07:29:36,720 INFO basehttp 13700 "GET /api/jobexpensetype/ HTTP/1.1" 200 2
+2020-01-03 07:29:36,722 INFO basehttp 13432 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:29:36,722 INFO basehttp 13432 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:29:46,324 INFO basehttp 13432 "OPTIONS /api/jobexpensetype/ HTTP/1.1" 200 0
+2020-01-03 07:29:46,324 INFO basehttp 13432 "OPTIONS /api/jobexpensetype/ HTTP/1.1" 200 0
+2020-01-03 07:29:46,527 INFO basehttp 13432 "POST /api/jobexpensetype/ HTTP/1.1" 201 51
+2020-01-03 07:29:46,527 INFO basehttp 13432 "POST /api/jobexpensetype/ HTTP/1.1" 201 51
+2020-01-03 07:29:47,972 INFO basehttp 13432 "OPTIONS /api/jobexpensetype/1 HTTP/1.1" 200 0
+2020-01-03 07:29:47,972 INFO basehttp 13432 "OPTIONS /api/jobexpensetype/1 HTTP/1.1" 200 0
+2020-01-03 07:29:47,977 INFO basehttp 13432 "DELETE /api/jobexpensetype/1 HTTP/1.1" 301 0
+2020-01-03 07:29:47,977 INFO basehttp 13432 "DELETE /api/jobexpensetype/1 HTTP/1.1" 301 0
+2020-01-03 07:29:47,983 INFO basehttp 13700 "OPTIONS /api/jobexpensetype/1/ HTTP/1.1" 200 0
+2020-01-03 07:29:47,983 INFO basehttp 13700 "OPTIONS /api/jobexpensetype/1/ HTTP/1.1" 200 0
+2020-01-03 07:29:48,198 INFO basehttp 13700 "DELETE /api/jobexpensetype/1/ HTTP/1.1" 204 0
+2020-01-03 07:29:48,198 INFO basehttp 13700 "DELETE /api/jobexpensetype/1/ HTTP/1.1" 204 0
+2020-01-03 07:29:54,864 INFO basehttp 13700 "POST /api/jobexpensetype/ HTTP/1.1" 201 51
+2020-01-03 07:29:54,864 INFO basehttp 13700 "POST /api/jobexpensetype/ HTTP/1.1" 201 51
+2020-01-03 07:30:12,404 INFO basehttp 13700 "POST /api/jobexpensetype/ HTTP/1.1" 201 54
+2020-01-03 07:30:12,404 INFO basehttp 13700 "POST /api/jobexpensetype/ HTTP/1.1" 201 54
+2020-01-03 07:30:50,010 INFO basehttp 13432 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:30:50,010 INFO basehttp 13432 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:30:50,013 INFO basehttp 13700 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:30:50,013 INFO basehttp 13700 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:34:03,817 INFO basehttp 13700 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-03 07:34:03,817 INFO basehttp 13700 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-03 07:34:05,201 INFO basehttp 13700 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-03 07:34:05,201 INFO basehttp 13700 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-03 07:34:05,223 INFO basehttp 13432 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-03 07:34:05,223 INFO basehttp 13432 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-03 07:34:06,950 INFO basehttp 13432 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-03 07:34:06,950 INFO basehttp 13432 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-03 07:34:06,956 INFO basehttp 9060 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:34:06,956 INFO basehttp 9060 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:34:06,962 INFO basehttp 13700 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-03 07:34:06,962 INFO basehttp 13700 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-03 07:34:09,753 INFO basehttp 13432 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:34:09,753 INFO basehttp 13432 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:34:09,756 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:34:09,756 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:34:09,757 INFO basehttp 9060 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:34:09,757 INFO basehttp 9060 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:34:09,939 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:34:09,939 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:37:07,245 INFO basehttp 13432 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:37:07,245 INFO basehttp 13432 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:37:07,248 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:37:07,248 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:37:07,249 INFO basehttp 9060 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:37:07,249 INFO basehttp 9060 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:37:07,455 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:37:07,455 INFO basehttp 13700 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:41:30,102 INFO autoreload 6404 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 07:41:30,931 INFO autoreload 12496 Watching for file changes with StatReloader
+2020-01-03 07:47:14,888 INFO autoreload 12496 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 07:47:15,704 INFO autoreload 10276 Watching for file changes with StatReloader
+2020-01-03 07:48:23,921 INFO autoreload 14308 Watching for file changes with StatReloader
+2020-01-03 07:51:05,372 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:51:05,372 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:51:05,385 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:51:05,385 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:51:05,447 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:51:05,447 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:51:05,642 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:51:05,642 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:15,089 INFO basehttp 10768 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:54:15,089 INFO basehttp 10856 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:54:15,089 INFO basehttp 10768 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:54:15,089 INFO basehttp 10856 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:54:15,112 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:15,112 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:15,288 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:15,288 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:55,088 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:54:55,088 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:54:55,089 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:55,089 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:55,089 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:54:55,089 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:54:55,266 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:54:55,266 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:55:53,953 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:55:53,953 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:55:53,956 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:55:53,956 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:55:53,956 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:55:53,956 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:55:54,142 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:55:54,142 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:56:01,517 INFO basehttp 7420 "OPTIONS /api/jobexpense/ HTTP/1.1" 200 0
+2020-01-03 07:56:01,517 INFO basehttp 7420 "OPTIONS /api/jobexpense/ HTTP/1.1" 200 0
+2020-01-03 07:56:01,526 WARNING log 7420 Bad Request: /api/jobexpense/
+2020-01-03 07:56:01,527 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:01,527 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:05,162 WARNING log 7420 Bad Request: /api/jobexpense/
+2020-01-03 07:56:05,163 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:05,163 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:08,402 WARNING log 7420 Bad Request: /api/jobexpense/
+2020-01-03 07:56:08,403 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:08,403 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:11,778 WARNING log 7420 Bad Request: /api/jobexpense/
+2020-01-03 07:56:11,779 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:11,779 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:14,965 WARNING log 7420 Bad Request: /api/jobexpense/
+2020-01-03 07:56:14,966 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:14,966 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:18,538 WARNING log 7420 Bad Request: /api/jobexpense/
+2020-01-03 07:56:18,539 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:56:18,539 WARNING basehttp 7420 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 07:57:22,569 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:57:22,569 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:57:22,570 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:57:22,570 INFO basehttp 10856 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:57:22,574 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:57:22,574 INFO basehttp 10768 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:57:22,777 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:57:22,777 INFO basehttp 7420 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:57:40,163 INFO autoreload 14308 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 07:57:41,019 INFO autoreload 13576 Watching for file changes with StatReloader
+2020-01-03 07:57:46,977 WARNING log 13284 Bad Request: /api/jobexpense/
+2020-01-03 07:57:46,978 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 94
+2020-01-03 07:57:46,978 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 94
+2020-01-03 07:57:51,163 WARNING log 13284 Bad Request: /api/jobexpense/
+2020-01-03 07:57:51,164 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 94
+2020-01-03 07:57:51,164 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 94
+2020-01-03 07:57:57,452 WARNING log 13284 Bad Request: /api/jobexpense/
+2020-01-03 07:57:57,452 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 94
+2020-01-03 07:57:57,452 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 94
+2020-01-03 07:59:12,585 INFO basehttp 9756 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:59:12,585 INFO basehttp 9756 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 07:59:12,597 INFO basehttp 9120 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:59:12,597 INFO basehttp 9120 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 07:59:12,658 INFO basehttp 13284 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:59:12,658 INFO basehttp 13284 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:59:12,835 INFO basehttp 13284 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:59:12,835 INFO basehttp 13284 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 07:59:20,479 WARNING log 13284 Bad Request: /api/jobexpense/
+2020-01-03 07:59:20,479 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 86
+2020-01-03 07:59:20,479 WARNING basehttp 13284 "POST /api/jobexpense/ HTTP/1.1" 400 86
+2020-01-03 07:59:49,367 INFO autoreload 13576 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 07:59:50,239 INFO autoreload 5756 Watching for file changes with StatReloader
+2020-01-03 08:00:18,811 WARNING log 14092 Bad Request: /api/jobexpense/
+2020-01-03 08:00:18,812 WARNING basehttp 14092 "POST /api/jobexpense/ HTTP/1.1" 400 47
+2020-01-03 08:00:18,812 WARNING basehttp 14092 "POST /api/jobexpense/ HTTP/1.1" 400 47
+2020-01-03 08:00:45,296 INFO autoreload 14984 Watching for file changes with StatReloader
+2020-01-03 08:00:57,321 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:00:57,323 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 47
+2020-01-03 08:00:57,323 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 47
+2020-01-03 08:01:02,965 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:01:02,965 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:01:02,965 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:01:02,965 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:01:03,008 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:01:03,008 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:01:03,223 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:01:03,223 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:01:09,534 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:01:09,535 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 47
+2020-01-03 08:01:09,535 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 47
+2020-01-03 08:05:21,496 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:05:21,496 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:05:21,502 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:05:21,502 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:05:21,505 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:05:21,505 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:05:21,791 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:05:21,791 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:09:35,782 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:09:35,782 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:09:35,782 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:09:35,782 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:09:35,783 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:09:35,783 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:09:36,139 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:09:36,139 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:09,419 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:10:09,419 INFO basehttp 7604 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:10:09,420 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:09,420 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:09,424 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:10:09,424 INFO basehttp 10992 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:10:09,739 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:09,739 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:34,686 INFO basehttp 10992 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:10:34,686 INFO basehttp 10992 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:10:34,689 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:34,689 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:34,693 INFO basehttp 7604 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:10:34,693 INFO basehttp 7604 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:10:35,072 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:10:35,072 INFO basehttp 13544 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:14:45,338 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:14:45,338 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:45,338 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:49,314 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:14:49,315 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:49,315 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:52,858 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:14:52,859 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:52,859 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:56,104 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:14:56,105 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:14:56,105 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:16:04,972 WARNING log 13544 Bad Request: /api/jobexpense/
+2020-01-03 08:16:04,973 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:16:04,973 WARNING basehttp 13544 "POST /api/jobexpense/ HTTP/1.1" 400 132
+2020-01-03 08:16:12,348 INFO autoreload 14984 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 08:16:13,183 INFO autoreload 15096 Watching for file changes with StatReloader
+2020-01-03 08:17:04,687 INFO autoreload 7908 Watching for file changes with StatReloader
+2020-01-03 08:17:12,373 WARNING log 13640 Bad Request: /api/jobexpense/
+2020-01-03 08:17:12,374 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:17:12,374 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:17:16,652 WARNING log 13640 Bad Request: /api/jobexpense/
+2020-01-03 08:17:16,652 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:17:16,652 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:17:20,733 WARNING log 13640 Bad Request: /api/jobexpense/
+2020-01-03 08:17:20,733 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:17:20,733 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:17:52,816 INFO basehttp 14620 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:17:52,816 INFO basehttp 14620 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:17:52,822 INFO basehttp 12736 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:17:52,822 INFO basehttp 12736 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:17:52,892 INFO basehttp 13640 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:17:52,892 INFO basehttp 13640 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:17:53,180 INFO basehttp 13640 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:17:53,180 INFO basehttp 13640 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:01,393 WARNING log 13640 Bad Request: /api/jobexpense/
+2020-01-03 08:18:01,393 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:18:01,393 WARNING basehttp 13640 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:18:28,893 INFO basehttp 14620 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:18:28,893 INFO basehttp 14620 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:18:28,893 INFO basehttp 12736 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:18:28,893 INFO basehttp 12736 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:18:28,893 INFO basehttp 13640 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:28,893 INFO basehttp 13640 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:29,709 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:29,709 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:45,354 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:45,354 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:45,354 INFO basehttp 12736 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:18:45,354 INFO basehttp 12736 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:18:45,427 INFO basehttp 13640 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:18:45,427 INFO basehttp 13640 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:18:45,760 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:45,760 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:18:53,225 WARNING log 14620 Bad Request: /api/jobexpense/
+2020-01-03 08:18:53,226 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:18:53,226 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:19:01,740 WARNING log 14620 Bad Request: /api/jobexpense/
+2020-01-03 08:19:01,741 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:19:01,741 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:19:29,071 INFO basehttp 12736 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:19:29,071 INFO basehttp 12736 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:19:29,083 INFO basehttp 13640 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:19:29,083 INFO basehttp 13640 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:19:29,083 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:19:29,083 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:19:29,438 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:19:29,438 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:20:56,024 INFO basehttp 13640 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:20:56,024 INFO basehttp 13640 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:20:56,035 INFO basehttp 12736 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:20:56,035 INFO basehttp 12736 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:20:56,035 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:20:56,035 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:20:56,308 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:20:56,308 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:21:04,427 WARNING log 14620 Bad Request: /api/jobexpense/
+2020-01-03 08:21:04,427 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:21:04,427 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:22:04,945 INFO basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 201 230
+2020-01-03 08:22:04,945 INFO basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 201 230
+2020-01-03 08:22:39,609 INFO basehttp 13640 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:22:39,609 INFO basehttp 13640 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:22:39,614 INFO basehttp 12736 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:22:39,614 INFO basehttp 12736 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:22:39,617 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:22:39,617 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:22:39,943 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:22:39,943 INFO basehttp 14620 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:22:54,008 WARNING log 14620 Bad Request: /api/jobexpense/
+2020-01-03 08:22:54,008 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:22:54,008 WARNING basehttp 14620 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:23:20,003 INFO autoreload 7908 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\models.py changed, reloading.
+2020-01-03 08:23:20,833 INFO autoreload 15024 Watching for file changes with StatReloader
+2020-01-03 08:24:30,931 INFO autoreload 14152 Watching for file changes with StatReloader
+2020-01-03 08:24:38,723 WARNING log 12372 Bad Request: /api/jobexpense/
+2020-01-03 08:24:38,723 WARNING basehttp 12372 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:24:38,723 WARNING basehttp 12372 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:24:44,148 INFO basehttp 13936 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:24:44,149 INFO basehttp 3956 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:24:44,148 INFO basehttp 13936 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:24:44,149 INFO basehttp 3956 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:24:44,209 INFO basehttp 12372 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:24:44,209 INFO basehttp 12372 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:24:44,467 INFO basehttp 12372 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:24:44,467 INFO basehttp 12372 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:24:51,329 WARNING log 12372 Bad Request: /api/jobexpense/
+2020-01-03 08:24:51,330 WARNING basehttp 12372 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:24:51,330 WARNING basehttp 12372 "POST /api/jobexpense/ HTTP/1.1" 400 91
+2020-01-03 08:26:12,498 INFO basehttp 3956 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:26:12,498 INFO basehttp 3956 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:26:12,501 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:26:12,501 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:26:12,502 INFO basehttp 12372 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:26:12,502 INFO basehttp 12372 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:26:12,893 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:26:12,893 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:26:22,904 INFO basehttp 3956 "POST /api/jobexpense/ HTTP/1.1" 201 233
+2020-01-03 08:26:22,904 INFO basehttp 3956 "POST /api/jobexpense/ HTTP/1.1" 201 233
+2020-01-03 08:27:26,374 INFO basehttp 12372 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:27:26,374 INFO basehttp 12372 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:27:26,377 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:27:26,377 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:27:26,381 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:27:26,381 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:27:26,592 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:27:26,592 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:27:33,680 INFO basehttp 3956 "POST /api/jobexpense/ HTTP/1.1" 201 230
+2020-01-03 08:27:33,680 INFO basehttp 3956 "POST /api/jobexpense/ HTTP/1.1" 201 230
+2020-01-03 08:29:50,664 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:29:50,664 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:29:50,664 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:29:50,664 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:29:50,664 INFO basehttp 12372 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:29:50,664 INFO basehttp 12372 "GET /api/jobexpensetype/ HTTP/1.1" 200 108
+2020-01-03 08:29:50,855 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:29:50,855 INFO basehttp 3956 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-03 08:29:57,521 INFO basehttp 3956 "POST /api/jobexpense/ HTTP/1.1" 201 234
+2020-01-03 08:29:57,521 INFO basehttp 3956 "POST /api/jobexpense/ HTTP/1.1" 201 234
+2020-01-03 08:30:03,007 WARNING log 3956 Not Found: /api/yard/undefined/
+2020-01-03 08:30:03,007 WARNING basehttp 3956 "GET /api/yard/undefined/ HTTP/1.1" 404 23
+2020-01-03 08:30:03,007 WARNING basehttp 3956 "GET /api/yard/undefined/ HTTP/1.1" 404 23
+2020-01-03 08:30:03,609 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:30:03,609 INFO basehttp 13936 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-03 08:30:03,959 ERROR log 12372 Internal Server Error: /api/yardjobs
+Traceback (most recent call last):
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1768, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'undefined'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\views.py", line 29, in get
+    jobs = Job.objects.filter(yard=id)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\query.py", line 904, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\query.py", line 923, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\sql\query.py", line 1337, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\sql\query.py", line 1365, in _add_q
+    split_subq=split_subq, simple_col=simple_col,
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\sql\query.py", line 1298, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\sql\query.py", line 1155, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\lookups.py", line 22, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 115, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1772, in get_prep_value
+    ) from e
+ValueError: Field 'yardid' expected a number but got 'undefined'.
+2020-01-03 08:30:03,966 ERROR basehttp 12372 "GET /api/yardjobs?yardid=undefined HTTP/1.1" 500 21578
+2020-01-03 08:30:03,966 ERROR basehttp 12372 "GET /api/yardjobs?yardid=undefined HTTP/1.1" 500 21578
+2020-01-03 08:36:02,843 INFO autoreload 14152 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\views.py changed, reloading.
+2020-01-03 08:36:03,709 INFO autoreload 6360 Watching for file changes with StatReloader
+2020-01-03 08:36:42,433 INFO autoreload 6360 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\vueapi\urls.py changed, reloading.
+2020-01-03 08:36:43,323 INFO autoreload 12040 Watching for file changes with StatReloader

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Account, Yard, JobType, Job
+from .models import Account, Yard, JobType, Job, JobExpenseType, JobExpense
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
@@ -18,4 +18,14 @@ class JobTypeSerializer(serializers.ModelSerializer):
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
+        fields = '__all__'
+
+class JobExpenseTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = JobExpenseType
+        fields = '__all__'
+
+class JobExpenseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = JobExpense
         fields = '__all__'
