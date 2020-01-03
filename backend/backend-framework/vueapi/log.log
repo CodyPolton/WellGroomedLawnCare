@@ -2059,3 +2059,587 @@ ValueError: Field 'yardid' expected a number but got ''.
 2020-01-02 10:46:02,819 ERROR basehttp 12236 "GET /api/yardjobs?yardid=1 HTTP/1.1" 500 21368
 2020-01-02 10:46:09,774 INFO autoreload 11900 C:\Users\tso2080\Documents\WellGroomedLawnCare\backend\backend-framework\vueapi\account\views.py changed, reloading.
 2020-01-02 10:46:10,760 INFO autoreload 11824 Watching for file changes with StatReloader
+2020-01-02 15:22:12,825 INFO autoreload 4446940480 Watching for file changes with StatReloader
+2020-01-02 15:22:20,020 INFO basehttp 123145342230528 "GET /api/accountsyards?id=5 HTTP/1.1" 200 2
+2020-01-02 15:22:20,020 INFO basehttp 123145342230528 "GET /api/accountsyards?id=5 HTTP/1.1" 200 2
+2020-01-02 15:22:20,215 INFO basehttp 123145336975360 "GET /api/account/5/ HTTP/1.1" 200 311
+2020-01-02 15:22:20,215 INFO basehttp 123145336975360 "GET /api/account/5/ HTTP/1.1" 200 311
+2020-01-02 15:31:20,951 ERROR log 123145336438784 Internal Server Error: /api/account/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 220, in ensure_connection
+    self.connect()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 197, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/postgresql/base.py", line 185, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "wellgroomeddatabase.c8oxkikduujv.us-east-2.rds.amazonaws.com" to address: nodename nor servname provided, or not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 760, in data
+    ret = super().data
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 260, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 678, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 276, in __iter__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1135, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 260, in cursor
+    return self._cursor()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 236, in _cursor
+    self.ensure_connection()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 220, in ensure_connection
+    self.connect()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 220, in ensure_connection
+    self.connect()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 197, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/postgresql/base.py", line 185, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "wellgroomeddatabase.c8oxkikduujv.us-east-2.rds.amazonaws.com" to address: nodename nor servname provided, or not known
+
+2020-01-02 15:31:20,961 ERROR basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 500 20810
+2020-01-02 15:31:20,961 ERROR basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 500 20810
+2020-01-02 15:31:25,722 ERROR log 123145336438784 Internal Server Error: /api/account/
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 220, in ensure_connection
+    self.connect()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 197, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/postgresql/base.py", line 185, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "wellgroomeddatabase.c8oxkikduujv.us-east-2.rds.amazonaws.com" to address: nodename nor servname provided, or not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 760, in data
+    ret = super().data
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 260, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/rest_framework/serializers.py", line 678, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 276, in __iter__
+    self._fetch_all()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1135, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 260, in cursor
+    return self._cursor()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 236, in _cursor
+    self.ensure_connection()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 220, in ensure_connection
+    self.connect()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 220, in ensure_connection
+    self.connect()
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/base/base.py", line 197, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/utils/asyncio.py", line 24, in inner
+    return func(*args, **kwargs)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/django/db/backends/postgresql/base.py", line 185, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/Cody/Documents/WellGroomedLawnCare/backend/venv/lib/python3.7/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "wellgroomeddatabase.c8oxkikduujv.us-east-2.rds.amazonaws.com" to address: nodename nor servname provided, or not known
+
+2020-01-02 15:31:25,723 ERROR basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 500 20810
+2020-01-02 15:31:25,723 ERROR basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 500 20810
+2020-01-02 15:33:18,541 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 2878
+2020-01-02 15:33:18,541 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 2878
+2020-01-02 15:33:45,012 INFO basehttp 123145336438784 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:33:45,012 INFO basehttp 123145336438784 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:33:45,095 INFO basehttp 123145342767104 "GET /api/accountsyards?id=2 HTTP/1.1" 200 207
+2020-01-02 15:33:45,095 INFO basehttp 123145342767104 "GET /api/accountsyards?id=2 HTTP/1.1" 200 207
+2020-01-02 15:33:47,900 INFO basehttp 123145342767104 "GET /api/yard/10/ HTTP/1.1" 200 205
+2020-01-02 15:33:47,900 INFO basehttp 123145342767104 "GET /api/yard/10/ HTTP/1.1" 200 205
+2020-01-02 15:33:47,942 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:33:47,942 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:33:47,963 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=10 HTTP/1.1" 200 231
+2020-01-02 15:33:47,963 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=10 HTTP/1.1" 200 231
+2020-01-02 15:33:53,421 INFO basehttp 123145336438784 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:33:53,421 INFO basehttp 123145336438784 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:33:53,461 INFO basehttp 123145348022272 "GET /api/accountsyards?id=2 HTTP/1.1" 200 207
+2020-01-02 15:33:53,461 INFO basehttp 123145348022272 "GET /api/accountsyards?id=2 HTTP/1.1" 200 207
+2020-01-02 15:33:55,769 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:33:55,769 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:33:55,895 INFO basehttp 123145348022272 "GET /api/yard/10/ HTTP/1.1" 200 205
+2020-01-02 15:33:55,895 INFO basehttp 123145348022272 "GET /api/yard/10/ HTTP/1.1" 200 205
+2020-01-02 15:33:55,901 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=10 HTTP/1.1" 200 231
+2020-01-02 15:33:55,901 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=10 HTTP/1.1" 200 231
+2020-01-02 15:33:57,070 INFO basehttp 123145336438784 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:33:57,070 INFO basehttp 123145336438784 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:33:57,115 INFO basehttp 123145348022272 "GET /api/accountsyards?id=2 HTTP/1.1" 200 207
+2020-01-02 15:33:57,115 INFO basehttp 123145348022272 "GET /api/accountsyards?id=2 HTTP/1.1" 200 207
+2020-01-02 15:34:58,621 INFO basehttp 123145348022272 "OPTIONS /api/yard/ HTTP/1.1" 200 0
+2020-01-02 15:34:58,621 INFO basehttp 123145348022272 "OPTIONS /api/yard/ HTTP/1.1" 200 0
+2020-01-02 15:34:59,516 INFO basehttp 123145348022272 "POST /api/yard/ HTTP/1.1" 201 206
+2020-01-02 15:34:59,516 INFO basehttp 123145348022272 "POST /api/yard/ HTTP/1.1" 201 206
+2020-01-02 15:35:30,956 INFO basehttp 123145348022272 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:35:30,956 INFO basehttp 123145348022272 "GET /api/account/2/ HTTP/1.1" 200 263
+2020-01-02 15:35:31,008 INFO basehttp 123145336438784 "GET /api/accountsyards?id=2 HTTP/1.1" 200 414
+2020-01-02 15:35:31,008 INFO basehttp 123145336438784 "GET /api/accountsyards?id=2 HTTP/1.1" 200 414
+2020-01-02 15:35:37,012 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 2878
+2020-01-02 15:35:37,012 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 2878
+2020-01-02 15:37:56,995 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:37:56,995 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:37:57,034 INFO basehttp 123145348022272 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:37:57,034 INFO basehttp 123145348022272 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:37:59,267 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:37:59,267 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:37:59,268 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:37:59,268 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:37:59,268 INFO basehttp 123145348022272 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:37:59,268 INFO basehttp 123145348022272 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:39:45,316 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 2878
+2020-01-02 15:39:45,316 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 2878
+2020-01-02 15:39:47,012 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:39:47,012 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:39:47,059 INFO basehttp 123145342767104 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:39:47,059 INFO basehttp 123145342767104 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:39:49,411 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:39:49,411 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:39:49,420 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:39:49,420 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:39:49,442 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:39:49,442 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:46:06,363 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:46:06,363 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:46:31,799 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:46:31,799 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:47:02,822 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:47:02,822 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:47:02,851 INFO basehttp 123145342767104 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:47:02,851 INFO basehttp 123145342767104 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:47:05,236 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:47:05,236 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:47:05,304 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:47:05,304 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:47:05,304 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:47:05,304 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:47:14,260 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:47:14,260 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:47:14,306 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:47:14,306 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:47:14,312 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:47:14,312 INFO basehttp 123145336438784 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:49:38,571 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:49:38,571 INFO basehttp 123145336438784 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:49:39,979 INFO basehttp 123145336438784 "GET /api/account/3/ HTTP/1.1" 200 306
+2020-01-02 15:49:39,979 INFO basehttp 123145336438784 "GET /api/account/3/ HTTP/1.1" 200 306
+2020-01-02 15:49:40,017 INFO basehttp 123145342767104 "GET /api/accountsyards?id=3 HTTP/1.1" 200 2
+2020-01-02 15:49:40,017 INFO basehttp 123145342767104 "GET /api/accountsyards?id=3 HTTP/1.1" 200 2
+2020-01-02 15:49:41,928 INFO basehttp 123145342767104 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:49:41,928 INFO basehttp 123145342767104 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 15:49:43,512 INFO basehttp 123145342767104 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:49:43,512 INFO basehttp 123145342767104 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:49:43,576 INFO basehttp 123145336438784 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:49:43,576 INFO basehttp 123145336438784 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:49:45,371 INFO basehttp 123145342767104 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:49:45,371 INFO basehttp 123145342767104 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:49:45,409 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:49:45,409 INFO basehttp 123145336438784 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:49:45,409 INFO basehttp 123145336438784 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:49:45,409 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:52:09,975 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:52:09,975 INFO basehttp 123145336438784 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 15:52:10,001 INFO basehttp 123145348022272 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:52:10,001 INFO basehttp 123145348022272 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:52:11,673 INFO basehttp 123145348022272 "GET /api/account/3/ HTTP/1.1" 200 306
+2020-01-02 15:52:11,673 INFO basehttp 123145348022272 "GET /api/account/3/ HTTP/1.1" 200 306
+2020-01-02 15:52:11,700 INFO basehttp 123145336438784 "GET /api/accountsyards?id=3 HTTP/1.1" 200 2
+2020-01-02 15:52:11,700 INFO basehttp 123145336438784 "GET /api/accountsyards?id=3 HTTP/1.1" 200 2
+2020-01-02 15:52:35,702 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:52:35,702 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:52:35,742 INFO basehttp 123145348022272 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:52:35,742 INFO basehttp 123145348022272 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:52:35,755 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:52:35,755 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:52:36,327 INFO basehttp 123145353277440 "GET /api/accountsyards?id=3 HTTP/1.1" 200 2
+2020-01-02 15:52:36,327 INFO basehttp 123145353277440 "GET /api/accountsyards?id=3 HTTP/1.1" 200 2
+2020-01-02 15:52:43,356 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:52:43,356 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:52:43,404 INFO basehttp 123145342767104 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:52:43,404 INFO basehttp 123145342767104 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 15:53:12,127 INFO basehttp 123145353277440 "GET /api/job/3 HTTP/1.1" 301 0
+2020-01-02 15:53:12,128 INFO basehttp 123145336438784 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 15:53:12,128 INFO basehttp 123145336438784 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 15:53:12,127 INFO basehttp 123145353277440 "GET /api/job/3 HTTP/1.1" 301 0
+2020-01-02 15:53:13,243 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:13,243 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:13,256 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:13,256 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:13,857 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:13,857 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:13,859 INFO basehttp 123145348022272 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:13,859 INFO basehttp 123145348022272 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:51,014 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:51,014 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:51,032 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:51,032 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:51,677 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:51,677 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:53:51,758 INFO basehttp 123145348022272 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:53:51,758 INFO basehttp 123145348022272 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:35,817 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:35,817 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:35,837 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:35,837 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:36,487 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:36,487 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:36,500 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:36,500 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:45,730 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:45,730 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:45,796 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:45,796 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:46,442 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:54:46,443 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:46,443 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:54:46,442 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:55:32,071 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:55:32,071 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:55:32,071 INFO basehttp 123145342767104 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:55:32,071 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:55:32,672 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:55:32,672 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:55:32,682 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:55:32,682 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:56:38,169 INFO basehttp 123145358532608 "GET /admin HTTP/1.1" 301 0
+2020-01-02 15:56:38,169 INFO basehttp 123145358532608 "GET /admin HTTP/1.1" 301 0
+2020-01-02 15:56:38,204 INFO basehttp 123145358532608 "GET /admin/ HTTP/1.1" 302 0
+2020-01-02 15:56:38,204 INFO basehttp 123145358532608 "GET /admin/ HTTP/1.1" 302 0
+2020-01-02 15:56:38,254 INFO basehttp 123145358532608 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1918
+2020-01-02 15:56:38,254 INFO basehttp 123145358532608 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1918
+2020-01-02 15:56:38,409 INFO basehttp 123145358532608 "GET /static/admin/css/base.css HTTP/1.1" 200 16378
+2020-01-02 15:56:38,409 INFO basehttp 123145358532608 "GET /static/admin/css/base.css HTTP/1.1" 200 16378
+2020-01-02 15:56:38,414 INFO basehttp 123145358532608 "GET /static/admin/css/login.css HTTP/1.1" 200 1233
+2020-01-02 15:56:38,414 INFO basehttp 123145358532608 "GET /static/admin/css/login.css HTTP/1.1" 200 1233
+2020-01-02 15:56:38,420 INFO basehttp 123145358532608 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18052
+2020-01-02 15:56:38,420 INFO basehttp 123145358532608 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18052
+2020-01-02 15:56:38,450 INFO basehttp 123145358532608 "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2020-01-02 15:56:38,450 INFO basehttp 123145358532608 "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2020-01-02 15:56:38,981 INFO basehttp 123145363787776 "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+2020-01-02 15:56:38,981 INFO basehttp 123145363787776 "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+2020-01-02 15:56:38,981 INFO basehttp 123145358532608 "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+2020-01-02 15:56:38,981 INFO basehttp 123145358532608 "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+2020-01-02 15:57:13,392 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:57:13,392 INFO basehttp 123145336438784 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:57:13,398 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:13,398 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:14,253 INFO basehttp 123145374298112 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:14,253 INFO basehttp 123145374298112 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:14,269 INFO basehttp 123145348022272 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:57:14,269 INFO basehttp 123145348022272 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:57:14,323 INFO basehttp 123145342767104 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:57:14,323 INFO basehttp 123145342767104 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:57:14,356 INFO basehttp 123145369042944 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:57:14,357 INFO basehttp 123145353277440 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:57:14,357 INFO basehttp 123145353277440 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:57:14,356 INFO basehttp 123145369042944 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:57:16,462 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:16,462 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:17,011 INFO basehttp 123145369042944 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:17,011 INFO basehttp 123145369042944 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:17,941 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:57:17,941 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:57:18,008 INFO basehttp 123145342767104 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:57:18,008 INFO basehttp 123145342767104 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:57:18,008 INFO basehttp 123145353277440 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:57:18,008 INFO basehttp 123145353277440 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:57:18,954 INFO basehttp 123145342767104 "GET /api/job/2 HTTP/1.1" 301 0
+2020-01-02 15:57:18,954 INFO basehttp 123145342767104 "GET /api/job/2 HTTP/1.1" 301 0
+2020-01-02 15:57:19,547 INFO basehttp 123145353277440 "GET /api/job/2/ HTTP/1.1" 200 229
+2020-01-02 15:57:19,547 INFO basehttp 123145353277440 "GET /api/job/2/ HTTP/1.1" 200 229
+2020-01-02 15:57:20,078 INFO basehttp 123145342767104 "GET /api/job/2/ HTTP/1.1" 200 229
+2020-01-02 15:57:20,078 INFO basehttp 123145342767104 "GET /api/job/2/ HTTP/1.1" 200 229
+2020-01-02 15:57:29,441 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:57:29,441 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 15:57:29,506 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:57:29,506 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 15:57:29,506 INFO basehttp 123145353277440 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:57:29,506 INFO basehttp 123145353277440 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 15:57:31,663 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:31,663 INFO basehttp 123145353277440 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:32,181 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:57:32,181 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:58:27,863 INFO basehttp 123145353277440 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:58:27,863 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:58:27,863 INFO basehttp 123145353277440 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:58:27,863 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:58:28,455 INFO basehttp 123145348022272 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:58:28,455 INFO basehttp 123145348022272 "GET /api/job/3/ HTTP/1.1" 200 224
+2020-01-02 15:58:28,464 INFO basehttp 123145369042944 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 15:58:28,464 INFO basehttp 123145369042944 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:01:31,943 INFO basehttp 123145358532608 "GET /admin/ HTTP/1.1" 302 0
+2020-01-02 16:01:31,943 INFO basehttp 123145358532608 "GET /admin/ HTTP/1.1" 302 0
+2020-01-02 16:01:31,997 INFO basehttp 123145358532608 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1918
+2020-01-02 16:01:31,997 INFO basehttp 123145358532608 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1918
+2020-01-02 16:03:33,851 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:03:33,851 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:06:44,503 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:06:44,503 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:06:45,027 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:06:45,027 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:19,204 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:19,204 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:19,235 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:19,235 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:19,720 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:19,720 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:23,992 INFO basehttp 123145348022272 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 16:08:23,992 INFO basehttp 123145348022272 "GET /api/account/ HTTP/1.1" 200 3196
+2020-01-02 16:08:25,871 INFO basehttp 123145348022272 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 16:08:25,871 INFO basehttp 123145348022272 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 16:08:25,921 INFO basehttp 123145336438784 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 16:08:25,921 INFO basehttp 123145336438784 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 16:08:27,924 INFO basehttp 123145348022272 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 16:08:27,924 INFO basehttp 123145348022272 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 919
+2020-01-02 16:08:27,947 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:27,947 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:27,971 INFO basehttp 123145336438784 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:08:27,971 INFO basehttp 123145336438784 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:08:29,243 INFO basehttp 123145348022272 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:08:29,243 INFO basehttp 123145348022272 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:08:30,260 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:30,260 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:30,274 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:30,274 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:31,045 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:31,045 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:48,011 INFO basehttp 123145336438784 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:08:48,011 INFO basehttp 123145336438784 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:08:49,662 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:49,662 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:49,794 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:49,794 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:50,958 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:50,958 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:08:51,100 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:51,100 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:51,863 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:51,863 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:52,570 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:08:52,570 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:08,061 INFO basehttp 123145348022272 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:09:08,061 INFO basehttp 123145348022272 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:09:09,474 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:09,474 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:09,521 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:09,521 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:10,127 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:10,127 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:10,174 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:10,174 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:11,133 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:11,133 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:11,681 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:11,681 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:57,410 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:09:57,410 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:09:57,413 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:09:57,413 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:09:58,091 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:58,091 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:58,160 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:58,160 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:59,218 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:59,218 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:59,218 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:09:59,218 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:59,821 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:09:59,821 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:10:00,644 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:10:00,644 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 228
+2020-01-02 16:10:04,408 INFO basehttp 123145348022272 "OPTIONS /api/job/1/ HTTP/1.1" 200 0
+2020-01-02 16:10:04,408 INFO basehttp 123145348022272 "OPTIONS /api/job/1/ HTTP/1.1" 200 0
+2020-01-02 16:10:05,108 INFO basehttp 123145348022272 "PUT /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:10:05,108 INFO basehttp 123145348022272 "PUT /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:10:12,487 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:10:12,487 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:10:12,731 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:10:12,731 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:10:13,736 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:10:13,736 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:17,509 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:11:17,509 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:11:17,570 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:11:17,570 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:11:18,989 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:11:18,989 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:11:18,993 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:18,993 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:19,574 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:11:19,574 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:11:19,596 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:19,596 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:20,120 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:20,120 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:20,746 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:20,746 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:24,511 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:11:24,511 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:11:24,511 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:24,511 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:25,301 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:25,301 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 227
+2020-01-02 16:11:35,589 WARNING log 123145342767104 Bad Request: /api/job/1/
+2020-01-02 16:11:35,589 WARNING basehttp 123145342767104 "PUT /api/job/1/ HTTP/1.1" 400 41
+2020-01-02 16:11:35,589 WARNING basehttp 123145342767104 "PUT /api/job/1/ HTTP/1.1" 400 41
+2020-01-02 16:12:02,103 INFO basehttp 123145342767104 "PUT /api/job/1/ HTTP/1.1" 200 262
+2020-01-02 16:12:02,103 INFO basehttp 123145342767104 "PUT /api/job/1/ HTTP/1.1" 200 262
+2020-01-02 16:12:39,537 INFO basehttp 123145342767104 "PUT /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:12:39,537 INFO basehttp 123145342767104 "PUT /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:12:42,769 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:12:42,769 INFO basehttp 123145342767104 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:12:42,770 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:12:42,770 INFO basehttp 123145336438784 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:12:42,945 INFO basehttp 123145348022272 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:12:42,945 INFO basehttp 123145348022272 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:13:05,198 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:13:05,198 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:13:05,221 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:13:05,221 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:13:05,759 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:13:05,759 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:22,045 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:14:22,045 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:14:22,048 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:14:22,048 INFO basehttp 123145342767104 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:14:22,801 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:14:22,801 INFO basehttp 123145348022272 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:14:22,801 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:22,801 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:23,331 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:23,331 INFO basehttp 123145336438784 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:23,342 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:14:23,342 INFO basehttp 123145342767104 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:14:23,822 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:23,822 INFO basehttp 123145348022272 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:24,309 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:14:24,309 INFO basehttp 123145342767104 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:24:01,184 INFO basehttp 123145342230528 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:24:01,184 INFO basehttp 123145342230528 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:24:01,209 INFO basehttp 123145347485696 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:24:01,209 INFO basehttp 123145347485696 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:24:01,215 INFO basehttp 123145336975360 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:24:01,215 INFO basehttp 123145336975360 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:24:07,387 INFO basehttp 123145336975360 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 16:24:07,387 INFO basehttp 123145336975360 "GET /api/account/1/ HTTP/1.1" 200 304
+2020-01-02 16:24:07,399 INFO basehttp 123145347485696 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 16:24:07,399 INFO basehttp 123145347485696 "GET /api/accountsyards?id=1 HTTP/1.1" 200 1858
+2020-01-02 16:26:00,309 INFO basehttp 123145336975360 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:00,309 INFO basehttp 123145336975360 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:00,355 INFO basehttp 123145347485696 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:00,355 INFO basehttp 123145347485696 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:00,838 INFO basehttp 123145336975360 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:00,838 INFO basehttp 123145336975360 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:02,973 INFO basehttp 123145342230528 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:02,973 INFO basehttp 123145342230528 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:02,994 INFO basehttp 123145347485696 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:26:02,994 INFO basehttp 123145347485696 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:26:02,998 INFO basehttp 123145336975360 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:26:02,998 INFO basehttp 123145336975360 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:26:03,916 INFO basehttp 123145342230528 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:26:03,916 INFO basehttp 123145342230528 "GET /api/job/1 HTTP/1.1" 301 0
+2020-01-02 16:26:04,528 INFO basehttp 123145347485696 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:04,528 INFO basehttp 123145336975360 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:04,528 INFO basehttp 123145336975360 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:04,528 INFO basehttp 123145347485696 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:05,026 INFO basehttp 123145342230528 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:05,026 INFO basehttp 123145342230528 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:26:45,883 INFO basehttp 123145347485696 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:45,883 INFO basehttp 123145347485696 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:26:45,899 INFO basehttp 123145342230528 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:26:45,899 INFO basehttp 123145342230528 "GET /api/yard/1/ HTTP/1.1" 200 208
+2020-01-02 16:26:45,909 INFO basehttp 123145336975360 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:26:45,909 INFO basehttp 123145336975360 "GET /api/yardjobs?yardid=1 HTTP/1.1" 200 1120
+2020-01-02 16:27:34,812 INFO basehttp 123145336975360 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:27:34,812 INFO basehttp 123145336975360 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:27:34,828 INFO basehttp 123145342230528 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:27:34,828 INFO basehttp 123145342230528 "GET /api/jobtype/ HTTP/1.1" 200 117
+2020-01-02 16:27:35,331 INFO basehttp 123145347485696 "GET /api/job/1/ HTTP/1.1" 200 429
+2020-01-02 16:27:35,331 INFO basehttp 123145347485696 "GET /api/job/1/ HTTP/1.1" 200 429
