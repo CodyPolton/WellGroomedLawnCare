@@ -25,3 +25,6 @@ class JobExpenseTypeViewSet(viewsets.ModelViewSet):
 class JobExpenseViewSet(viewsets.ModelViewSet):
     queryset = JobExpense.objects.all()
     serializer_class = JobExpenseSerializer
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)

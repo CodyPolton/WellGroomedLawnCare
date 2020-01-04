@@ -99,6 +99,7 @@
 
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
+          :loading="loading"
           :headers="headers"
           :items="accounts"
           :search="search"
@@ -122,6 +123,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      loading: false,
       dialog: null,
       account: {
         f_name: null,
@@ -216,7 +218,7 @@ export default {
     };
   },
   created() {
-    this.isLoading = true;
+    this.loading = true;
     axios.get("http://127.0.0.1:8000/api/account/").then(response => {
       console.log(response.data);
       response.data.forEach(item => {
@@ -227,8 +229,9 @@ export default {
         }
         this.accounts.push(item);
       });
+      this.loading = false;
     });
-    this.isLoading = false;
+    
   },
   methods: {
     handleClick: function(value) {

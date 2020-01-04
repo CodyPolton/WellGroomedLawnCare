@@ -10,7 +10,7 @@
       <v-tab-item key="details">${{total}}</v-tab-item>
 
       <v-tab-item key="expenses">
-        <v-dialog v-model="dialog" max-width="600px">
+        <!-- <v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on }">
             <v-btn color="primary" dark v-on="on">Add Job Expense</v-btn>
           </template>
@@ -53,25 +53,6 @@
                         :rules="[v => !!v || 'Total is required']"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="6">
-                      <v-menu
-                        v-model="menu2"
-                        :close-on-content-click="false"
-                        transition="scale-transition"
-                        offset-y
-                        min-width="290px"
-                      >
-                        <template v-slot:activator="{ on }">
-                          <v-text-field
-                            v-model="expense.date_purchased"
-                            label="Date of Expense"
-                            readonly
-                            v-on="on"
-                          ></v-text-field>
-                        </template>
-                        <v-date-picker v-model="date" @input="menu2 = false" label="Date of Expense"></v-date-picker>
-                      </v-menu>
-                    </v-col>
                   </v-row>
                 </v-form>
               </v-container>
@@ -82,7 +63,7 @@
               <v-btn color="blue darken-1" :disabled="!valid1" text @click="addJobExpense">Save</v-btn>
             </v-card-actions>
           </v-card>
-        </v-dialog>
+        </v-dialog> -->
 
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
@@ -91,18 +72,99 @@
           :search="search"
           :items-per-page="10"
           class="elevation-1"
-          @click:row="handleClick"
         >
+<template v-slot:top>
+      <v-toolbar flat color="white">
+        <v-toolbar-title>Expenses</v-toolbar-title>
+        <v-divider
+          class="mx-4"
+          inset
+          vertical
+        ></v-divider>
+        <v-spacer></v-spacer>
+        <v-dialog  v-model="dialog" max-width="600px"  >
+          <template v-slot:activator="{ on }">
+            <v-btn color="primary" dark class="mb-2" v-on="on">New Expense</v-btn>
+          </template>
+          <v-card v-if='dialog'>
+            <div v-click-outside="close">
+            <v-card-title>
+              <span class="headline">{{ formTitle }}</span>
+            </v-card-title>
+
+            <v-card-text>
+              <v-container>
+                <v-form ref="form1" v-model="valid1">
+                  <v-row>
+                    <v-col cols="12">
+                      <v-text-field
+                        v-model="expense.name"
+                        :counter="40"
+                        :rules="[v => !!v || 'Name is required']"
+                        label="Expense Name*"
+                        required
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-textarea v-model="expense.description" label="Expense Description"></v-textarea>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        v-model="expense.job_expense_type"
+                        :items="jobExpenseTypes"
+                        name="job_expense_type"
+                        item-text="job_expense_type"
+                        :rules="[v => !!v || 'Expense type is required']"
+                        label="Expense Type*"
+                        required
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <v-text-field
+                        v-model="expense.cost"
+                        type="number"
+                        label="Expense Total*"
+                        :rules="[v => !!v || 'Total is required']"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-form>
+              </v-container>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="saveExpense">{{formButton}}</v-btn>
+            </v-card-actions>
+            </div>
+          </v-card>
+        </v-dialog>
+      </v-toolbar>
+    </template>
+    <template v-slot:item.action="{ item }">
+      <v-icon
+        color= blue 
+        class="mr-2"
+        @click="editExpense(item)"
+      >
+        mdi-pen
+      </v-icon>
+      <v-icon
+        color=  red
+        @click="deleteExpense(item)"
+      >
+        mdi-delete
+      </v-icon>
+    </template>
         </v-data-table>
       </v-tab-item>
 
       <v-tab-item key="edit">
-        <v-form ref="form" v-model="valid1">
+        <v-form ref="form" v-model="jobEditValid">
           <span>Edit job information:</span>
           <v-text-field v-model="job.name" focus :counter="40" :rules="rule" label="Name" required></v-text-field>
           <v-textarea
             v-model="job.description"
-            color="teal"
             :rules="[v => !!v || 'Description is required']"
             label="Job Description*"
             required
@@ -116,7 +178,7 @@
             label="Job Type*"
             required
           ></v-select>
-          <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
+          <v-btn :disabled="!jobEditValid" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
       </v-tab-item>
     </v-tabs>
@@ -125,6 +187,7 @@
 
 <script>
 import axios from "axios";
+import ClickOutside from 'vue-click-outside'
 // @ is an alias to /src
 export default {
   name: "JobView",
@@ -134,13 +197,14 @@ export default {
       id: null,
       search: null,
       total: 0,
+      tempExpense: {
+      },
       expense: {
         job: null,
         name: null,
         description: "",
         job_expense_type: null,
         cost: null,
-        date_purchased: new Date().toISOString().substr(0, 10),
       },
       headers: [
         {
@@ -149,7 +213,8 @@ export default {
           align: "left"
         },
         { text: "Expense Description", align: "left", value: "description" },
-        { text: "Cost" , value: "cost" }
+        { text: "Cost" , value: "cost" },
+        { text: 'Actions', aligh: "right", value: 'action', sortable: false}
 
       ],
       valid1: null,
@@ -163,23 +228,21 @@ export default {
       ],
       valid: false,
       valid1: false,
-      date: new Date().toISOString().substr(0, 10),
-      menu: false,
-      modal: false,
-      menu2: false,
+      jobEditValid: false,
+      editdialog: true,
+      editedIndex: -1,
+      closeCounter: 0
     };
   },
   created() {
-    this.id = this.$route.params.id;
-    this.expense.job = this.id;
+    this.id = this.$route.params.id; 
+    this.expense.job = this.id
 
     //get job data for this id 
     axios
       .get("http://127.0.0.1:8000/api/job/" + this.id + "/")
       .then(response => {
-        console.log(response.data);
         this.job = response.data;
-        console.log(this.job);
       });
     //get job types for edit
     axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
@@ -199,7 +262,6 @@ export default {
     });
     //get each expense for this job
     axios.get("http://127.0.0.1:8000/api/expensesofjob?jobid=" + this.id).then(response => {
-      console.log(response.data);
       response.data.forEach(item => {
         this.expenses.push(item);
         this.total += parseFloat(item.cost)
@@ -207,6 +269,17 @@ export default {
     });
   },
   mounted() {},
+  directives: {
+    ClickOutside
+  },
+  computed: {
+      formTitle () {
+        return this.editedIndex === -1 ? 'New Expense' : 'Edit Expense'
+      },
+      formButton (){
+        return this.editedIndex === -1 ? 'Create Expense' : 'Save'
+      },
+    },
   components: {},
   methods: {
     handleClick: function(value) {
@@ -215,6 +288,7 @@ export default {
     back: function() {
       this.$router.go(-1);
     },
+    //saving the job information
     save: function() {
       axios
         .put("http://127.0.0.1:8000/api/job/" + this.id + "/", this.job)
@@ -246,22 +320,23 @@ export default {
           }
         });
     },
-    addJobExpense: function() {
-      console.log(this.expense)
-      axios
+    //this will create a new expense if index =-1, otherwise it will save the edited job expense
+    saveExpense: function() {
+      if(this.editedIndex === -1){
+        console.log(this.expense)
+        axios
         .post("http://127.0.0.1:8000/api/jobexpense/", this.expense)
         .then(response => {
-          this.expense = response.data;
+          this.expenses.push(response.data);
+          this.total += parseFloat(response.data.cost)
+          this.dialog = false;
+          this.$refs.form1.reset()
+          console.log(this.expense)
           this.$notify({
             group: "success",
             title: "Add Job Expense Succesfully",
             type: "success"
           });
-          console.log(this.expense)
-          this.expenses.push(response.data);
-          this.total += parseFloat(response.data.cost)
-          this.dialog = false;
-          this.$refs.form1.reset()
         })
         .catch(error => {
           if (error.response) {
@@ -282,6 +357,95 @@ export default {
             }
           }
         });
+      }
+      else{
+        axios
+        .patch("http://127.0.0.1:8000/api/jobexpense/" + this.expense.job_expenseid + "/", this.expense)
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Saved Expense Information Succesfully",
+            type: "success"
+          });
+          //if cost  changed fix total 
+          if(this.tempExpense.cost != response.data.cost){
+            this.total -= parseFloat(this.tempExpense.cost)
+            this.total += parseFloat(response.data.cost)
+          }
+          this.expenses.splice(this.editedIndex, 1, response.data)
+          this.$refs.form1.reset()
+          this.dialog = false
+          this.editedIndex = -1
+          this.closeCounter++
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.expense) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error Saving Expense Information. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
+      }
+    },
+    editExpense: function(item) {
+      this.editedIndex = this.expenses.indexOf(item)
+      this.tempExpense = this.expenses[this.editedIndex]
+      this.expense.name = this.tempExpense.name
+      this.expense.description = this.tempExpense.description
+      this.expense.job_expense_type = this.tempExpense.job_expense_type
+      this.expense.cost = this.tempExpense.cost
+      this.expense.job_expenseid = this.tempExpense.job_expenseid
+      this.dialog = true
+    },
+    deleteExpense: function(item) {
+      console.log(item)
+      axios
+        .delete("http://127.0.0.1:8000/api/jobexpense/" + item.job_expenseid)
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Deleted Expense Succesfully",
+            type: "success"
+          });
+          this.total -= item.cost
+          this.expenses.splice(this.expenses.indexOf(item), 1);
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.expense) {
+              if (Object.prototype.hasOwnProperty.call(error.response.data, prop)) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error deleting expense. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
+    },
+    close: function(){
+      if(this.closeCounter % 2 == 1){
+      this.editedIndex = -1
+      this.$refs.form1.reset()
+      }
+      this.closeCounter++
     }
   }
 };

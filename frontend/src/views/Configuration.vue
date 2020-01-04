@@ -19,13 +19,13 @@
                 ></v-text-field>
               </v-col>
               <v-list>
-                <template v-for="(item) in jobType">
+                <template v-for="(item, index) in jobType">
                   <v-list-item :key="item.job_type">
                     <v-list-item-content>
                       <v-list-item-title v-text="item.job_type"></v-list-item-title>
                     </v-list-item-content>
                     <v-list-item-action>
-                      <v-btn text icon color="red" @click="deleteJobType(item.job_typeid)">
+                      <v-btn text icon color="red" @click="deleteJobType(index)">
                         <v-icon>mdi-delete</v-icon>
                       </v-btn>
                     </v-list-item-action>
@@ -51,13 +51,13 @@
                 ></v-text-field>
               </v-col>
               <v-list>
-                <template v-for="(item) in jobExpenseType">
+                <template v-for="(item, index) in jobExpenseType">
                   <v-list-item :key="item.job_expense_type">
                     <v-list-item-content>
                       <v-list-item-title v-text="item.job_expense_type"></v-list-item-title>
                     </v-list-item-content>
                     <v-list-item-action>
-                      <v-btn text icon color="red" @click="deleteJobExpenseType(item.job_expense_typeid)">
+                      <v-btn text icon color="red" @click="deleteJobExpenseType(index)">
                         <v-icon>mdi-delete</v-icon>
                       </v-btn>
                     </v-list-item-action>
@@ -142,17 +142,18 @@ export default {
           }
         });
     },
-    deleteJobType: function(id) {
-      console.log("adf " + id);
+    deleteJobType: function(index) {
+      console.log(this.jobType[index]);
       axios
-        .delete("http://127.0.0.1:8000/api/jobtype/" + id)
+        .delete("http://127.0.0.1:8000/api/jobtype/" + this.jobType[index].job_typeid)
         .then(response => {
           this.$notify({
             group: "success",
             title: "Deleted Job Type Succesfully",
             type: "success"
           });
-          this.jobType.pop(response.data);
+          console.log(this.jobType.indexOf(response.data))
+          this.jobType.splice(index, 1);
         })
         .catch(error => {
           if (error.response) {
@@ -205,17 +206,17 @@ export default {
           }
         });
     },
-    deleteJobExpenseType: function(id) {
-      console.log("adf " + id);
+    deleteJobExpenseType: function(index) {
+      console.log(this.jobExpenseType[index]);
       axios
-        .delete("http://127.0.0.1:8000/api/jobexpensetype/" + id)
+        .delete("http://127.0.0.1:8000/api/jobexpensetype/" + this.jobExpenseType[index].job_expense_typeid)
         .then(response => {
           this.$notify({
             group: "success",
             title: "Deleted Job Expense Type Succesfully",
             type: "success"
           });
-          this.jobExpenseType.pop(response.data);
+          this.jobExpenseType.splice(index, 1);
         })
         .catch(error => {
           if (error.response) {

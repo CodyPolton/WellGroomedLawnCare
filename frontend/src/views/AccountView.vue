@@ -76,6 +76,7 @@
         </v-dialog>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
+          :loading="loading"
           :headers="headers"
           :items="yards"
           :search="search"
@@ -147,6 +148,7 @@ export default {
   name: "AccountView",
   data() {
     return {
+      loading: false,
       dialog: false,
       id: null,
       search: null,
@@ -249,6 +251,7 @@ export default {
   created() {
     this.id = this.$route.params.id;
     this.yard.account = this.id;
+    this.loading = true;
     axios
       .get("http://127.0.0.1:8000/api/account/" + this.id + "/")
       .then(response => {
@@ -265,6 +268,7 @@ export default {
           this.yards.push(item);
         });
       });
+    this.loading = false
   },
   mounted() {},
   components: {},
