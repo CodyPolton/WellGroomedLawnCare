@@ -54,9 +54,8 @@ class YardMowed(APIView):
         code = request.GET.get('code', '0')
         mow_price = request.GET.get('mow_price', '0')
         logger.info("mow price is" + mow_price)
-        if code == 0 or mow_price == 0:
+        if code == '0' or mow_price == '0':
             return Response({"message": "Need both code and mow_price to process "})
-
         else:
            return Response({"message": "Successfully mowed"}) 
         

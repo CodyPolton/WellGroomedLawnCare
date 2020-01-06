@@ -67,6 +67,7 @@ pip install -r requirements.txt
 
 #go into django framework folder
 cd backend-framework
+cd vueapi
 
 #Start django dev server
 python manage.py runserver
