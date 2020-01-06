@@ -6,7 +6,9 @@
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
       <v-tab key="edit">Edit</v-tab>
-      <v-tab-item key="details">hi</v-tab-item>
+      <v-tab-item key="details">hi
+        <v-btn v-if='yard.mow_price!=null' color="primary" dark @click='yardMowed'>Mowed</v-btn>
+      </v-tab-item>
       <v-tab-item key="jobs">
         <v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on }">
@@ -317,6 +319,14 @@ export default {
             }
           }
         });
+    },
+    yardMowed: function(){
+      console.log("hi" )
+      console.log(this.yard.mow_price)
+      // axios
+      //   .put("http://127.0.0.1:8000/api/yard/" + this.yardid + "/", this.yard).then((response) =>{
+
+      //   })
     }
   }
 };
