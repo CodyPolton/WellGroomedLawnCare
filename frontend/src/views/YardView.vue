@@ -69,7 +69,7 @@
         ></v-data-table>
       </v-tab-item>
       <v-tab-item key="edit">
-        <v-form ref="form" v-model="valid1">
+        <v-form ref="form" v-model="yardEdit">
           <span>Enter yard information:</span>
           <v-text-field
             v-model="yard.address"
@@ -103,7 +103,7 @@
             required
           ></v-text-field>
 
-          <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
+          <v-btn :disabled="!yardEdit" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
       </v-tab-item>
     </v-tabs>
@@ -116,6 +116,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      yardEdit: false,
       dialog: false,
       jobtypes: {
         job_typeid: null,

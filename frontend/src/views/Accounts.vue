@@ -220,7 +220,6 @@ export default {
   created() {
     this.loading = true;
     axios.get("http://127.0.0.1:8000/api/account/").then(response => {
-      console.log(response.data);
       response.data.forEach(item => {
         if (item.auto_invoice) {
           item.auto_invoice = "YES";
@@ -235,13 +234,20 @@ export default {
   },
   methods: {
     handleClick: function(value) {
-      console.log(value);
       this.$router.push("/account/" + value.accountid);
     },
     back: function() {
       this.$router.go(-1);
     },
     addAccount: function() {
+      var yard = {
+        account: null,
+        address: null,
+        city: null,
+        state: null,
+        zip_code: null,
+        mow_price: null
+      }
       axios
         .post("http://127.0.0.1:8000/api/account/", this.account)
         .then(response => {
@@ -255,9 +261,46 @@ export default {
           } else {
             response.data.auto_invoice = "NO";
           }
+          yard.account = response.data.accountid
           this.accounts.push(response.data);
           this.dialog = false;
-          this.$refs.form.reset()
+          
+          console.log(this.account)
+          if(this.account.sameaddress){
+            console.log("same address")
+            yard.address = this.account.address
+            yard.city = this.account.city
+            yard.state = this.account.state
+            yard.zip_code = this.account.zip_code
+            console.log(yard)
+            axios
+            .post("http://127.0.0.1:8000/api/yard/", yard)
+              .then(response => {
+                this.$notify({
+                  group: "success",
+                  title: "Added Yard Succesfully",
+                  type: "success"
+                });
+              })
+              .catch(error => {
+                if (error.response) {
+                  for (var prop in yard) {
+                    if (Object.prototype.hasOwnProperty.call(error.response.data, prop)){
+                      this.$notify({
+                        group: "error",
+                        title:
+                          "Error adding yard. " +
+                          prop +
+                          ": " +
+                          error.response.data[prop],
+                        type: "error"
+                      });
+                    }
+                  }
+                }
+              })
+              this.$refs.form.reset()
+            }
         })
         .catch(error => {
           if (error.response) {
@@ -277,8 +320,8 @@ export default {
               }
             }
           }
-        });
-    }
+        })
+      }
   }
 };
 </script>
