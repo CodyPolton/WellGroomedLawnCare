@@ -6,8 +6,27 @@
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
       <v-tab key="edit">Edit</v-tab>
-      <v-tab-item key="details">hi
-        <v-btn v-if='yard.mow_price!=null' color="primary" dark @click='yardMowed'>Mowed</v-btn>
+      <v-tab-item key="details">
+        hi
+        <v-btn v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
+        <v-dialog v-model="confirmMowDialog" persistent max-width="400">
+          <template v-slot:activator="{ on }">
+            <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
+          </template>
+          <v-card>
+            <v-card-title class="headline">Yard Mowed Recently</v-card-title>
+            <v-card-text>This yard has already been marked as mowed today. Just want to make sure you are not marking this yard as mowed twice in on day by accident.</v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="confirmMowDialog = false">Did Not Mow Again</v-btn>
+              <v-btn
+                color="green darken-1"
+                text
+                @click="addMowJob(); confirmMowDialog = false"
+              >Mowed Again</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-tab-item>
       <v-tab-item key="jobs">
         <v-dialog v-model="dialog" max-width="600px">
@@ -118,6 +137,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+      date: new Date().toISOString().slice(0, 10),
+      confirmMowDialog: false,
       yardEdit: false,
       dialog: false,
       jobtypes: {
@@ -214,8 +235,7 @@ export default {
     };
   },
   name: "Yard",
-  components: {
-  },
+  components: {},
   created() {
     this.yardid = this.$route.params.yardid;
     this.job.yard = this.yardid;
@@ -250,7 +270,7 @@ export default {
       this.$router.go(-1);
     },
     handleClick: function(value) {
-      console.log(value.jobid)
+      console.log(value.jobid);
       this.$router.push("/job/" + value.jobid);
     },
     save: function() {
@@ -297,7 +317,7 @@ export default {
             title: "Added Job Succesfully",
             type: "success"
           });
-          this.jobs.push(response.data)
+          this.jobs.push(response.data);
           this.dialog = false;
         })
         .catch(error => {
@@ -320,16 +340,98 @@ export default {
           }
         });
     },
-    yardMowed: function(){
-      console.log("hi" )
-      console.log(this.yard.mow_price)
+    yardMowed: function() {
       axios
-        .get("http://127.0.0.1:8000/api/yardmowed?yardid=" + this.yardid + "&code=1&price=" + this.yard.mow_price).then((response) =>{
-            if(response.data.message == 'Mowed today'){
-              console.log(response.data.message)
-            }else
-            console.log(response.data.message)
+        .get("http://127.0.0.1:8000/api/yardmowedcheck?yardid=" + this.yardid)
+        .then(response => {
+          if (response.data.message == "Mowed today") {
+            console.log(response.data.message);
+            this.confirmMowDialog = true;
+          } else {
+            this.addMowJob();
+          }
+        });
+    },
+    addMowJob: function() {
+      console.log("Mow the job");
+
+      var mowed = {
+        yard: this.yardid,
+        name: "Mow",
+        description: "Mowed on " + this.date,
+        job_type: "Mowing",
+        date_completed: this.date,
+        job_total: this.yard.mow_price,
+        billed: false,
+        date_created: null,
+        date_updated: null
+      };
+      console.log(mowed);
+
+      axios
+        .post("http://127.0.0.1:8000/api/job/", mowed)
+        .then(response => {
+          this.jobs.push(response.data);
+          var mowexpense = {
+            job: response.data.jobid,
+            name: "Mow",
+            description: "",
+            job_expense_type: "Mow",
+            cost: this.yard.mow_price,
+            date_purchased: this.date
+          };
+          console.log(mowexpense)
+          axios
+            .post("http://127.0.0.1:8000/api/jobexpense/", mowexpense)
+            .then(response => {
+              this.$notify({
+                group: "success",
+                title: "Yard has been mow Succesfully",
+                type: "success"
+              });
+            })
+            .catch(error => {
+              if (error.response) {
+                for (var prop in mowexpense) {
+                  if (
+                    Object.prototype.hasOwnProperty.call(
+                      error.response.data,
+                      prop
+                    )
+                  ) {
+                    this.$notify({
+                      group: "error",
+                      title:
+                        "Error adding job expense." +
+                        prop +
+                        ": " +
+                        error.response.data[prop],
+                      type: "error"
+                    });
+                  }
+                }
+              }
+            });
         })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.job) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error adding job. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
     }
   }
 };

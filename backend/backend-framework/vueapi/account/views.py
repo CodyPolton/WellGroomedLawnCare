@@ -49,25 +49,20 @@ class ExpensesOfJob(APIView):
         else:
            return Response(serializer.data) 
 
-class YardMowed(APIView):
+class YardMowedCheck(APIView):
     
     def get(self,request):
-        code = request.GET.get('code', '0')
-        price = request.GET.get('price', '0')
         yardid = request.GET.get('yardid', '0')
         now = datetime.now()
-        logger.info("mow price is" + price)
-        if code == '0' or price == '0':
-            return Response({"message": "Need both code and mow_price to process "})
-        if code == '1': 
+        if yardid == '0':
+            return Response({"message": "Need yardid to process"})
+        else: 
             jobs = Job.objects.filter(yard_id=yardid, date_created__date=datetime.date(now), job_type='Mowing')
             serializer = JobSerializer(jobs, many=True)
             if not jobs:
                 return Response({'message': "Hasn't been mowed today"})
             else: 
                 return Response({'message': "Mowed today"})
-        else: 
-            return Respone({'message': 'Unknown code'})
         
 
 

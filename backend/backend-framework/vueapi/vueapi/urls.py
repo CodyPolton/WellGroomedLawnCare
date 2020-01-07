@@ -26,5 +26,5 @@ urlpatterns = [
     url('api/accountsyards', views.YardsOfAccount.as_view()),
     url('api/yardjobs', views.JobsOfYard.as_view()),
     url('api/expensesofjob', views.ExpensesOfJob.as_view()),
-    url('api/yardmowed', views.YardMowed.as_view())
+    url('api/yardmowedcheck', views.YardMowedCheck.as_view())
 ]
