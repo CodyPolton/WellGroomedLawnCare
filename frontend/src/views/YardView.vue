@@ -323,10 +323,13 @@ export default {
     yardMowed: function(){
       console.log("hi" )
       console.log(this.yard.mow_price)
-      // axios
-      //   .put("http://127.0.0.1:8000/api/yard/" + this.yardid + "/", this.yard).then((response) =>{
-
-      //   })
+      axios
+        .get("http://127.0.0.1:8000/api/yardmowed?yardid=" + this.yardid + "&code=1&price=" + this.yard.mow_price).then((response) =>{
+            if(response.data.message == 'Mowed today'){
+              console.log(response.data.message)
+            }else
+            console.log(response.data.message)
+        })
     }
   }
 };
