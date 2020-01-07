@@ -386,7 +386,7 @@ export default {
             .then(response => {
               this.$notify({
                 group: "success",
-                title: "Yard has been mow Succesfully",
+                title: "Yard has been mowed Succesfully",
                 type: "success"
               });
             })
@@ -402,7 +402,7 @@ export default {
                     this.$notify({
                       group: "error",
                       title:
-                        "Error adding job expense." +
+                        "Error adding mow expense." +
                         prop +
                         ": " +
                         error.response.data[prop],
