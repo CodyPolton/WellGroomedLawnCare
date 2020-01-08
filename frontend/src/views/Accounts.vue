@@ -92,7 +92,12 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" :disabled='!valid' text @click="addAccount">Create Account</v-btn>
+              <v-btn
+                color="blue darken-1"
+                :disabled="!valid"
+                text
+                @click="addAccount"
+              >Create Account</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -219,18 +224,26 @@ export default {
   },
   created() {
     this.loading = true;
-    axios.get("http://127.0.0.1:8000/api/account/").then(response => {
-      response.data.forEach(item => {
-        if (item.auto_invoice) {
-          item.auto_invoice = "YES";
-        } else {
-          item.auto_invoice = "NO";
-        }
-        this.accounts.push(item);
+    axios
+      .get("http://127.0.0.1:8000/api/account/")
+      .then(response => {
+        response.data.forEach(item => {
+          if (item.auto_invoice) {
+            item.auto_invoice = "YES";
+          } else {
+            item.auto_invoice = "NO";
+          }
+          this.accounts.push(item);
+        });
+        this.loading = false;
+      })
+      .catch(error => {
+          this.$notify({
+            group: "error",
+            title: "Backend is down please contact your System adminstartor.",
+            type: "error"
+          });
       });
-      this.loading = false;
-    });
-    
   },
   methods: {
     handleClick: function(value) {
@@ -247,7 +260,7 @@ export default {
         state: null,
         zip_code: null,
         mow_price: null
-      }
+      };
       axios
         .post("http://127.0.0.1:8000/api/account/", this.account)
         .then(response => {
@@ -261,20 +274,20 @@ export default {
           } else {
             response.data.auto_invoice = "NO";
           }
-          yard.account = response.data.accountid
+          yard.account = response.data.accountid;
           this.accounts.push(response.data);
           this.dialog = false;
-          
-          console.log(this.account)
-          if(this.account.sameaddress){
-            console.log("same address")
-            yard.address = this.account.address
-            yard.city = this.account.city
-            yard.state = this.account.state
-            yard.zip_code = this.account.zip_code
-            console.log(yard)
+
+          console.log(this.account);
+          if (this.account.sameaddress) {
+            console.log("same address");
+            yard.address = this.account.address;
+            yard.city = this.account.city;
+            yard.state = this.account.state;
+            yard.zip_code = this.account.zip_code;
+            console.log(yard);
             axios
-            .post("http://127.0.0.1:8000/api/yard/", yard)
+              .post("http://127.0.0.1:8000/api/yard/", yard)
               .then(response => {
                 this.$notify({
                   group: "success",
@@ -285,7 +298,12 @@ export default {
               .catch(error => {
                 if (error.response) {
                   for (var prop in yard) {
-                    if (Object.prototype.hasOwnProperty.call(error.response.data, prop)){
+                    if (
+                      Object.prototype.hasOwnProperty.call(
+                        error.response.data,
+                        prop
+                      )
+                    ) {
                       this.$notify({
                         group: "error",
                         title:
@@ -298,9 +316,9 @@ export default {
                     }
                   }
                 }
-              })
-              this.$refs.form.reset()
-            }
+              });
+            this.$refs.form.reset();
+          }
         })
         .catch(error => {
           if (error.response) {
@@ -320,8 +338,8 @@ export default {
               }
             }
           }
-        })
-      }
+        });
+    }
   }
 };
 </script>
