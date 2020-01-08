@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="width: 100%;">
     <v-btn @click="back">Back</v-btn>
     Inovice id = {{ id }}
     <v-tabs 
