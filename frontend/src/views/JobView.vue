@@ -240,12 +240,12 @@ export default {
 
     //get job data for this id 
     axios
-      .get("http://127.0.0.1:8000/api/job/" + this.id + "/")
+      .get(process.env.VUE_APP_API_URL + "job/" + this.id + "/")
       .then(response => {
         this.job = response.data;
       });
     //get job types for edit
-    axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
+    axios.get(process.env.VUE_APP_API_URL + "jobtype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
           this.jobTypes.push(item);
@@ -253,7 +253,7 @@ export default {
       }
     });
     //get expense type for adding new expense
-    axios.get("http://127.0.0.1:8000/api/jobexpensetype/").then(response => {
+    axios.get(process.env.VUE_APP_API_URL + "jobexpensetype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
           this.jobExpenseTypes.push(item);
@@ -261,7 +261,7 @@ export default {
       }
     });
     //get each expense for this job
-    axios.get("http://127.0.0.1:8000/api/expensesofjob?jobid=" + this.id).then(response => {
+    axios.get(process.env.VUE_APP_API_URL + "expensesofjob?jobid=" + this.id).then(response => {
       response.data.forEach(item => {
         this.expenses.push(item);
         this.total += parseFloat(item.cost)
@@ -291,7 +291,7 @@ export default {
     //saving the job information
     save: function() {
       axios
-        .put("http://127.0.0.1:8000/api/job/" + this.id + "/", this.job)
+        .put(process.env.VUE_APP_API_URL + "api/job/" + this.id + "/", this.job)
         .then(response => {
           this.job = response.data;
           this.$notify({
@@ -325,7 +325,7 @@ export default {
       if(this.editedIndex === -1){
         console.log(this.expense)
         axios
-        .post("http://127.0.0.1:8000/api/jobexpense/", this.expense)
+        .post(process.env.VUE_APP_API_URL + "jobexpense/", this.expense)
         .then(response => {
           this.expenses.push(response.data);
           this.total += parseFloat(response.data.cost)
@@ -360,7 +360,7 @@ export default {
       }
       else{
         axios
-        .patch("http://127.0.0.1:8000/api/jobexpense/" + this.expense.job_expenseid + "/", this.expense)
+        .patch(process.env.VUE_APP_API_URL + "jobexpense/" + this.expense.job_expenseid + "/", this.expense)
         .then(response => {
           this.$notify({
             group: "success",
@@ -412,7 +412,7 @@ export default {
     deleteExpense: function(item) {
       console.log(item)
       axios
-        .delete("http://127.0.0.1:8000/api/jobexpense/" + item.job_expenseid)
+        .delete(process.env.VUE_APP_API_URL + "jobexpense/" + item.job_expenseid)
         .then(response => {
           this.$notify({
             group: "success",
