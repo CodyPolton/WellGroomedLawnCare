@@ -32,44 +32,14 @@ npm run serve
 http://localhost:8080/
 ```
 
-### Install and Run the Backend Mac
-
 ```bash
-#Go to front end directory
-cd backend
+### Deployment
 
-#install backend dependences
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+#build the app
+npm run build 
 
-#go into django framework folder
-cd backend-framework
+#go to the s3 bucket and press up load
 
-#Start django dev server
-django manage.py runserver
-
-```
-
-### Install and Run the Backend Windows
-
-```bash
-#Go to front end directory
-cd backend
-
-#install backend dependences
-python -m venv venv
-cd venv
-cd Scripts
-activate
-cd ../..
-pip install -r requirements.txt
-
-#go into django framework folder
-cd backend-framework
-cd vueapi
-
-#Start django dev server
-python manage.py runserver
+#all the files from the dist folder into it 
 
 ```
