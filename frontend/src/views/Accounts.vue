@@ -225,7 +225,7 @@ export default {
   created() {
     this.loading = true;
     axios
-      .get("http://127.0.0.1:8000/api/account/")
+      .get(process.env.VUE_APP_API_URL + "account/")
       .then(response => {
         response.data.forEach(item => {
           if (item.auto_invoice) {
@@ -262,7 +262,7 @@ export default {
         mow_price: null
       };
       axios
-        .post("http://127.0.0.1:8000/api/account/", this.account)
+        .post(process.env.VUE_APP_API_URL + "account/", this.account)
         .then(response => {
           this.$notify({
             group: "success",
@@ -287,7 +287,7 @@ export default {
             yard.zip_code = this.account.zip_code;
             console.log(yard);
             axios
-              .post("http://127.0.0.1:8000/api/yard/", yard)
+              .post(process.env.VUE_APP_API_URL + "yard/", yard)
               .then(response => {
                 this.$notify({
                   group: "success",

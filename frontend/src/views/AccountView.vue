@@ -253,7 +253,7 @@ export default {
     this.yard.account = this.id;
     this.loading = true;
     axios
-      .get("http://127.0.0.1:8000/api/account/" + this.id + "/")
+      .get(process.env.VUE_APP_API_URL + "account/" + this.id + "/")
       .then(response => {
         console.log(response.data);
         this.account = response.data;
@@ -261,7 +261,7 @@ export default {
       });
 
     axios
-      .get("http://127.0.0.1:8000/api/accountsyards?id=" + this.id)
+      .get(process.env.VUE_APP_API_URL + "accountsyards?id=" + this.id)
       .then(response => {
         console.log(response.data);
         response.data.forEach(item => {
@@ -282,7 +282,7 @@ export default {
     addYard: function() {
       console.log(this.yard);
       axios
-        .post("http://127.0.0.1:8000/api/yard/", this.yard)
+        .post(process.env.VUE_APP_API_URL + "yard/", this.yard)
         .then(response => {
           this.$notify({
             group: "success",
@@ -315,7 +315,7 @@ export default {
     },
     save: function() {
       axios
-        .put("http://127.0.0.1:8000/api/account/" + this.id + "/", this.account)
+        .put(process.env.VUE_APP_API_URL + "account/" + this.id + "/", this.account)
         .then(response => {
           this.account = response.data;
           this.$notify({

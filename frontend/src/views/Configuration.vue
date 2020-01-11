@@ -90,7 +90,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
+    axios.get(process.env.VUE_APP_API_URL + "jobtype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
           this.jobType.push(item);
@@ -99,7 +99,7 @@ export default {
       }
     });
 
-    axios.get("http://127.0.0.1:8000/api/jobexpensetype/").then(response => {
+    axios.get(process.env.VUE_APP_API_URL + "jobexpensetype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
           this.jobExpenseType.push(item);
@@ -112,7 +112,7 @@ export default {
     addJobType: function() {
       console.log("hi " + this.add.job_type);
       axios
-        .post("http://127.0.0.1:8000/api/jobtype/", this.add)
+        .post(process.env.VUE_APP_API_URL + "jobtype/", this.add)
         .then(response => {
           this.$notify({
             group: "success",
@@ -145,7 +145,7 @@ export default {
     deleteJobType: function(index) {
       console.log(this.jobType[index]);
       axios
-        .delete("http://127.0.0.1:8000/api/jobtype/" + this.jobType[index].job_typeid)
+        .delete(process.env.VUE_APP_API_URL + "jobtype/" + this.jobType[index].job_typeid)
         .then(response => {
           this.$notify({
             group: "success",
@@ -176,7 +176,7 @@ export default {
     addJobExpenseType: function() {
       console.log("hi " + this.add.job_expense_type);
       axios
-        .post("http://127.0.0.1:8000/api/jobexpensetype/", this.add)
+        .post(process.env.VUE_APP_API_URL + "jobexpensetype/", this.add)
         .then(response => {
           this.$notify({
             group: "success",
@@ -209,7 +209,7 @@ export default {
     deleteJobExpenseType: function(index) {
       console.log(this.jobExpenseType[index]);
       axios
-        .delete("http://127.0.0.1:8000/api/jobexpensetype/" + this.jobExpenseType[index].job_expense_typeid)
+        .delete(process.env.VUE_APP_API_URL + "jobexpensetype/" + this.jobExpenseType[index].job_expense_typeid)
         .then(response => {
           this.$notify({
             group: "success",

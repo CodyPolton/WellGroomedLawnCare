@@ -242,13 +242,13 @@ export default {
     this.accountid = this.$route.params.accountid;
 
     axios
-      .get("http://127.0.0.1:8000/api/yard/" + this.yardid + "/")
+      .get(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/")
       .then(response => {
         this.yard = response.data;
       });
 
     axios
-      .get("http://127.0.0.1:8000/api/yardjobs?yardid=" + this.yardid)
+      .get(process.env.VUE_APP_API_URL + "yardjobs?yardid=" + this.yardid)
       .then(response => {
         if (response.data) {
           response.data.forEach(item => {
@@ -257,7 +257,7 @@ export default {
         }
       });
 
-    axios.get("http://127.0.0.1:8000/api/jobtype/").then(response => {
+    axios.get(process.env.VUE_APP_API_URL + "jobtype/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
           this.jobTypes.push(item);
@@ -275,7 +275,7 @@ export default {
     },
     save: function() {
       axios
-        .put("http://127.0.0.1:8000/api/yard/" + this.yardid + "/", this.yard)
+        .put(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/", this.yard)
         .then(response => {
           if (response.data) {
             this.yard = response.data;
@@ -310,7 +310,7 @@ export default {
       console.log(this.job);
 
       axios
-        .post("http://127.0.0.1:8000/api/job/", this.job)
+        .post(process.env.VUE_APP_API_URL + "job/", this.job)
         .then(response => {
           this.$notify({
             group: "success",
@@ -342,7 +342,7 @@ export default {
     },
     yardMowed: function() {
       axios
-        .get("http://127.0.0.1:8000/api/yardmowedcheck?yardid=" + this.yardid)
+        .get(process.env.VUE_APP_API_URL + "yardmowedcheck?yardid=" + this.yardid)
         .then(response => {
           if (response.data.message == "Mowed today") {
             console.log(response.data.message);
@@ -369,7 +369,7 @@ export default {
       console.log(mowed);
 
       axios
-        .post("http://127.0.0.1:8000/api/job/", mowed)
+        .post(process.env.VUE_APP_API_URL + "job/", mowed)
         .then(response => {
           this.jobs.push(response.data);
           var mowexpense = {
@@ -382,7 +382,7 @@ export default {
           };
           console.log(mowexpense)
           axios
-            .post("http://127.0.0.1:8000/api/jobexpense/", mowexpense)
+            .post(process.env.VUE_APP_API_URL + "jobexpense/", mowexpense)
             .then(response => {
               this.$notify({
                 group: "success",
