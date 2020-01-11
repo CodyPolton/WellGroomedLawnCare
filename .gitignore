@@ -1,0 +1,9 @@
+frontend/node_modules/
+backend/venv
+.DS_Store
+/node_modules
+.vscode
+*.pyc
+*.log
+backend/backend-framework/framework/__pycache__
+backend/backend-framework/vueapi/log.log
