@@ -301,6 +301,7 @@ export default {
   mounted() {
 this.checkLoggedIn();
 console.log(this.$store.state.authenticated);
+console.log(process.env)
 console.log(process.env.VUE_APP_API_URL)
   },
   methods: {

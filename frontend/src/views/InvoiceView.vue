@@ -47,7 +47,7 @@ export default {
   },
   created() {
     this.id = this.$route.params.id;
-    this.docValue =  'https://www.codypolton.com/InvoiceTemplate.docx'
+    this.docValue =  process.env.VUE_APP_S3_BUCKET + 'InvoiceTemplate.docx'
     console.log(this.docValue)
 
   },

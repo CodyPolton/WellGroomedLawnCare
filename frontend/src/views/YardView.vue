@@ -10,9 +10,6 @@
         hi
         <v-btn v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
         <v-dialog v-model="confirmMowDialog" persistent max-width="400">
-          <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
-          </template>
           <v-card>
             <v-card-title class="headline">Yard Mowed Recently</v-card-title>
             <v-card-text>This yard has already been marked as mowed today. Just want to make sure you are not marking this yard as mowed twice in on day by accident.</v-card-text>
@@ -81,13 +78,21 @@
         </v-dialog>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
+          v-model="selected"
           :headers="headers"
           :items="jobs"
           :search="search"
+          :single-select="singleSelect"
+          show-select
+          item-key="jobid"
           :items-per-page="10"
           class="elevation-1"
           @click:row="handleClick"
-        ></v-data-table>
+        >
+        <template v-slot:top>
+          <v-btn color="primary"  @click="generateInvoice">Invoices</v-btn>
+        </template>
+        </v-data-table>
       </v-tab-item>
       <v-tab-item key="edit">
         <v-form ref="form" v-model="yardEdit">
@@ -137,6 +142,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+      selected: [],
+      singleSelect: false,
       date: new Date().toISOString().slice(0, 10),
       confirmMowDialog: false,
       yardEdit: false,
@@ -266,6 +273,12 @@ export default {
     });
   },
   methods: {
+    generateInvoice: function(){
+        console.log(this.selected)
+        axios
+      .post(process.env.VUE_APP_API_URL + "generateinvoice/" , {'selected':this.selected})
+      .then()
+    },
     back: function() {
       this.$router.go(-1);
     },
