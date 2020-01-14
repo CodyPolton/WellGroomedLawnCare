@@ -160,7 +160,7 @@ export default {
         job_type: null,
         date_completed: null,
         job_total: null,
-        billed: false,
+        invoiced: false,
         date_created: null,
         date_updated: null
       },
@@ -277,12 +277,13 @@ export default {
         console.log(this.yardid)
         axios
       .post(process.env.VUE_APP_API_URL + "generateinvoice/" ,{ jobs: this.selected})
-      .then(this.$notify({
+      .then(response => {
+        this.$notify({
               group: "success",
               title: "Generated Invoice Succesfully",
               type: "success"
             })
-      )
+      })
     },
     back: function() {
       this.$router.go(-1);
@@ -380,7 +381,7 @@ export default {
         job_type: "Mowing",
         date_completed: this.date,
         job_total: this.yard.mow_price,
-        billed: false,
+        invoiced: false,
         date_created: null,
         date_updated: null
       };

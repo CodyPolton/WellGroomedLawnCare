@@ -1,60 +1,98 @@
 <template>
   <v-app style="width: 100%;">
     <v-btn @click="back">Back</v-btn>
-    Inovice id = {{ id }}
-    <v-tabs 
-      background-color="grey accent-4" 
-      centered 
-      class="elevation-2" 
-      dark>
+    Inovice id = {{ invoice.invoiceid }}
+    <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">View Invoice</v-tab>
-      <v-tab-item >
-        <div class="tab-item-wrapper" >
-          <VueDocPreview 
-            :value="docValue" 
-            :type="type" />
+      <v-tab-item>
+        <div class="tab-item-wrapper">
+          <VueDocPreview :value="docValue" :type="type" />
         </div>
       </v-tab-item>
+
       <v-tab key="yards">Jobs</v-tab>
+      <v-tab-item>Jobs</v-tab-item>
 
+      <v-tab key="upload">Upload</v-tab>
+      <v-tab-item>
+        <v-file-input
+          v-model="file"
+          color="dark-green accent-4"
+          counter
+          label="Invoice Override Input"
+          multiple
+          placeholder="Select New Invoice Document"
+          prepend-icon="mdi-paperclip"
+          outlined
+          :show-size="1000"
+        >
+          <template v-slot:selection="{ index, text }">
+            <v-chip v-if="index < 2" color="dark-green accent-4" dark label small>{{ text }}</v-chip>
 
+            <span
+              v-else-if="index === 2"
+              class="overline grey--text text--darken-3 mx-2"
+            >+{{ files.length - 2 }} File(s)</span>
+          </template>
+        </v-file-input>
+        <v-btn color="dark-green" :disabled="!file" dark @click="invoiceOveride">Replace Invoice</v-btn>
+      </v-tab-item>
     </v-tabs>
   </v-app>
 </template>
 
 <script>
-import Vue from 'vue';
-import VueDocPreview from 'vue-doc-preview'
-
+import Vue from "vue";
+import VueDocPreview from "vue-doc-preview";
+import axios from "axios";
 
 // @ is an alias to /src
 export default {
   name: "InvoiceView",
-  components: {VueDocPreview},
+  components: { VueDocPreview },
   data() {
     return {
+      file: null,
+      invoice: null,
       publicPath: process.env.BASE_URL,
-      type: 'office',
-      docValue: '',
-      id: null,
-      mowprice: null,
-      state: null,
-      city: null,
-      zipcode: null,
-      address: null,
-
+      type: "office",
+      docValue: "",
+      id: null
     };
   },
   created() {
     this.id = this.$route.params.id;
-    this.docValue =  process.env.VUE_APP_S3_BUCKET + 'InvoiceTemplate.docx'
-    console.log(this.docValue)
+    //this.docValue =  process.env.VUE_APP_S3_BUCKET + 'InvoiceTemplate.docx'
 
+    axios
+      .get(process.env.VUE_APP_API_URL + "invoice/" + this.id + "/")
+      .then(response => {
+        this.invoice = response.data;
+        console.log(this.invoice);
+        this.docValue =
+          process.env.VUE_APP_S3_BUCKET +
+          "Invoices/" +
+          this.invoice.invoice_name;
+        console.log(this.docValue);
+      });
   },
   methods: {
     back: function() {
       this.$router.go(-1);
     },
+    invoiceOveride: function() {
+      var formData = new FormData();
+      formData.append('file',this.file);
+      formData.append('file_name', this.invoice.invoice_name)
+      axios.post(process.env.VUE_APP_API_URL + "overideinvoice/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      .then({
+
+      })
+    }
   }
 };
 </script>

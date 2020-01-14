@@ -267,6 +267,7 @@ export default {
         this.total += parseFloat(item.cost)
       });
     });
+    console.log(this.expenses)
   },
   mounted() {},
   directives: {

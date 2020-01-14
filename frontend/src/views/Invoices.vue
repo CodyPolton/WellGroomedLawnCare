@@ -1,11 +1,11 @@
 <template>
-  <v-app>
+  <v-app style="width: 100%;">
     <v-text-field 
       v-model="search" 
       append-icon="search" 
       label="Search" 
       single-line 
-      hide-details/>
+      hide-details></v-text-field>
     <v-data-table
       :headers="headers"
       :items="invoices"
@@ -13,11 +13,12 @@
       :items-per-page="10"
       class="elevation-1"
       @click:row="handleClick"
-    />
+    ></v-data-table>
   </v-app>
 </template>
 
 <script>
+import axios from "axios";
 // @ is an alias to /src
 export default {
   name: "Invoices",
@@ -30,29 +31,30 @@ export default {
           text: "Invoice Name",
           align: "left",
           sortable: false,
-          value: "iname"
+          value: "invoice_name"
         },
-        { text: "Month", value: "month" },
         { text: "Type", value: "type" },
         { text: "Approved", value: "approved" },
-        { text: "Total", value: "total" }
+        { text: "Total", value: "total_price" }
       ],
-      invoices: [
-        {
-          iname: "First",
-          month: "December",
-          Type: "Mowing",
-          Approved: "Yes",
-          Total: "125",
-          id: "1"
-        }
-      ]
+      invoices: [],
     };
+  },
+  created() {
+
+      axios.get(process.env.VUE_APP_API_URL + "invoice/").then(response => {
+      if (response.data) {
+        response.data.forEach(item => {
+          this.invoices.push(item);
+        });
+        console.log(this.invoices)
+      }
+    });
   },
   methods: {
       handleClick: function(value){
           console.log(value)
-          this.$router.push('/invoice/' + value.id);
+          this.$router.push('/invoice/' + value.invoiceid);
 
       },
   }
