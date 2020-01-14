@@ -274,10 +274,15 @@ export default {
   },
   methods: {
     generateInvoice: function(){
-        console.log(this.selected)
+        console.log(this.yardid)
         axios
-      .post(process.env.VUE_APP_API_URL + "generateinvoice/" , {'selected':this.selected})
-      .then()
+      .post(process.env.VUE_APP_API_URL + "generateinvoice/" ,{ jobs: this.selected})
+      .then(this.$notify({
+              group: "success",
+              title: "Generated Invoice Succesfully",
+              type: "success"
+            })
+      )
     },
     back: function() {
       this.$router.go(-1);
