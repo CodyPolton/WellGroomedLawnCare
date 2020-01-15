@@ -89,9 +89,9 @@
           class="elevation-1"
           @click:row="handleClick"
         >
-        <template v-slot:top>
-          <v-btn color="primary"  @click="generateInvoice">Invoices</v-btn>
-        </template>
+          <template v-slot:top>
+            <v-btn color="primary" @click="generateInvoice">Invoices</v-btn>
+          </template>
         </v-data-table>
       </v-tab-item>
       <v-tab-item key="edit">
@@ -144,7 +144,7 @@ export default {
     return {
       selected: [],
       singleSelect: false,
-      date: new Date().toISOString().slice(0, 10),
+      date: new Date().toJSON().slice(0, 10),
       confirmMowDialog: false,
       yardEdit: false,
       dialog: false,
@@ -273,17 +273,35 @@ export default {
     });
   },
   methods: {
-    generateInvoice: function(){
-        console.log(this.yardid)
+    generateInvoice: function() {
+      console.log(this.selected);
+      var goodToInvoice = true;
+      for (var job of this.selected) {
+        if (job.date_completed == null) {
+          this.$notify({
+            group: "error",
+            title:
+              "Make sure all the jobs have been marked as completed \n Job: " +
+              job.name +
+              " has not been completed.",
+            type: "error"
+          });
+          goodToInvoice = false
+        }
+      }
+      if (goodToInvoice) {
         axios
-      .post(process.env.VUE_APP_API_URL + "generateinvoice/" ,{ jobs: this.selected})
-      .then(response => {
-        this.$notify({
+          .post(process.env.VUE_APP_API_URL + "generateinvoice/", {
+            jobs: this.selected
+          })
+          .then(response => {
+            this.$notify({
               group: "success",
               title: "Generated Invoice Succesfully",
               type: "success"
-            })
-      })
+            });
+          });
+      }
     },
     back: function() {
       this.$router.go(-1);
@@ -294,7 +312,10 @@ export default {
     },
     save: function() {
       axios
-        .put(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/", this.yard)
+        .put(
+          process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/",
+          this.yard
+        )
         .then(response => {
           if (response.data) {
             this.yard = response.data;
@@ -361,7 +382,9 @@ export default {
     },
     yardMowed: function() {
       axios
-        .get(process.env.VUE_APP_API_URL + "yardmowedcheck?yardid=" + this.yardid)
+        .get(
+          process.env.VUE_APP_API_URL + "yardmowedcheck?yardid=" + this.yardid
+        )
         .then(response => {
           if (response.data.message == "Mowed today") {
             console.log(response.data.message);
@@ -399,7 +422,7 @@ export default {
             cost: this.yard.mow_price,
             date_purchased: this.date
           };
-          console.log(mowexpense)
+          console.log(mowexpense);
           axios
             .post(process.env.VUE_APP_API_URL + "jobexpense/", mowexpense)
             .then(response => {

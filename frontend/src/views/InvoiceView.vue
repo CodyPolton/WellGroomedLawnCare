@@ -11,8 +11,18 @@
       </v-tab-item>
 
       <v-tab key="yards">Jobs</v-tab>
-      <v-tab-item>Jobs</v-tab-item>
-
+      <v-tab-item>Jobs
+      <v-data-table
+          :headers="headers"
+          :items="jobs"
+          :search="search"
+          item-key="jobid"
+          :items-per-page="10"
+          class="elevation-1"
+          @click:row="handleClick"
+        >
+        </v-data-table>
+      </v-tab-item>
       <v-tab key="upload">Upload</v-tab>
       <v-tab-item>
         <!-- <v-file-input
@@ -56,17 +66,27 @@ export default {
   components: { VueDocPreview },
   data() {
     return {
+      jobs: [],
       file: null,
       invoice: null,
       publicPath: process.env.BASE_URL,
       type: "office",
       docValue: "",
-      id: null
+      id: null,
+      search: null,
+      headers: [
+        {
+          text: "Job Name",
+          align: "left",
+          value: "name"
+        },
+        { text: "Desciption", align: "middle", value: "description" },
+        { text: "Job Type", value: "job_type" }
+      ],
     };
   },
   created() {
     this.id = this.$route.params.id;
-    //this.docValue =  process.env.VUE_APP_S3_BUCKET + 'InvoiceTemplate.docx'
 
     axios
       .get(process.env.VUE_APP_API_URL + "invoice/" + this.id + "/")
@@ -75,14 +95,28 @@ export default {
         console.log(this.invoice);
         this.docValue =
           process.env.VUE_APP_S3_BUCKET +
-          "Invoices/" +
+          "media/Invoices/" +
           this.invoice.invoice_name;
         console.log(this.docValue);
+      });
+
+    axios
+      .get(process.env.VUE_APP_API_URL + "invoicejobs?invoiceid=" + this.id)
+      .then(response => {
+        if (response.data) {
+          response.data.forEach(item => {
+            this.jobs.push(item);
+          });
+        }
       });
   },
   methods: {
     back: function() {
       this.$router.go(-1);
+    },
+    handleClick: function(value) {
+      console.log(value.jobid);
+      this.$router.push("/job/" + value.jobid);
     },
     invoiceOveride: function() {
       console.log(this.file)
