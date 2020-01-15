@@ -15,7 +15,7 @@
 
       <v-tab key="upload">Upload</v-tab>
       <v-tab-item>
-        <v-file-input
+        <!-- <v-file-input
           v-model="file"
           color="dark-green accent-4"
           counter
@@ -34,8 +34,12 @@
               class="overline grey--text text--darken-3 mx-2"
             >+{{ files.length - 2 }} File(s)</span>
           </template>
-        </v-file-input>
-        <v-btn color="dark-green" :disabled="!file" dark @click="invoiceOveride">Replace Invoice</v-btn>
+        </v-file-input> -->
+
+
+        <input type="file" id="file" ref="file" v-on:change="onChangeFileUpload()"/>
+        <button v-on:click="submitForm()">Upload</button>
+        <!-- <v-btn color="dark-green" :disabled="!file" dark @click="invoiceOveride">Replace Invoice</v-btn> -->
       </v-tab-item>
     </v-tabs>
   </v-app>
@@ -81,18 +85,42 @@ export default {
       this.$router.go(-1);
     },
     invoiceOveride: function() {
+      console.log(this.file)
       var formData = new FormData();
-      formData.append('file',this.file);
+      formData.append('file',this.file)
       formData.append('file_name', this.invoice.invoice_name)
       axios.post(process.env.VUE_APP_API_URL + "overideinvoice/", formData, {
         headers: {
-          "Content-Type": "multipart/form-data"
+          'Content-Type': 'multipart/form-data'
         }
       })
       .then({
 
       })
-    }
+    },
+    submitForm(){
+            let formData = new FormData();
+            console.log(this.file)
+            formData.append('file', this.file);
+  
+            axios.post(process.env.VUE_APP_API_URL + "overideinvoice/",
+                formData,
+                {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+              }
+            ).then(function(data){
+              console.log(data.data);
+            })
+            .catch(function(){
+              console.log('FAILURE!!');
+            });
+      },
+  
+      onChangeFileUpload(){
+        this.file = this.$refs.file.files[0];
+      }
   }
 };
 </script>
