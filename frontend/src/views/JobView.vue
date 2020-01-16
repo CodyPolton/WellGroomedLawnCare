@@ -1,7 +1,6 @@
 <template >
   <v-app style="width: 100%;">
     <v-btn @click="back">Back</v-btn>
-    Accounts id = {{id}}
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">Details</v-tab>
       <v-tab key="expenses">Job Expenses</v-tab>
@@ -13,9 +12,25 @@
           color="blue darken-1"
           text
           :disabled="completed"
-          dark
           @click="completeJob"
         >Job Completed</v-btn>
+        <v-dialog v-model="deleteDialog" max-width="400px">
+                <template v-slot:activator="{ on }">
+                  <v-btn color="red" dark class="mb-2" v-on="on">Delete</v-btn>
+                </template>
+                <v-card v-if="deleteDialog">
+                  <div>
+                    <v-card-text>
+                      <span class="headline">Are you sure you want to delete this job?</span>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="red darken-1" text @click="deleteDialog = false">NO</v-btn>
+                      <v-btn color="green darken-1" text @click="deleteJob">YES</v-btn>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-dialog>
       </v-tab-item>
 
       <v-tab-item key="expenses">
@@ -133,6 +148,7 @@ export default {
   data() {
     return {
       completed: true,
+      deleteDialog: false,
       dialog: false,
       id: null,
       search: null,
@@ -153,7 +169,7 @@ export default {
         },
         { text: "Expense Description", align: "left", value: "description" },
         { text: "Cost", value: "cost" },
-        { text: "Actions", aligh: "right", value: "action", sortable: false }
+        { text: "Actions", align: "right", value: "action", sortable: false }
       ],
       valid1: null,
       expenses: [],
@@ -253,6 +269,41 @@ export default {
           }
         });
     },
+    deleteJob: function(){
+        console.log(this.job)
+        var yard = this.job.yard
+        axios
+        .delete(
+          process.env.VUE_APP_API_URL + "job/" + this.id
+        )
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Deleted Job Succesfully",
+            type: "success"
+          });
+           this.$router.push("/yard/" + yard);
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.expense) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error deleting expense. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
+    }, 
     //saving the job information
     save: function() {
       axios

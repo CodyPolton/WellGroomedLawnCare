@@ -45,6 +45,16 @@ export default {
       axios.get(process.env.VUE_APP_API_URL + "invoice/").then(response => {
       if (response.data) {
         response.data.forEach(item => {
+          if(item.paid == false) 
+            item.paid = "No"
+          else item.paid = 'Yes'
+          if(item.billed == false) 
+            item.billed = "No"
+          else item.billed = 'Yes'
+          if(item.approved == false) 
+            item.approved = "No"
+          else item.approved = 'Yes'
+          
           this.invoices.push(item);
         });
         console.log(this.invoices)

@@ -1,7 +1,6 @@
 <template>
   <v-app style="width: 100%; ">
     <v-btn @click="back">Back</v-btn>
-    Yard id = {{yardid}}
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
@@ -90,7 +89,7 @@
           @click:row="handleClick"
         >
           <template v-slot:top>
-            <v-btn color="primary" @click="generateInvoice">Invoices</v-btn>
+            <v-btn color="primary" @click="generateInvoice">Invoice Selected</v-btn>
           </template>
         </v-data-table>
       </v-tab-item>
@@ -127,7 +126,7 @@
             type="number"
             label="Mow Price"
             required
-          ></v-text-field>
+          >=</v-text-field>
 
           <v-btn :disabled="!yardEdit" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
@@ -164,18 +163,14 @@ export default {
         date_created: null,
         date_updated: null
       },
-      accountid: null,
       yardid: null,
       yard: {},
       jobs: [],
       headers: [
-        {
-          text: "Job Name",
-          align: "left",
-          value: "name"
-        },
+        {text: "Job Name",align: "left",value: "name"},
         { text: "Desciption", align: "middle", value: "description" },
-        { text: "Job Type", value: "job_type" }
+        { text: "Job Type", value: "job_type" },
+        {text: "Date Completed", value: 'date_completed'}
       ],
       states: [
         "MO",
@@ -246,7 +241,6 @@ export default {
   created() {
     this.yardid = this.$route.params.yardid;
     this.job.yard = this.yardid;
-    this.accountid = this.$route.params.accountid;
 
     axios
       .get(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/")
