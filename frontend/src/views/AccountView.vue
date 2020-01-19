@@ -86,7 +86,16 @@
         ></v-data-table>
       </v-tab-item>
 
-      <v-tab-item key="invoices">Invoices</v-tab-item>
+      <v-tab-item key="invoices">I
+        <v-data-table
+      :headers="invoiceheaders"
+      :items="invoices"
+      :search="invoicesearch"
+      :items-per-page="10"
+      class="elevation-1"
+      @click:row="handleInvoiceClick"
+    ></v-data-table>
+      </v-tab-item>
 
       <v-tab-item key="edit">
         <v-form ref="form" v-model="valid">
@@ -148,6 +157,8 @@ export default {
   name: "AccountView",
   data() {
     return {
+      invoicesearch: null,
+      invoices: [],
       loading: false,
       dialog: false,
       id: null,
@@ -162,6 +173,17 @@ export default {
         { text: "Zip Code", value: "zip_code" },
         { text: "State", value: "state" },
         { text: "Mow Price", value: "mow_price" }
+      ],
+      invoiceheaders: [
+        {
+          text: "Invoice Name",
+          align: "left",
+          sortable: false,
+          value: "invoice_name"
+        },
+        { text: "Type", value: "type" },
+        { text: "Approved", value: "approved" },
+        { text: "Total", value: "total_price" }
       ],
       yardtemp: {
         account: '',
@@ -268,13 +290,27 @@ export default {
           this.yards.push(item);
         });
       });
+
+    axios.get(process.env.VUE_APP_API_URL + "accountinvoices?id=" + this.id).then(response => {
+      if (response.data) {
+        
+        response.data.forEach(item => {
+          console.log(item)
+          this.invoices.push(item);
+        });
+        console.log(this.invoices)
+      }
+    });
     this.loading = false
   },
   mounted() {},
   components: {},
   methods: {
     handleClick: function(value) {
-      this.$router.push("/yard/" + this.id + "/" + value.yardid);
+      this.$router.push("/yard/" + value.yardid);
+    },
+    handleInvoiceClick: function(value){
+      this.$router.push('/invoice/' + value.invoiceid)
     },
     back: function() {
       this.$router.go(-1);

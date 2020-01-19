@@ -1,7 +1,6 @@
 <template>
   <v-app style="width: 100%; ">
     <v-btn @click="back">Back</v-btn>
-    Yard id = {{yardid}}
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
@@ -10,9 +9,6 @@
         hi
         <v-btn v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
         <v-dialog v-model="confirmMowDialog" persistent max-width="400">
-          <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
-          </template>
           <v-card>
             <v-card-title class="headline">Yard Mowed Recently</v-card-title>
             <v-card-text>This yard has already been marked as mowed today. Just want to make sure you are not marking this yard as mowed twice in on day by accident.</v-card-text>
@@ -81,13 +77,21 @@
         </v-dialog>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
+          v-model="selected"
           :headers="headers"
           :items="jobs"
           :search="search"
+          :single-select="singleSelect"
+          show-select
+          item-key="jobid"
           :items-per-page="10"
           class="elevation-1"
           @click:row="handleClick"
-        ></v-data-table>
+        >
+          <template v-slot:top>
+            <v-btn color="primary" @click="generateInvoice">Invoice Selected</v-btn>
+          </template>
+        </v-data-table>
       </v-tab-item>
       <v-tab-item key="edit">
         <v-form ref="form" v-model="yardEdit">
@@ -122,7 +126,7 @@
             type="number"
             label="Mow Price"
             required
-          ></v-text-field>
+          >=</v-text-field>
 
           <v-btn :disabled="!yardEdit" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
@@ -137,7 +141,9 @@ import axios from "axios";
 export default {
   data() {
     return {
-      date: new Date().toISOString().slice(0, 10),
+      selected: [],
+      singleSelect: false,
+      date: new Date().toJSON().slice(0, 10),
       confirmMowDialog: false,
       yardEdit: false,
       dialog: false,
@@ -153,22 +159,18 @@ export default {
         job_type: null,
         date_completed: null,
         job_total: null,
-        billed: false,
+        invoiced: false,
         date_created: null,
         date_updated: null
       },
-      accountid: null,
       yardid: null,
       yard: {},
       jobs: [],
       headers: [
-        {
-          text: "Job Name",
-          align: "left",
-          value: "name"
-        },
+        {text: "Job Name",align: "left",value: "name"},
         { text: "Desciption", align: "middle", value: "description" },
-        { text: "Job Type", value: "job_type" }
+        { text: "Job Type", value: "job_type" },
+        {text: "Date Completed", value: 'date_completed'}
       ],
       states: [
         "MO",
@@ -239,7 +241,6 @@ export default {
   created() {
     this.yardid = this.$route.params.yardid;
     this.job.yard = this.yardid;
-    this.accountid = this.$route.params.accountid;
 
     axios
       .get(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/")
@@ -266,6 +267,36 @@ export default {
     });
   },
   methods: {
+    generateInvoice: function() {
+      console.log(this.selected);
+      var goodToInvoice = true;
+      for (var job of this.selected) {
+        if (job.date_completed == null) {
+          this.$notify({
+            group: "error",
+            title:
+              "Make sure all the jobs have been marked as completed \n Job: " +
+              job.name +
+              " has not been completed.",
+            type: "error"
+          });
+          goodToInvoice = false
+        }
+      }
+      if (goodToInvoice) {
+        axios
+          .post(process.env.VUE_APP_API_URL + "generateinvoice/", {
+            jobs: this.selected
+          })
+          .then(response => {
+            this.$notify({
+              group: "success",
+              title: "Generated Invoice Succesfully",
+              type: "success"
+            });
+          });
+      }
+    },
     back: function() {
       this.$router.go(-1);
     },
@@ -275,7 +306,10 @@ export default {
     },
     save: function() {
       axios
-        .put(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/", this.yard)
+        .put(
+          process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/",
+          this.yard
+        )
         .then(response => {
           if (response.data) {
             this.yard = response.data;
@@ -342,7 +376,9 @@ export default {
     },
     yardMowed: function() {
       axios
-        .get(process.env.VUE_APP_API_URL + "yardmowedcheck?yardid=" + this.yardid)
+        .get(
+          process.env.VUE_APP_API_URL + "yardmowedcheck?yardid=" + this.yardid
+        )
         .then(response => {
           if (response.data.message == "Mowed today") {
             console.log(response.data.message);
@@ -362,7 +398,7 @@ export default {
         job_type: "Mowing",
         date_completed: this.date,
         job_total: this.yard.mow_price,
-        billed: false,
+        invoiced: false,
         date_created: null,
         date_updated: null
       };
@@ -380,7 +416,7 @@ export default {
             cost: this.yard.mow_price,
             date_purchased: this.date
           };
-          console.log(mowexpense)
+          console.log(mowexpense);
           axios
             .post(process.env.VUE_APP_API_URL + "jobexpense/", mowexpense)
             .then(response => {
