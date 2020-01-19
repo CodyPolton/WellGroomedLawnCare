@@ -1,7 +1,23 @@
 <template>
   <v-app style="width: 100%;">
     <v-btn @click="back">Back</v-btn>
-    Inovice id = {{ invoice.invoiceid }}
+    <v-dialog v-model="deleteDialog" max-width="400px">
+                <template v-slot:activator="{ on }">
+                  <v-btn color="red" dark class="mb-2" v-on="on">Delete</v-btn>
+                </template>
+                <v-card v-if="deleteDialog">
+                  <div>
+                    <v-card-text>
+                      <span class="headline">Are you sure you want to delete this Invoice?</span>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="red darken-1" text @click="deleteDialog = false">NO</v-btn>
+                      <v-btn color="green darken-1" text @click="deleteInvoice">YES</v-btn>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+    </v-dialog>
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details">View Invoice</v-tab>
       <v-tab-item>
@@ -25,28 +41,6 @@
       </v-tab-item>
       <v-tab key="upload">Upload</v-tab>
       <v-tab-item>
-        <!-- <v-file-input
-          v-model="file"
-          color="dark-green accent-4"
-          counter
-          label="Invoice Override Input"
-          multiple
-          placeholder="Select New Invoice Document"
-          prepend-icon="mdi-paperclip"
-          outlined
-          :show-size="1000"
-        >
-          <template v-slot:selection="{ index, text }">
-            <v-chip v-if="index < 2" color="dark-green accent-4" dark label small>{{ text }}</v-chip>
-
-            <span
-              v-else-if="index === 2"
-              class="overline grey--text text--darken-3 mx-2"
-            >+{{ files.length - 2 }} File(s)</span>
-          </template>
-        </v-file-input> -->
-
-
         <input type="file" id="file" ref="file" v-on:change="onChangeFileUpload()"/>
         <button v-on:click="submitForm()">Upload</button>
         <!-- <v-btn color="dark-green" :disabled="!file" dark @click="invoiceOveride">Replace Invoice</v-btn> -->
@@ -69,6 +63,7 @@ export default {
       jobs: [],
       file: null,
       invoice: null,
+      deleteDialog: false,
       publicPath: process.env.BASE_URL,
       type: "office",
       docValue: "",
@@ -107,6 +102,7 @@ export default {
           response.data.forEach(item => {
             this.jobs.push(item);
           });
+          console.log(this.jobs)
         }
       });
   },
@@ -150,11 +146,42 @@ export default {
             .catch(function(){
               console.log('FAILURE!!');
             });
-      },
-  
-      onChangeFileUpload(){
-        this.file = this.$refs.file.files[0];
-      }
+    },
+    deleteInvoice: function(){
+      console.log("delete Invoice")
+      console.log(this.jobs)
+     this.jobs.forEach(item => {
+       console.log(item)
+       item.invoiceid = ''
+       axios
+        .put(process.env.VUE_APP_API_URL + "job/" + item.jobid + "/", item)
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Job has the invoice removed from its record",
+            type: "success"
+          });
+        });
+     })
+      axios.get(process.env.VUE_APP_API_URL + "deleteinvoice?invoiceid=" + this.id).then(response => {
+      this.$notify({
+            group: "success",
+            title: "Invoice has been deleted!",
+            type: "success"
+          });
+      this.$router.go(-1);
+          
+    }).catch(error => {
+      this.$notify({
+                  group: "error",
+                  title: error.response.message,
+                  type: "error"
+                });
+          
+        });
+      
+      this.deleteDialog = false
+    }
   }
 };
 </script>
