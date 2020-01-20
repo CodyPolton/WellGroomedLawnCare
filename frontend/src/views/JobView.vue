@@ -339,7 +339,6 @@ export default {
     //this will create a new expense if index =-1, otherwise it will save the edited job expense
     saveExpense: function() {
       if (this.editedIndex === -1) {
-        console.log(this.expense);
         axios
           .post(process.env.VUE_APP_API_URL + "jobexpense/", this.expense)
           .then(response => {
@@ -376,6 +375,7 @@ export default {
               }
             }
           });
+          this.closeCounter++
       } else {
         axios
           .patch(
@@ -429,15 +429,14 @@ export default {
     editExpense: function(item) {
       this.editedIndex = this.expenses.indexOf(item);
       this.tempExpense = this.expenses[this.editedIndex];
-      this.expense.name = this.tempExpense.name;
-      this.expense.description = this.tempExpense.description;
-      this.expense.job_expense_type = this.tempExpense.job_expense_type;
-      this.expense.cost = this.tempExpense.cost;
-      this.expense.job_expenseid = this.tempExpense.job_expenseid;
+      this.expense.name = item.name;
+      this.expense.description = item.description;
+      this.expense.job_expense_type = item.job_expense_type;
+      this.expense.cost = item.cost;
+      this.expense.job_expenseid = item.job_expenseid;
       this.dialog = true;
     },
     deleteExpense: function(item) {
-      console.log(item);
       axios
         .delete(
           process.env.VUE_APP_API_URL + "jobexpense/" + item.job_expenseid

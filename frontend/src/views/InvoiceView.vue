@@ -131,6 +131,7 @@ export default {
     submitForm(){
             let formData = new FormData();
             console.log(this.file)
+            formData.append('id', this.id)
             formData.append('file', this.file);
   
             axios.post(process.env.VUE_APP_API_URL + "overideinvoice/",
@@ -140,12 +141,24 @@ export default {
                     'Content-Type': 'multipart/form-data'
                 }
               }
-            ).then(function(data){
-              console.log(data.data);
+            ).then(data =>{
+              this.$notify({
+                group: "success",
+                title: "The invoice has been overrided, please refresh the page",
+                type: "success"
+              });
             })
-            .catch(function(){
+            .catch(error => {
               console.log('FAILURE!!');
+              this.$notify({
+                  group: "error",
+                  title: 'Error overriding invoice, try again later or contact System Administration',
+                  type: "error"
+                });
             });
+    },
+    onChangeFileUpload() {
+    this.file = this.$refs.file.files[0];
     },
     deleteInvoice: function(){
       console.log("delete Invoice")
@@ -172,6 +185,7 @@ export default {
       this.$router.go(-1);
           
     }).catch(error => {
+      
       this.$notify({
                   group: "error",
                   title: error.response.message,
