@@ -90,7 +90,7 @@ export default {
         console.log(this.invoice);
         this.docValue =
           process.env.VUE_APP_S3_BUCKET +
-          "media/Invoices/" +
+          "Invoices/" +
           this.invoice.invoice_name;
         console.log(this.docValue);
       });

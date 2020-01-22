@@ -224,6 +224,7 @@ export default {
   },
   created() {
     this.loading = true;
+    console.log(process.env.VUE_APP_API_URL)
     axios
       .get(process.env.VUE_APP_API_URL + "account/")
       .then(response => {
