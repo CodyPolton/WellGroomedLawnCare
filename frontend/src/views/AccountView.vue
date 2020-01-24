@@ -307,7 +307,7 @@ export default {
   components: {},
   methods: {
     handleClick: function(value) {
-      this.$router.push("/yard/" + value.yardid);
+      this.$router.push("/yard/" + this.id + '/' + value.yardid);
     },
     handleInvoiceClick: function(value){
       this.$router.push('/invoice/' + value.invoiceid)

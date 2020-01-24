@@ -90,7 +90,7 @@ export default {
         console.log(this.invoice);
         this.docValue =
           process.env.VUE_APP_S3_BUCKET +
-          "media/Invoices/" +
+          "Invoices/" +
           this.invoice.invoice_name;
         console.log(this.docValue);
       });
@@ -166,6 +166,7 @@ export default {
      this.jobs.forEach(item => {
        console.log(item)
        item.invoiceid = ''
+       item.invoiced = false
        axios
         .put(process.env.VUE_APP_API_URL + "job/" + item.jobid + "/", item)
         .then(response => {

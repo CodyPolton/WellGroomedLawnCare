@@ -1,5 +1,6 @@
 <template>
   <v-app style="width: 100%;">
+    <v-btn @click="generateMowInvoices" color='primary'>Generate Mowing Invoices</v-btn>
     <v-text-field 
       v-model="search" 
       append-icon="search" 
@@ -63,10 +64,20 @@ export default {
   },
   methods: {
       handleClick: function(value){
-          console.log(value)
-          this.$router.push('/invoice/' + value.invoiceid);
+        this.$router.push('/invoice/' + value.invoiceid);
 
       },
+      generateMowInvoices: function(){
+        var date = new Date
+        var month = date.getMonth()
+        // Add this back in once developed
+        // if(month == '0' ){
+        //   month = '12'
+        // } 
+        month++
+        console.log(month)
+        
+      }
   }
 };
 </script>
