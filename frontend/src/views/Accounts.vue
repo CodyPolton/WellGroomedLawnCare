@@ -29,9 +29,8 @@
                       <v-text-field
                         v-model="account.l_name"
                         :counter="40"
-                        :rules="rule"
-                        label="Last Name*"
-                        required
+                        :rules='v => (v && v.length <= 40) || "Entry must be less than 40 characters"'
+                        label="Last Name"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="7" md="8">

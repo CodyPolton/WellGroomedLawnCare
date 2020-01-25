@@ -5,8 +5,7 @@
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
       <v-tab key="edit">Edit</v-tab>
-      <v-tab-item key="details">
-        hi
+      <v-tab-item key="details">]
         <v-btn v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
         <v-dialog v-model="confirmMowDialog" persistent max-width="400">
           <v-card>
@@ -14,7 +13,7 @@
             <v-card-text>This yard has already been marked as mowed today. Just want to make sure you are not marking this yard as mowed twice in on day by accident.</v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="green darken-1" text @click="confirmMowDialog = false">Did Not Mow Again</v-btn>
+              <v-btn color="red darken-1" text @click="confirmMowDialog = false">Did Not Mow Again</v-btn>
               <v-btn
                 color="green darken-1"
                 text

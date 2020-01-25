@@ -7,9 +7,8 @@
                 </template>
                 <v-card v-if="deleteDialog">
                   <div>
-                    <v-card-text>
-                      <span class="headline">Are you sure you want to delete this Invoice?</span>
-                    </v-card-text>
+                    <v-card-title class="headline">Delete Invoice</v-card-title>
+                    <v-card-text>Are you sure you want to delete this Invoice?</v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
                       <v-btn color="red darken-1" text @click="deleteDialog = false">NO</v-btn>
@@ -22,6 +21,22 @@
       <v-tab key="details">View Invoice</v-tab>
       <v-tab-item>
         <div class="tab-item-wrapper">
+          <v-btn color='red' @click="approve" v-if='!invoice.approved'>Approve</v-btn>
+          <v-btn color='green'  @click="approve" v-if='invoice.approved'>Approved</v-btn>
+          <v-btn color="red" v-if='invoice.approved' dark @click="emailDialog = true" >Email Invoice</v-btn>
+          <v-dialog v-model="emailDialog" max-width="400px">
+                <v-card v-if="emailDialog">
+                  <div>
+                     <v-card-title class="headline">Email Invoice</v-card-title>
+                      <v-card-text>Are you sure you want to email this invoice to the customer?</v-card-text>
+                      <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="red darken-1" text @click="emailDialog = false">NO</v-btn>
+                      <v-btn color="green darken-1" text @click="emailInvoice">YES</v-btn>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+    </v-dialog>
           <VueDocPreview :value="docValue" :type="type" />
         </div>
       </v-tab-item>
@@ -61,8 +76,16 @@ export default {
   data() {
     return {
       jobs: [],
+      emailDialog: null,
       file: null,
-      invoice: null,
+      invoice: {
+        invoiceid: null,
+        approved: null,
+        total_price: null,
+        invoice_name: null,
+        paid: null,
+        billed: null,
+      },
       deleteDialog: false,
       publicPath: process.env.BASE_URL,
       type: "office",
@@ -107,6 +130,84 @@ export default {
       });
   },
   methods: {
+    emailInvoice: function(){
+      axios
+        .post(process.env.VUE_APP_API_URL + "emailinvoice/", {invoice: this.invoice.invoiceid})
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Emailed Invoice Succesfully",
+            type: "success"
+          });
+          this.emailDialog = false;
+        })
+        .catch(error => {
+          if(error.response){
+            console.log(error.response)
+            var message = error.response.data.message
+            if(error.response.status == 500){
+              message = "500 Internal Server Error. Contact Admin"
+            }
+            this.$notify({
+              group: "error",
+              title: message,
+              type: "error"
+            });
+          }
+          this.emailDialog = false;
+        });
+    },
+    approve: function(){
+      if(this.invoice.approved){
+        this.invoice.approved = false
+      }
+      else if(!this.invoice.approved){
+        this.invoice.approved = true
+      }
+        axios
+        .put(
+          process.env.VUE_APP_API_URL + "invoice/" + this.id + "/",
+          this.invoice
+        )
+        .then(response => {
+          if (response.data) {
+            this.invoice = response.data;
+            if(this.invoice.approved){
+              this.$notify({
+                group: "success",
+                title: "Invoice Approved",
+                type: "success"
+              });
+            }
+            else if(!this.invoice.approved){
+              this.$notify({
+                group: "success",
+                title: "Invoice Unapproved",
+                type: "success"
+              });
+            }
+          }
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.invoice) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error approving Invoice. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
+    },
     back: function() {
       this.$router.go(-1);
     },
