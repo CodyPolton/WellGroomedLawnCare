@@ -18,6 +18,22 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+      <v-btn @click="confirmEmailDialog = true" color='blue'>Email All Approved Invoices</v-btn>
+        <v-dialog v-model="confirmEmailDialog"  max-width="400">
+          <v-card>
+            <v-card-title class="headline">Email All Approved Invoices</v-card-title>
+            <v-card-text>Are you sure you want to email every approved email that has not been sent? Once you click yes you can not stop it.</v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="red darken-1" text @click="confirmEmailDialog = false">No</v-btn>
+              <v-btn
+                color="green darken-1"
+                text
+                @click="emailInvoices(); confirmEmailDialog = false"
+              >Email Invoices</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
     <v-text-field 
       v-model="search" 
       append-icon="search" 
@@ -54,14 +70,16 @@ export default {
           sortable: false,
           value: "invoice_name"
         },
-        { text: "Type", value: "type" },
+        { text: "Type", value: "invoice_type" },
         { text: "Approved", value: "approved" },
+        { text: "Billed", value: "billed"},
         { text: "Total", value: "total_price" }
       ],
       invoices: [],
       confirmMowDialog: false,
       mowloading: false,
       fullPage: true,
+      confirmEmailDialog: false,
     };
   },
   created() {
@@ -87,9 +105,40 @@ export default {
   },
   methods: {
       handleClick: function(value){
-        this.$router.push('/invoice/' + value.invoiceid);
+        this.$router.push('/invoice/' + value.invoiceid)
+
 
       },
+      emailInvoices: function(){
+        this.mowloading = true
+        axios
+        .get(
+          process.env.VUE_APP_API_URL + "emailallinvoices"
+        )
+        .then(response => {
+          if (response.data) {
+            this.yard = response.data;
+            this.$notify({
+              group: "success",
+              title: "Finished Emailing Invoices",
+              type: "success"
+            });
+          }
+          this.mowloading = false;
+        })
+        .catch(error => {
+          if (error.response) {
+            console.log(error.response)
+            this.$notify({
+              group: "error",
+              title: error.response.data.message,
+              type: "error"
+            });
+          }
+          this.mowloading = false;
+        });
+
+      }, 
       generateMowInvoices: function(){
         this.mowloading = true
         var date = new Date

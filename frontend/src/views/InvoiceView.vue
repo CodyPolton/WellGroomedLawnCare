@@ -23,7 +23,7 @@
         <div class="tab-item-wrapper">
           <v-btn color='red' @click="approve" v-if='!invoice.approved'>Approve</v-btn>
           <v-btn color='green'  @click="approve" v-if='invoice.approved'>Approved</v-btn>
-          <v-btn color="red" v-if='invoice.approved' dark @click="emailDialog = true" >Email Invoice</v-btn>
+          <v-btn color="red" v-if='invoice.approved && !invoice.billed' dark @click="emailDialog = true" >Email Invoice</v-btn>
           <v-dialog v-model="emailDialog" max-width="400px">
                 <v-card v-if="emailDialog">
                   <div>
