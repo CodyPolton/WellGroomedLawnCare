@@ -52,7 +52,7 @@
             </v-toolbar>
           </template>
           <template v-slot:item.action="{ item }">
-            <v-icon :disabled='item.crew != crew'color="green" class="mr-2" @click="scheduleYard(item)">mdi-plus</v-icon>
+            <v-icon :disabled='item.crew != crew && item.crew != "" 'color="green" class="mr-2" @click="scheduleYard(item)">mdi-plus</v-icon>
           </template>
         </v-data-table>
         <v-container >
@@ -320,7 +320,7 @@
 import axios from "axios";
 // @ is an alias to /src
 export default {
-  name: 'ScheduleView',
+  name: 'Schedule',
   components: {
   },
   data (){
@@ -410,6 +410,10 @@ export default {
       this.yard = item 
     },
     addToDay: function(day){
+      if(this.yard.days['0'] == 'None'){
+        this.yard.days.pop()
+      }
+      
       if(day == 1){
         this.day1.push(this.yard)
       }else if(day ==2){
@@ -439,9 +443,15 @@ export default {
       this.yard.crew = this.crew
       this.yard.days.push('Day' + day)
       this.saveYardChange()
+      if (this.yard.scheduled) {
+        this.yard.scheduled = "YES";
+      } else {
+        this.yard.scheduled = "NO";
+      }
       this.dialog = false
     },
-    deleteYardFromDay: function(day, yard){      
+    deleteYardFromDay: function(day, yard){
+      this.yard = yard      
       if(day == 1){
         this.day1.splice(this.day1.indexOf(yard), 1);
       }else if(day ==2){
@@ -467,11 +477,18 @@ export default {
       }else if(day ==12){
         this.day12.splice(this.day12.indexOf(yard), 1);
       }
-      this.yard.days.splice(this.yard.days.indexOf('Day' + day), 1)
+      this.yard.days.splice(yard.days.indexOf('Day' + day), 1)
       if(!this.yard.days.length){
         this.yard.scheduled = false
+        this.yard.crew = ''
+        this.yard.days.push('None')
       }
       this.saveYardChange()
+      if (this.yard.scheduled) {
+        this.yard.scheduled = "YES";
+      } else {
+        this.yard.scheduled = "NO";
+      }
     },
     saveYardChange: function(){
       axios
@@ -480,11 +497,7 @@ export default {
         )
         .then(response => {
           if (response.data) {
-            if (item.scheduled) {
-              item.scheduled = "YES";
-            } else {
-              item.scheduled = "NO";
-            }
+            this.yard = response.data
             this.$notify({
               group: "success",
               title: "Change was Successful",

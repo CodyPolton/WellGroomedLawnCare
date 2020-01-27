@@ -7,11 +7,12 @@ import Accounts from '../views/Accounts.vue';
 import AccountView from '../views/AccountView.vue';
 import YardView from '../views/YardView.vue';
 import InvoiceView from '../views/InvoiceView.vue';
-import ScheduleView from '../views/ScheduleView.vue';
+import Schedule from '../views/Schedule.vue';
 import Route from '../views/Route.vue';
 import Login from '../components/Login.vue';
 import Config from '../views/Configuration.vue'
 import JobView from '../views/JobView.vue'
+import CrewView from '../views/CrewView.vue'
 
 Vue.use(VueRouter)
 
@@ -52,9 +53,9 @@ const routes = [
     component: InvoiceView,
   },
   {
-    path: '/schedule',
-    name: 'scheduleview',
-    component: ScheduleView,
+    path: '/schedules',
+    name: 'schedule',
+    component: Schedule,
   },
   {
     path: '/route*',
@@ -75,6 +76,11 @@ const routes = [
     path: '/job/:id',
     name: 'JobView',
     component: JobView
+  },
+  {
+    path: '/crew/:crewid',
+    name: 'CrewView',
+    component: CrewView
   }
 ]
 

@@ -317,7 +317,6 @@ export default {
                   }
                 }
               });
-            this.$refs.form.reset();
           }
         })
         .catch(error => {
