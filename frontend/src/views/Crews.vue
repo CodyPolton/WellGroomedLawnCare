@@ -3,8 +3,7 @@
     <v-layout>
       <v-flex>
         <v-btn @click="back">Back</v-btn>
-        
-        
+
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
         <v-data-table
           :loading="loading"
@@ -22,9 +21,7 @@
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="300px">
                 <template v-slot:activator="{ on }">
-                  <v-btn
-                  color="blue darken-1" text @click="dialog = true"
-                  >Create Crew</v-btn>
+                  <v-btn color="blue darken-1" text @click="dialog = true">Create Crew</v-btn>
                 </template>
                 <v-card>
                   <v-card-title>
@@ -37,15 +34,22 @@
                         <v-row>
                           <v-col cols="12" sm="12" md="12">
                             <v-text-field
-                            v-model="crew.name"
-                            :counter="40"
-                            :rules="[v => !!v || 'Crew Name is required']"
-                            label="Crew Name*"
-                            required
+                              v-model="crew.name"
+                              :counter="40"
+                              :rules="[v => !!v || 'Crew Name is required']"
+                              label="Crew Name*"
+                              required
                             ></v-text-field>
                           </v-col>
                         </v-row>
-                        <v-btn right :disabled="!valid" color="success" text class="mr-4" @click="addCrew">Create</v-btn>
+                        <v-btn
+                          right
+                          :disabled="!valid"
+                          color="success"
+                          text
+                          class="mr-4"
+                          @click="addCrew"
+                        >Create</v-btn>
                       </v-form>
                     </v-container>
                   </v-card-text>
@@ -63,10 +67,9 @@
 import axios from "axios";
 // @ is an alias to /src
 export default {
-  name: 'Crews',
-  components: {
-  },
-  data (){
+  name: "Crews",
+  components: {},
+  data() {
     return {
       dialog: null,
       loading: false,
@@ -75,28 +78,26 @@ export default {
       crews: [],
       crew: {
         name: null
-      }, 
+      },
       headers: [
-        {text: "Crew Name",align: "left",value: "name" },
-        { text: "Crew Lead", align: "left", value: "crew_lead" },
-      ],
-    }
+        { text: "Crew Name", align: "left", value: "name" },
+        { text: "Crew Lead", align: "left", value: "crew_lead" }
+      ]
+    };
   },
-  created(){
-    this.loading = true
-    axios
-      .get(process.env.VUE_APP_API_URL + "crew" )
-      .then(response => {
-        if (response.data) {
+  created() {
+    this.loading = true;
+    axios.get(process.env.VUE_APP_API_URL + "crew").then(response => {
+      if (response.data) {
         response.data.forEach(item => {
           this.crews.push(item);
         });
-        this.loading = false
+        this.loading = false;
       }
-      });
+    });
   },
   methods: {
-    addCrew: function(){
+    addCrew: function() {
       axios
         .post(process.env.VUE_APP_API_URL + "crew/", this.crew)
         .then(response => {
@@ -129,10 +130,10 @@ export default {
           }
         });
     },
-    handleClick: function(item){
+    handleClick: function(item) {
       this.$router.push("/crew/" + item.crewid);
     },
-    back: function(){
+    back: function() {
       this.$router.go(-1);
     }
   }
