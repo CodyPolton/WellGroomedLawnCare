@@ -171,7 +171,7 @@
         <v-form ref="form" v-model="valid">
           <span>Enter yard information:</span>
           <v-text-field
-            v-model="saveCrew.name"
+            v-model="crew.name"
             :counter="40"
             :rules="[v => !!v || 'Crew Name is required']"
             label="Crew Name*"
@@ -179,7 +179,7 @@
             ></v-text-field>
 
             <v-text-field
-            v-model="saveCrew.crew_lead"
+            v-model="crew.crew_lead"
             :counter="40"
             label="Crew Lead Name*"
             ></v-text-field>
@@ -202,8 +202,10 @@ export default {
   components: {},
   data() {
     return {
-      crew: null,
-      saveCrew: null,
+      crew: {
+          name: '',
+          crew_lead: ''
+      },
       crewName: null,
       yards: [],
       item: null,
@@ -241,7 +243,6 @@ export default {
       .get(process.env.VUE_APP_API_URL + "crew/" + this.crewid + "/")
       .then(response => {
         this.crew = response.data;
-        this.saveCrew = this.crew
         this.crewName = this.crew.name
       
 
@@ -301,13 +302,13 @@ export default {
         axios
         .put(
           process.env.VUE_APP_API_URL + "crew/" + this.crewid + "/",
-          this.saveCrew
+          this.crew
         )
         .then(response => {
           if (response.data) {
               this.yards.forEach(yard =>{
                   if(yard.crew == this.crewName){
-                      yard.crew = this.saveCrew.name
+                      yard.crew = this.crew.name
                       axios
                         .put(
                         process.env.VUE_APP_API_URL + "yard/" + yard.yardid + "/",
