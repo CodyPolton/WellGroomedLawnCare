@@ -376,7 +376,7 @@ export default {
             title: "Added Job Succesfully",
             type: "success"
           });
-          this.jobs.push(response.data);
+          this.jobs.unshift(response.data);
           this.dialog = false;
         })
         .catch(error => {

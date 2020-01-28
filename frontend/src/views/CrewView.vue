@@ -1,6 +1,6 @@
 <template>
   <v-app style="width: 100%;">
-      <v-btn @click="back">Back</v-btn>
+    <v-btn @click="back">Back</v-btn>
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="schedule">Schedule</v-tab>
       <v-tab key="edit">Edit</v-tab>
@@ -165,9 +165,9 @@
             </v-flex>
           </v-layout>
         </v-container>
-    </v-tab-item>
+      </v-tab-item>
 
-    <v-tab-item key="edit">
+      <v-tab-item key="edit">
         <v-form ref="form" v-model="valid">
           <span>Enter yard information:</span>
           <v-text-field
@@ -176,20 +176,13 @@
             :rules="[v => !!v || 'Crew Name is required']"
             label="Crew Name*"
             required
-            ></v-text-field>
+          ></v-text-field>
 
-            <v-text-field
-            v-model="crew.crew_lead"
-            :counter="40"
-            label="Crew Lead Name*"
-            ></v-text-field>
-          
+          <v-text-field v-model="crew.crew_lead" :counter="40" label="Crew Lead Name*"></v-text-field>
 
           <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
       </v-tab-item>
-
-    
     </v-tabs>
   </v-app>
 </template>
@@ -203,8 +196,8 @@ export default {
   data() {
     return {
       crew: {
-          name: '',
-          crew_lead: ''
+        name: "",
+        crew_lead: ""
       },
       crewName: null,
       yards: [],
@@ -243,80 +236,78 @@ export default {
       .get(process.env.VUE_APP_API_URL + "crew/" + this.crewid + "/")
       .then(response => {
         this.crew = response.data;
-        this.crewName = this.crew.name
-      
+        this.crewName = this.crew.name;
 
-    axios
-      .get(process.env.VUE_APP_API_URL + "yard/")
-      .then(response => {
-        response.data.forEach(item => {
-          if (item.scheduled) {
-            item.scheduled = "YES";
-          } else {
-            item.scheduled = "NO";
-          }
-          if (item.crew == this.crew.name) {
-            item.days.forEach(x => {
-              if (x == "Day1") {
-                this.day1.push(item);
-              } else if (x == "Day2") {
-                this.day2.push(item);
-              } else if (x == "Day3") {
-                this.day3.push(item);
-              } else if (x == "Day4") {
-                this.day4.push(item);
-              } else if (x == "Day5") {
-                this.day5.push(item);
-              } else if (x == "Day6") {
-                this.day6.push(item);
-              } else if (x == "Day7") {
-                this.day7.push(item);
-              } else if (x == "Day8") {
-                this.day8.push(item);
-              } else if (x == "Day9") {
-                this.day9.push(item);
-              } else if (x == "Day10") {
-                this.day10.push(item);
-              } else if (x == "Day11") {
-                this.day11.push(item);
-              } else if (x == "Day12") {
-                this.day12.push(item);
+        axios
+          .get(process.env.VUE_APP_API_URL + "yard/")
+          .then(response => {
+            response.data.forEach(item => {
+              if (item.scheduled) {
+                item.scheduled = "YES";
+              } else {
+                item.scheduled = "NO";
               }
-              this.yards.push(item)
+              if (item.crew == this.crew.name) {
+                item.days.forEach(x => {
+                  if (x == "Day1") {
+                    this.day1.push(item);
+                  } else if (x == "Day2") {
+                    this.day2.push(item);
+                  } else if (x == "Day3") {
+                    this.day3.push(item);
+                  } else if (x == "Day4") {
+                    this.day4.push(item);
+                  } else if (x == "Day5") {
+                    this.day5.push(item);
+                  } else if (x == "Day6") {
+                    this.day6.push(item);
+                  } else if (x == "Day7") {
+                    this.day7.push(item);
+                  } else if (x == "Day8") {
+                    this.day8.push(item);
+                  } else if (x == "Day9") {
+                    this.day9.push(item);
+                  } else if (x == "Day10") {
+                    this.day10.push(item);
+                  } else if (x == "Day11") {
+                    this.day11.push(item);
+                  } else if (x == "Day12") {
+                    this.day12.push(item);
+                  }
+                  this.yards.push(item);
+                });
+              }
             });
-          }
-        });
-        this.loading = false;
-      })
-      .catch(error => {
-        this.$notify({
-          group: "error",
-          title: "Backend is down please contact your System adminstartor.",
-          type: "error"
-        });
+            this.loading = false;
+          })
+          .catch(error => {
+            this.$notify({
+              group: "error",
+              title: "Backend is down please contact your System adminstartor.",
+              type: "error"
+            });
+          });
       });
-    });
   },
   methods: {
-    save: function(){
-        axios
+    save: function() {
+      axios
         .put(
           process.env.VUE_APP_API_URL + "crew/" + this.crewid + "/",
           this.crew
         )
         .then(response => {
           if (response.data) {
-              this.yards.forEach(yard =>{
-                  if(yard.crew == this.crewName){
-                      yard.crew = this.crew.name
-                      axios
-                        .put(
-                        process.env.VUE_APP_API_URL + "yard/" + yard.yardid + "/",
-                        yard
-                        )
-                  }
-                  this.crew = response.data;
-              })
+            this.yards.forEach(yard => {
+              if (yard.crew == this.crewName) {
+                yard.crew = this.crew.name;
+                axios.put(
+                  process.env.VUE_APP_API_URL + "yard/" + yard.yardid + "/",
+                  yard
+                );
+              }
+              this.crew = response.data;
+            });
 
             this.$notify({
               group: "success",
@@ -347,20 +338,30 @@ export default {
         });
     },
     route: function(addresses) {
-      console.log(addresses);
-      var url = "/route?";
-      var i = 1;
-      for (var x in addresses) {
-        if (i == 1) {
-          var waypoint = "waypoint1=";
-        } else {
-          var waypoint = "&waypoint" + i + "=";
+      if (addresses.length == 0) {
+        this.$notify({
+          group: "error",
+          title: "There are no yards to generate a route",
+          type: "error"
+        });
+        return;
+      } else {
+        console.log(addresses);
+
+        var url = "/route?";
+        var i = 1;
+        for (var x in addresses) {
+          if (i == 1) {
+            var waypoint = "waypoint1=";
+          } else {
+            var waypoint = "&waypoint" + i + "=";
+          }
+          url = url + waypoint + addresses[x].address + ", " + addresses[x].city + ", " + addresses[x].state + " " + addresses[x].zip_code;
+          i++;
         }
-        url = url + waypoint + addresses[x].address;
-        i++;
+        console.log("The route is " + url);
+        this.$router.push(url)
       }
-      console.log("The route is " + url);
-      //this.$router.push(url)
     },
     back: function() {
       this.$router.go(-1);
