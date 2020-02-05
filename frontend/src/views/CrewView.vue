@@ -348,11 +348,11 @@ export default {
       } else {
         console.log(addresses);
 
-        var url = "/route?";
+        var url = "/route?crewid=" + this.crew.name;
         var i = 1;
         for (var x in addresses) {
           if (i == 1) {
-            var waypoint = "waypoint1=";
+            var waypoint = "&waypoint1=";
           } else {
             var waypoint = "&waypoint" + i + "=";
           }
