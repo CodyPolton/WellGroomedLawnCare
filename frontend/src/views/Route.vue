@@ -1,10 +1,35 @@
 <template>
   <v-app style="width: 100%; ">
     <v-btn @click="back">Back</v-btn>
-
-    <div id="map" style="width: 100%; height: 90%; position: absolute;">
-      <div id="map-canvas" />
-    </div>
+    <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
+      <v-tab key="map">Map</v-tab>
+      <v-tab key="route">Route</v-tab>
+      <v-tab-item key="map" >
+        <div style="width: 100%; height: 500px;">
+          <div id="map" style="width: 100%; height: 90%; position: absolute;">
+            <div id="map-canvas" />
+          </div>
+        </div>
+      </v-tab-item>
+      <v-tab-item key="route">
+        <v-btn @click="route">route</v-btn>
+        <v-list dense>
+            <v-list-item-group v-model="item" color="primary">
+              <v-list-item v-for="(item, i) in routeYards" :key="i" @click='goToYard(item)'>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.address"></v-list-item-title>
+                </v-list-item-content>
+                <v-list-item-action>
+                  <v-btn icon>
+                    <v-icon color="red lighten-1" >mdi-close</v-icon>
+                  </v-btn>
+                </v-list-item-action>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+      </v-tab-item>
+    </v-tabs>
+    
   </v-app>
 </template>
 
@@ -18,6 +43,7 @@ export default {
   data() {
     return {
       crew: null,
+      item: null,
       params: null,
       crewYards: [],
       routeYards: [],
@@ -59,6 +85,8 @@ export default {
     },
     calculateAndDisplayRoute: function(directionsService, directionsRenderer) {
       var waypts = [];
+      var yards = this.crewYards
+      var route = this.routeYards;
       for (var x in this.params) {
         if (x != "crewid") {
           var address = { location: this.params[x] };
@@ -78,7 +106,37 @@ export default {
         function(response, status) {
           if (status === "OK") {
             console.log(response);
-            this.makeRoute()
+            console.log("ok");
+            console.log(yards)
+      response["routes"].forEach(element => {
+        element.legs.forEach(element => {
+          console.log(element.end_address)
+          var matched = false
+          var address = element.end_address.split(",");
+          yards.forEach(x =>{
+            if (!matched && x.address.includes(address[0])) {
+              console.log(address[0]);
+              console.log("match");
+              console.log(x);
+              route.push(x);
+              matched = true
+            }
+          })
+          if(!matched){
+            var add2 = element.end_address.split(" ");
+            yards.forEach(x =>{
+            if (!matched && x.address.includes(add2[0]) && x.address.includes(add2[1])) {
+              console.log("match 2");
+              console.log(x);
+              route.push(x);
+              matched = true
+            }
+            })
+          }
+            
+          
+        });
+      });
             console.log(response["routes"]);
             directionsRenderer.setDirections(response);
           } else {
@@ -86,27 +144,21 @@ export default {
           }
         }
       );
+      // this.routeYards = route
+      console.log(this.routeYards)
     },
     back: function() {
       this.$router.go(-1);
     },
-    makeRoute: function() {
-      console.log("ok");
-      response["routes"].forEach(element => {
-        element.legs.forEach(element => {
-          var address = element.end_address.split(",");
-          console.log(address[0]);
-          for (var x in this.crewYards) {
-            console.log(x.address);
-            if (x.address.includes(address[0])) {
-              console.log("match");
-              this.routeYards.push(x);
-            }
-          }
-        });
-      });
+    route: function() {
+      
       console.log(this.routeYards);
+    },
+    goToYard: function(value){
+      console.log(value)
+      this.$router.push("/yard/" + value.account + "/" + value.yardid);
     }
+
   }
 };
 </script>
