@@ -76,7 +76,6 @@
       <v-layout class="d-flex flex-wrap">
         <v-flex xs3>
           <h2>Day 1 (Monday)</h2>
-          <v-btn @click="route(day1)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day1" :key="i">
@@ -94,7 +93,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 2 (Tuesday)</h2>
-          <v-btn @click="route(day2)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day2" :key="i">
@@ -112,7 +110,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 3 (Wednesday)</h2>
-          <v-btn @click="route(day3)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day3" :key="i">
@@ -130,7 +127,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 4 (Thursday)</h2>
-          <v-btn @click="route(day4)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day4" :key="i">
@@ -148,7 +144,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 5 (Friday)</h2>
-          <v-btn @click="route(day5)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day5" :key="i">
@@ -166,7 +161,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 6 (Saturday)</h2>
-          <v-btn @click="route(day6)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day6" :key="i">
@@ -184,7 +178,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 7 (Monday)</h2>
-          <v-btn @click="route(day7)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day7" :key="i">
@@ -202,7 +195,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 8 (Tuesday)</h2>
-          <v-btn @click="route(day8)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day8" :key="i">
@@ -220,7 +212,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 9 (Wednesday)</h2>
-          <v-btn @click="route(day9)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day9" :key="i">
@@ -238,7 +229,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 10 (Thursday)</h2>
-          <v-btn @click="route(day10)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day10" :key="i">
@@ -256,7 +246,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 11 (Friday)</h2>
-          <v-btn @click="route(day11)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day11" :key="i">
@@ -274,7 +263,6 @@
         </v-flex>
         <v-flex xs3>
           <h2>Day 12 (Saturday)</h2>
-          <v-btn @click="route(day12)">Route</v-btn>
           <v-list dense>
             <v-list-item-group v-model="item" color="primary">
               <v-list-item v-for="(item, i) in day12" :key="i">
@@ -563,22 +551,6 @@ export default {
           }
         });
     },
-    route: function(addresses) {
-      console.log(addresses);
-      var url = "/route?";
-      var i = 1;
-      for (var x in addresses) {
-        if (i == 1) {
-          var waypoint = "waypoint1=";
-        } else {
-          var waypoint = "&waypoint" + i + "=";
-        }
-        url = url + waypoint + addresses[x].address;
-        i++;
-      }
-      console.log("The route is " + url);
-      //this.$router.push(url)
-    }
   }
 };
 </script>

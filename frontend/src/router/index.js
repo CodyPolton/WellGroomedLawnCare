@@ -13,6 +13,7 @@ import Login from '../components/Login.vue';
 import Config from '../views/Configuration.vue'
 import JobView from '../views/JobView.vue'
 import CrewView from '../views/CrewView.vue'
+import Timesheets from '../views/Timesheets.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/timesheets',
+    name: 'timesheets',
+    component: Timesheets,
   },
   {
     path: '/invoices',

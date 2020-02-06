@@ -106,6 +106,19 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
+          to="/timesheets"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Timesheets
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
           to="/crews"
           link
         >
