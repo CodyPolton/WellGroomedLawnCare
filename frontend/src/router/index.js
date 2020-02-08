@@ -126,7 +126,7 @@ const routes = [
   {
     path: '/crew/:crewid',
     name: 'CrewView',
-    component: CrewView
+    component: CrewView,
     meta: {
       requiresAuth: true
     }
