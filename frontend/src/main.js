@@ -5,19 +5,17 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import VueTelInput from 'vue-tel-input';
 import VueSession from 'vue-session';
-import Axios from 'axios';
+import axios from 'axios';
 import Vuex from 'vuex';
 import Notifications from 'vue-notification'
+import VueAxios from 'vue-axios'
 
 
 
 
-Vue.prototype.$http = Axios;
 
-const token = localStorage.getItem('user-token')
-if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
-}
+
+Vue.use(VueAxios, axios);
 
 Vue.use(Notifications)
 Vue.use(VueTelInput)
