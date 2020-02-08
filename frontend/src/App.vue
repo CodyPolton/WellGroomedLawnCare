@@ -86,42 +86,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-group
-          v-for="item in items"
-          :key="item.title"
-          v-model="item.active"
-          :prepend-icon="item.action"
-          no-action
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </template>
-
-          <v-list-item
-            v-for="subItem in item.items"
-            :key="subItem.title"
-          >
-            <v-list-item-content>
-              <v-list-item-title v-text="subItem.title" />
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-group>
-        <v-list-item
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>
-              mdi-navigation
-            </v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>
-              Routing
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        
         <v-list-item
           to="/accounts"
           link
@@ -136,6 +101,19 @@
             <!-- <router-link to="/invoices">
               Invoices
             </router-link> -->
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          to="/timesheets"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>
+              mdi-clipboard-text
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            Timesheets
           </v-list-item-content>
         </v-list-item>
         <v-list-item
@@ -155,7 +133,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
-          to="/schedule"
+          to="/schedules"
           link
         >
           <v-list-item-icon>
@@ -165,9 +143,6 @@
           </v-list-item-icon>
           <v-list-item-content>
             Schedule
-            <!-- <router-link to="/invoices">
-              Invoices
-            </router-link> -->
           </v-list-item-content>
         </v-list-item>
         <v-list-item

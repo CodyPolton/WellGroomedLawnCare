@@ -7,13 +7,16 @@ import Accounts from '../views/Accounts.vue';
 import AccountView from '../views/AccountView.vue';
 import YardView from '../views/YardView.vue';
 import InvoiceView from '../views/InvoiceView.vue';
-import ScheduleView from '../views/ScheduleView.vue';
+import Schedule from '../views/Schedule.vue';
 import Route from '../views/Route.vue';
 import Login from '../views/Login.vue';
 import Config from '../views/Configuration.vue'
 import JobView from '../views/JobView.vue'
+import CrewView from '../views/CrewView.vue'
+import Timesheets from '../views/Timesheets.vue'
 import Unauthenticated from '../components/Unauthenticated.vue'
 import store from '../store'
+
 
 Vue.use(VueRouter)
 
@@ -27,6 +30,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/timesheets',
+    name: 'timesheets',
+    component: Timesheets,
   },
   {
     path: '/invoices',
@@ -61,7 +69,7 @@ const routes = [
     }
   },
   {
-    path: '/yard/:yardid',
+    path: '/yard/:accountid/:yardid',
     name: 'yardview',
     component: YardView,
     meta: {
@@ -77,9 +85,9 @@ const routes = [
     }
   },
   {
-    path: '/schedule',
-    name: 'scheduleview',
-    component: ScheduleView,
+    path: '/schedules',
+    name: 'schedule',
+    component: Schedule,
     meta: {
       requiresAuth: true
     }
@@ -111,6 +119,14 @@ const routes = [
     path: '/job/:id',
     name: 'JobView',
     component: JobView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/crew/:crewid',
+    name: 'CrewView',
+    component: CrewView
     meta: {
       requiresAuth: true
     }

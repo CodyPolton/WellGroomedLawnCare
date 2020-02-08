@@ -342,7 +342,7 @@ export default {
         axios
           .post(process.env.VUE_APP_API_URL + "jobexpense/", this.expense)
           .then(response => {
-            this.expenses.push(response.data);
+            this.expenses.unshift(response.data);
             this.total += parseFloat(response.data.cost);
             this.dialog = false;
             this.$refs.form1.reset();

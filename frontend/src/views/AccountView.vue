@@ -1,12 +1,12 @@
 <template >
   <v-app style="width: 100%;">
     <v-btn @click="back">Back</v-btn>
-    Accounts id = {{id}}
-    <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
-      <v-tab key="details">Details</v-tab>
-      <v-tab key="yards">Yards</v-tab>
-      <v-tab key="invoice">Invoices</v-tab>
-      <v-tab key="edit">Edit</v-tab>
+    active tab = {{activeTab}}
+    <v-tabs v-model='activeTab' background-color="grey accent-4" centered class="elevation-2" dark>
+      <v-tab key="details" name='Details'>Details</v-tab>
+      <v-tab key="yards" name='Yards'>Yards</v-tab>
+      <v-tab key="invoice" name='Invoices'>Invoices</v-tab>
+      <v-tab key="edit" name='Edit'>Edit</v-tab>
 
       <v-tab-item key="details">hi</v-tab-item>
 
@@ -270,7 +270,20 @@ export default {
       valid: true
     };
   },
+  computed: {
+    activeTab: {
+      set(val) {
+        let query = { ...this.$route.query };
+        query.tab = val;
+        this.$router.replace({ query: query }).catch(err => {});
+      },
+      get() {
+        return (this.$route.query.tab || "0");
+      }
+    }
+  },
   created() {
+    this.activeTab = this.$route.query.tab || "0"
     this.id = this.$route.params.id;
     this.yard.account = this.id;
     this.loading = true;
@@ -307,7 +320,7 @@ export default {
   components: {},
   methods: {
     handleClick: function(value) {
-      this.$router.push("/yard/" + value.yardid);
+      this.$router.push("/yard/" + this.id + '/' + value.yardid);
     },
     handleInvoiceClick: function(value){
       this.$router.push('/invoice/' + value.invoiceid)
@@ -325,7 +338,7 @@ export default {
             title: "Added Yard Succesfully",
             type: "success"
           });
-          this.yards.push(response.data);
+          this.yards.unshift(response.data);
           this.dialog = false;
           this.$refs.form1.reset()
         })

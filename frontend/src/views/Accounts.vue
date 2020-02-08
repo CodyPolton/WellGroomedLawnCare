@@ -29,9 +29,8 @@
                       <v-text-field
                         v-model="account.l_name"
                         :counter="40"
-                        :rules="rule"
-                        label="Last Name*"
-                        required
+                        :rules="[v => (v && v.length <= 40) || 'Entry must be less than 40 characters']"
+                        label="Last Name"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="7" md="8">
@@ -224,7 +223,7 @@ export default {
   },
   created() {
     this.loading = true;
-    console.log(process.env.VUE_APP_API_URL)
+    console.log(process.env.VUE_APP_API_URL);
     axios
       .get(process.env.VUE_APP_API_URL + "account/")
       .then(response => {
@@ -239,11 +238,11 @@ export default {
         this.loading = false;
       })
       .catch(error => {
-          this.$notify({
-            group: "error",
-            title: "Backend is down please contact your System adminstartor.",
-            type: "error"
-          });
+        this.$notify({
+          group: "error",
+          title: "Backend is down please contact your System adminstartor.",
+          type: "error"
+        });
       });
   },
   methods: {
@@ -276,7 +275,7 @@ export default {
             response.data.auto_invoice = "NO";
           }
           yard.account = response.data.accountid;
-          this.accounts.push(response.data);
+          this.accounts.unshift(response.data);
           this.dialog = false;
 
           console.log(this.account);
@@ -318,7 +317,6 @@ export default {
                   }
                 }
               });
-            this.$refs.form.reset();
           }
         })
         .catch(error => {
@@ -344,3 +342,7 @@ export default {
   }
 };
 </script>
+
+
+
+
