@@ -62,10 +62,10 @@
         <v-list-item>
           <v-list-item-content class="pa-0">
             <v-list-item-title class="title">
-              User Name Placeholder
+              {{first_name}} {{last_name}}
             </v-list-item-title>
             <v-list-item-subtitle>
-              Admin/Employee/Customer
+              {{group_name}}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -162,6 +162,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
+          v-if='group_level == 1'
           to="/configuration"
           link
         >
@@ -260,9 +261,22 @@ export default {
     checkLoggedIn() {
 return this.$store.getters.checkAuthentication;
     },
+    first_name: function () {
+      return this.$store.state.first_name
+    },
+    last_name: function (){
+      return this.$store.state.last_name
+    },
+    group_level: function(){
+      return this.$store.state.group_level
+    },
+    group_name: function(){
+      return this.$store.state.group_name
+    },
+    
   },
   mounted() {
-
+    console.log(this.$store.state.first_name)
   },
   methods: {
     logout(){

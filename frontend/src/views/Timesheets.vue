@@ -2,14 +2,21 @@
   <v-app style="width: 100%; ">
     <v-btn @click="back">Back</v-btn>
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
+      <v-tab key="add">Status</v-tab>
+      <v-tab-item key="add">
+        <v-btn v-if='timesheet.status == "No Entry"' @click="ClockIn">Clock In</v-btn>
+        <v-btn v-if='timesheet.status == "Clocked In"' @click="pause">Break</v-btn>
+        <v-btn v-if='timesheet.status == "Clocked In"' @click="clockout">Clock Out</v-btn>
+        <v-btn v-if='timesheet.status == "Paused"' @click="ClockBackIn">Clock Back In</v-btn>
+        <h2 v-if='timesheet.status == "Clocked In"'>Clocked in at : {{timesheet.start_time}}</h2>
+        <h2 v-if='timesheet.status == "Clocked In"'>Hours : {{totalHours}}</h2>
+      </v-tab-item>
       <v-tab key="timesheets">Timesheets</v-tab>
-      <v-tab key="add">Add Time</v-tab>
+      
       <v-tab-item key="timesheets" >
         
       </v-tab-item>
-      <v-tab-item key="add">
-        
-      </v-tab-item>
+      
     </v-tabs>
     
   </v-app>
@@ -23,6 +30,23 @@ export default {
   components: {},
   data() {
     return {
+      timesheet: {
+        timesheetid: '',
+        payperiodid: '',
+        dayofweek: '',
+        userid: '',
+        start_time: "",
+        end_time: null,
+        seconds_paused: null,
+        pause_time: null,
+        hours: null,
+        status: null,
+      },
+      clockinStatus: null,
+      payperiodid: null,
+      user_id: this.$store.state.user_id,
+      dayofweek: null,
+
       crew: null,
       item: null,
       params: null,
@@ -31,8 +55,36 @@ export default {
       origin: "721 North Denninghoff Rd, Columbia, MO"
     };
   },
+  computed: {
+    totalHours() {
+      var hours = this.get_time_diff(this.timesheet.start_time,1)
+      if(this.timesheet.seconds_paused){
+      hours -= (this.timesheet.seconds_paused / 3600)
+      }
+      
+      return hours.toFixed(1)
+    },
+  },
   created() {
+    this.dayofweek = new Date().getDay()
+
+    console.log(this.dayofweek)
+    axios
+        .get(process.env.VUE_APP_API_URL + "clockinstatus?userid=" + this.user_id)
+        .then(response => {
+          console.log(response.data)
+          if(response.data.timesheet){
+            this.timesheet = response.data.timesheet[0]
+          }
+          
+          this.timesheet.status = response.data.status
+          
+          this.payperiodid = response.data.payperiod.payperiodid
+          console.log(this.timesheet)
+        })
+
     
+
 
     
   },
@@ -41,6 +93,119 @@ export default {
     back: function() {
       this.$router.go(-1);
     },
+    pause :function(){
+      console.log("Break")
+      var d = new Date().toLocaleTimeString()
+      console.log(d)
+      this.timesheet.status = "Paused"
+      this.timesheet.pause_time = d
+      axios.put(process.env.VUE_APP_API_URL + 'timesheet/' + this.timesheet.timesheetid + "/", this.timesheet).then(response=>{
+        console.log(response)
+
+      }).catch(error => {
+        console.log(error)
+      });
+    },
+    ClockBackIn: function(){
+      var seconds = this.get_time_diff(this.timesheet.pause_time, 2)
+      console.log(seconds)
+      this.timesheet.seconds_paused += seconds
+      this.timesheet.pause_time = null
+      this.timesheet.status = "Clocked In"
+      axios.put(process.env.VUE_APP_API_URL + 'timesheet/' + this.timesheet.timesheetid + "/", this.timesheet).then(response=>{
+        console.log(response)
+
+      }).catch(error => {
+        console.log(error)
+      });
+    },
+    ClockIn: function(){
+      var d = new Date().toLocaleTimeString()
+
+      console.log(d)
+      
+      var newTimesheet = {
+        payperiodid :this.payperiodid,
+        dayofweek :this.dayofweek,
+        userid : this.user_id,
+        status : 'Clocked In',
+        start_time : d
+      }
+      console.log(newTimesheet)
+      axios.post(process.env.VUE_APP_API_URL + 'timesheet/', newTimesheet).then(response=>{
+        console.log(response)
+      }).catch(error => {
+        console.log(error)
+      });
+      
+    },
+    clockout: function(){
+      this.timesheet.status = "Clocked Out"
+      this.timesheet.hours = this.get_time_diff(this.timesheet.start_time, 1)
+      this.timesheet.end_time = new Date().toLocaleTimeString()
+      console.log(this.timesheet)
+      axios.put(process.env.VUE_APP_API_URL + 'timesheet/' + this.timesheet.timesheetid + "/", this.timesheet).then(response=>{
+        console.log(response)
+        this.timesheet = {
+        timesheetid: '',
+        payperiodid: '',
+        dayofweek:'',
+        userid:'',
+        start_time: "",
+        end_time: null,
+        seconds_paused: null,
+        pause_time: null,
+        hours:null,
+        status:"No entry",
+      }
+
+      }).catch(error => {
+        console.log(error)
+      });
+    },
+    get_time_diff: function( datetimeone, mode)
+  {
+    console.log( typeof datetimeone)
+    var split = datetimeone.split(':');
+    console.log(split)
+
+    var d = new Date()
+
+  var d1= new Date(); 
+  var d2 = new Date();
+  d1.setHours(split[0]);
+  d1.setMinutes(split[1]);
+  d2.setHours(d.getHours());
+  d2.setMinutes(d.getMinutes());
+
+    var one = new Date( d1 ).getTime();
+    var two = new Date(d2).getTime();
+
+    console.log(one)
+
+    if( isNaN(one) )
+    {
+        return "";
+    }
+
+    console.log( one + " " + two);
+
+    if (one < two) {
+        var milisec_diff = two - one;
+    }else{
+        var milisec_diff = one - two;
+    }
+
+    if (mode == 1){
+    var hours = (milisec_diff / (1000 * 60 * 60)) % 24;
+    return Math.round((hours + Number.EPSILON) * 100) / 100
+    }else{
+      console.log("seconds")
+      var seconds = (milisec_diff / 1000);
+      return seconds
+    }
+    
+  }
 
   }
 };
