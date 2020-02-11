@@ -14,7 +14,19 @@
       <v-tab key="timesheets">Timesheets</v-tab>
       
       <v-tab-item key="timesheets" >
-        
+        <v-data-table
+          :loading="loading"
+          :headers="headers"
+          :items="timesheets"
+          :search="search"
+          :items-per-page="15"
+          class="elevation-1"
+        >
+        <template slot="footer">
+          <td><strong>Total Hours:</strong></td>
+          <td class="text-xs-right">{{ totalHour }}</td>
+          </template>
+        </v-data-table>
       </v-tab-item>
       
     </v-tabs>
@@ -42,6 +54,10 @@ export default {
         hours: null,
         status: null,
       },
+      totalHour: 0,
+      loading: false,
+      search: null,
+      timesheets: [],
       clockinStatus: null,
       payperiodid: null,
       user_id: this.$store.state.user_id,
@@ -50,9 +66,13 @@ export default {
       crew: null,
       item: null,
       params: null,
-      crewYards: [],
-      routeYards: [],
-      origin: "721 North Denninghoff Rd, Columbia, MO"
+      headers: [
+        { text: "Day of the Week",align: "left",value: "dayofweek"},
+        { text: "Start Time", align: "left", value: "start_time" },
+        { text: "End Time", value: "end_time" },
+        { text: "Break Time(Minutes)", value: "seconds_paused" },
+        { text: "Hours", value: "hours" }
+      ],
     };
   },
   computed: {
@@ -66,7 +86,7 @@ export default {
     },
   },
   created() {
-    this.dayofweek = new Date().getDay()
+    this.dayofweek = this.getDayofWeek(new Date().getDay())
 
     console.log(this.dayofweek)
     axios
@@ -83,6 +103,21 @@ export default {
           console.log(this.timesheet)
         })
 
+    axios.post(process.env.VUE_APP_API_URL + 'gettimesheet/', {'userid': this.$store.state.user_id}).then(response=>{
+        console.log(response.data.timesheet)
+        response.data.timesheet.forEach(element => {
+          if(element.seconds_paused){
+            element.seconds_paused = element.seconds_paused /60
+          }
+          element.hours = Math.round(((element.hours - (element.seconds_paused/60)) + Number.EPSILON) * 100) / 100
+          this.totalHour += element.hours
+          console.log(this.totalHour)
+          this.timesheets.push(element)
+        });
+        console.log(this.timesheets)
+      }).catch(error => {
+        console.log(error)
+      });
     
 
 
@@ -134,6 +169,7 @@ export default {
       console.log(newTimesheet)
       axios.post(process.env.VUE_APP_API_URL + 'timesheet/', newTimesheet).then(response=>{
         console.log(response)
+        timesheet = response.data
       }).catch(error => {
         console.log(error)
       });
@@ -205,6 +241,23 @@ export default {
       return seconds
     }
     
+  },
+  getDayofWeek: function(day){
+    if(day == 0){
+      return 'Sunday'
+    }else if(day == 1){
+      return 'Monday'
+    }else if(day == 2){
+      return 'Tuesday'
+    }else if(day == 3){
+      return 'Wednesday'
+    }else if(day == 4){
+      return 'Thursday'
+    }else if(day == 5){
+      return 'Friday'
+    }else if(day == 6){
+      return 'Saturday'
+    }
   }
 
   }

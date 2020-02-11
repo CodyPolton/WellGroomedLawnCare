@@ -35,6 +35,9 @@ const routes = [
     path: '/timesheets',
     name: 'timesheets',
     component: Timesheets,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/invoices',
