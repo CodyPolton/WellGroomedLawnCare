@@ -73,6 +73,7 @@
       <v-divider />
       <v-list>
         <v-list-item
+          to="/"
           link
         >
           <v-list-item-icon>
@@ -88,6 +89,7 @@
         </v-list-item>
         
         <v-list-item
+          v-if='group_level == 1'
           to="/accounts"
           link
         >
@@ -127,12 +129,10 @@
           </v-list-item-icon>
           <v-list-item-content>
             Crews
-            <!-- <router-link to="/invoices">
-              Invoices
-            </router-link> -->
           </v-list-item-content>
         </v-list-item>
         <v-list-item
+          v-if='group_level == 1'
           to="/schedules"
           link
         >
@@ -146,6 +146,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
+          v-if='group_level == 1'
           to="/invoices"
           link
         >
@@ -173,50 +174,16 @@
           </v-list-item-icon>
           <v-list-item-content>
             Configurations
-            <!-- <router-link to="/invoices">
-              Invoices
-            </router-link> -->
           </v-list-item-content>
         </v-list-item>
-        <!-- <v-list-item
-          to="/login"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>
-              mdi-clipboard-text
-            </v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            Log in
-             <router-link to="/invoices">
-              Invoices
-            </router-link> -->
-          <!-- </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item
-          link
-          @click="logout"
-        >
-          <v-list-item-icon>
-            <v-icon>
-              mdi-clipboard-text
-            </v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            Logout
-            <router-link to="/invoices">
-              Invoices
-            </router-link>
-          </v-list-item-content>
-        </v-list-item> -->
+        
       </v-list>
     </v-navigation-drawer>
     <v-content>
 
         <router-view />
-
+        <notifications group="success" position="bottom right" :duration=1000 width='500'/>
+        <notifications group="error" position="bottom right" :duration=2000 width='400'/>
     </v-content>
   </v-app>
 </template>
@@ -236,23 +203,6 @@ export default {
       message: '',
       drawer: false,
       items: [
-        // {
-        //   action: 'mdi-leaf',
-        //   title: 'Lawn Care',
-        //   active: false,
-        //   items: [
-        //     { title: 'test item 1' },
-        //     { title: 'test item 2' },
-        //     { title: 'test item 3' },
-        //   ],
-        // },
-        // {
-        //   action: 'mdi-content-cut',
-        //   title: 'Landscaping',
-        //   items: [
-        //     { title: 'test item 1' },
-        //   ],
-        // },
       ],
 
     };
