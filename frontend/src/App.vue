@@ -119,6 +119,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
+          v-if='group_level <= 2'
           to="/crews"
           link
         >
