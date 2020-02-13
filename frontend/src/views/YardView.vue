@@ -330,6 +330,9 @@ export default {
       this.$router.push("/job/" + value.jobid);
     },
     save: function() {
+      if(this.yard.mow_price == ''){
+        this.yard.mow_price = null
+      }
       axios
         .put(
           process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/",

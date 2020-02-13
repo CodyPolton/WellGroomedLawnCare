@@ -4,7 +4,7 @@
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="add">Status</v-tab>
       <v-tab-item key="add">
-        <v-btn v-if="timesheet.status =='No Entry'" @click="ClockIn">Clock In</v-btn>
+        <v-btn v-if="timesheet.status =='No Entry' || timesheet.status =='Clocked Out'" @click="ClockIn">Clock In</v-btn>
         <v-btn v-if="timesheet.status == 'Clocked In'" @click="pause">Break</v-btn>
         <v-btn v-if="timesheet.status == 'Clocked In'" @click="clockout">Clock Out</v-btn>
         <v-btn v-if="timesheet.status == 'Paused'" @click="ClockBackIn">Clock Back In</v-btn>
@@ -99,10 +99,11 @@ export default {
       .get(process.env.VUE_APP_API_URL + "clockinstatus?userid=" + this.user_id)
       .then(response => {
         console.log(response.data);
-        if (response.data.timesheet) {
-          this.timesheet = response.data.timesheet[0];
+        if(response.data.status != 'Clocked Out'){
+          if (response.data.timesheet) {
+            this.timesheet = response.data.timesheet[0];
+          }
         }
-
         this.timesheet.status = response.data.status;
 
         this.payperiodid = response.data.payperiod.payperiodid;
@@ -126,12 +127,14 @@ export default {
           }
           if(element.hours){
           element.hours =Math.round((element.hours - element.seconds_paused / 60 + Number.EPSILON) *100) / 100;
+          console.log(element.hours)
           this.totalHour += element.hours;
           console.log(this.totalHour);
           }
           this.timesheets.push(element);
         });
         console.log(this.timesheets);
+        this.totalHour = this.totalHour.toFixed(1)
       })
       .catch(error => {
         console.log(error);
@@ -251,6 +254,7 @@ export default {
             hours: null,
             status: "No entry"
           };
+          console.log(this.timesheet);
           this.$notify({
             group: "success",
             title: "You are now off the clock",

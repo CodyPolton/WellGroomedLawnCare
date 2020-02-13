@@ -21,7 +21,7 @@
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="300px">
                 <template v-slot:activator="{ on }">
-                  <v-btn color="blue darken-1" text @click="dialog = true">Create Crew</v-btn>
+                  <v-btn v-if='group_level == 1' color="blue darken-1" text @click="dialog = true">Create Crew</v-btn>
                 </template>
                 <v-card>
                   <v-card-title>
@@ -95,6 +95,11 @@ export default {
         this.loading = false;
       }
     });
+  },
+  computed: {
+    group_level: function(){
+      return this.$store.state.group_level
+    },
   },
   methods: {
     addCrew: function() {

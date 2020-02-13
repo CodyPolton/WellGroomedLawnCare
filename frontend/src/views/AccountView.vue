@@ -199,7 +199,8 @@ export default {
         city: null,
         state: null,
         zip_code: null,
-        mow_price: null
+        mow_price: null,
+        days: ['None']
       },
       valid1: null,
       yards: [],
