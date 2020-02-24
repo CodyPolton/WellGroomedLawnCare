@@ -1,12 +1,12 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex>
-        <v-btn @click="back">Back</v-btn>
-        <v-dialog v-model="dialog" max-width="600px">
-          <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark v-on="on">Add Account</v-btn>
-          </template>
+  <v-container fluid>
+    <v-row justify="center">
+      <v-flex xs12 class="text-center display-2 pt-5">Accounts</v-flex>
+      <v-flex xs12></v-flex>
+
+
+
+        <v-dialog v-model="dialog" max-width="600">
           <v-card>
             <v-card-title>
               <span class="headline">Create Account</span>
@@ -101,8 +101,16 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+        <v-flex xs2 pt-5 mt-5>
+        <v-text-field v-model="search" filled append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
+        </v-flex>
+                <v-flex xs7></v-flex>
+        <v-flex xs1 pt-5 mt-5>
+                <v-btn color="primary" style="height: 100%" depressed tile block @click.stop="dialog = true">Add Account</v-btn>
+        </v-flex>
 
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+
+        <v-flex xs10>
         <v-data-table
           :loading="loading"
           :headers="headers"
@@ -116,8 +124,9 @@
             v-slot:accounts.auto_invoice="{ item }"
           >{{ accounts.auto_invoice? 'true' : 'false' }}</template>
         </v-data-table>
-      </v-flex>
-    </v-layout>
+        </v-flex>
+
+    </v-row>
   </v-container>
 </template>
 
@@ -129,7 +138,7 @@ export default {
   data() {
     return {
       loading: false,
-      dialog: null,
+      dialog: false,
       account: {
         f_name: null,
         l_name: null,

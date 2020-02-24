@@ -25,7 +25,7 @@
             <v-form
               ref="form"
               v-model="valid"
-              lazy-validation>
+              >
               <v-container>
 
                 <v-text-field
@@ -54,7 +54,8 @@
             <v-spacer />
             <v-btn
               color="primary"
-              @click="login">Login</v-btn>
+              @click="login"
+              :disabled="!valid">Login</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -96,7 +97,6 @@ loading:false,
             if (this.$refs.form.validate()) {
               this.$store.dispatch('obtainToken', this.credentials);
             }
-
     }
   }
 };

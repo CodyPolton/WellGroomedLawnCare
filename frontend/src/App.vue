@@ -7,22 +7,17 @@
       dark
       dense
     >
-
       <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
-
       <v-spacer />
-
       <v-btn
+      icon
         v-if="!checkLoggedIn"
-
         link
         to="/login"
       >
-        Login
+        <v-icon>mdi-account</v-icon>
       </v-btn>
-
     </v-app-bar>
-
     <!-- Navbar once you are logged in for employees -->
     <v-app-bar
         v-if="checkLoggedIn"
