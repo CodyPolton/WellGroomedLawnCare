@@ -5,8 +5,7 @@
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
       <v-tab key="edit">Edit</v-tab>
-      <v-tab-item key="details">
-        hi
+      <v-tab-item key="details">]
         <v-btn v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
         <v-dialog v-model="confirmMowDialog" persistent max-width="400">
           <v-card>
@@ -14,7 +13,7 @@
             <v-card-text>This yard has already been marked as mowed today. Just want to make sure you are not marking this yard as mowed twice in on day by accident.</v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="green darken-1" text @click="confirmMowDialog = false">Did Not Mow Again</v-btn>
+              <v-btn color="red darken-1" text @click="confirmMowDialog = false">Did Not Mow Again</v-btn>
               <v-btn
                 color="green darken-1"
                 text
@@ -161,16 +160,19 @@ export default {
         job_total: null,
         invoiced: false,
         date_created: null,
-        date_updated: null
+        date_updated: null,
+        account: null
       },
       yardid: null,
+      accountid: null,
       yard: {},
       jobs: [],
       headers: [
         {text: "Job Name",align: "left",value: "name"},
         { text: "Desciption", align: "middle", value: "description" },
         { text: "Job Type", value: "job_type" },
-        {text: "Date Completed", value: 'date_completed'}
+        {text: "Date Completed", value: 'date_completed'},
+        {text: "Invoice ID", value: 'invoiceid'}
       ],
       states: [
         "MO",
@@ -240,7 +242,9 @@ export default {
   components: {},
   created() {
     this.yardid = this.$route.params.yardid;
+    this.accountid = this.$route.params.accountid; 
     this.job.yard = this.yardid;
+    this.job.account = this.accountid
 
     axios
       .get(process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/")
@@ -282,6 +286,16 @@ export default {
           });
           goodToInvoice = false
         }
+        if(job.invoiceid != ''){
+          this.$notify({
+            group: "error",
+            title:
+              "The job " + job.name + " has already been put on Invoice ID = " +
+              job.invoiceid,
+            type: "error"
+          });
+          goodToInvoice = false
+        }
       }
       if (goodToInvoice) {
         axios
@@ -289,6 +303,17 @@ export default {
             jobs: this.selected
           })
           .then(response => {
+            console.log(response.data)
+            axios
+              .get(process.env.VUE_APP_API_URL + "yardjobs?yardid=" + this.yardid)
+              .then(response => {
+                this.jobs = []
+                if (response.data) {
+                  response.data.forEach(item => {
+                    this.jobs.push(item);
+                  });
+                }
+            });
             this.$notify({
               group: "success",
               title: "Generated Invoice Succesfully",
@@ -305,6 +330,9 @@ export default {
       this.$router.push("/job/" + value.jobid);
     },
     save: function() {
+      if(this.yard.mow_price == ''){
+        this.yard.mow_price = null
+      }
       axios
         .put(
           process.env.VUE_APP_API_URL + "yard/" + this.yardid + "/",
@@ -351,7 +379,7 @@ export default {
             title: "Added Job Succesfully",
             type: "success"
           });
-          this.jobs.push(response.data);
+          this.jobs.unshift(response.data);
           this.dialog = false;
         })
         .catch(error => {
@@ -393,14 +421,15 @@ export default {
 
       var mowed = {
         yard: this.yardid,
-        name: "Mow",
+        name: "Mow(Auto)",
         description: "Mowed on " + this.date,
         job_type: "Mowing",
         date_completed: this.date,
         job_total: this.yard.mow_price,
         invoiced: false,
         date_created: null,
-        date_updated: null
+        date_updated: null,
+        account: this.accountid
       };
       console.log(mowed);
 

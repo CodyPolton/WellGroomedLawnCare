@@ -9,30 +9,56 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     jwt: localStorage.getItem('t'),
+    first_name: 'Cody',
+    last_name: null,
+    group_name: null,
+    group_level: null,
+    user_id: null,
     endpoints: {
-      obtainJWT: 'http://127.0.0.1:8000/api/token/',
-      refreshJWT: 'http://127.0.0.1:8000/api/refresh_token/'
+      obtainJWT: process.env.VUE_APP_API_URL +'api-token-auth/',
+      refreshJWT: process.env.VUE_APP_API_URL + 'refresh_token/'
     },
     authenticated: false
   },
   mutations: {
     loggedIn (state) {
       state.authenticated = true;
-      router.push('home')
+      router.push('/')
     },
     logout(state){
+      this.commit('removeToken')
+      state.first_name = ''
+      state.last_name = ''
+      state.group_level = ''
+      state.group_name = ''
+      state.user_id = ''
+      state.jwt = ''
       state.authenticated = false;
-      router.push('home')
+      router.push('/')
 
     },
     updateToken(state, newToken){
-      localStorage.setItem('t', newToken);
-      state.jwt = newToken;
-      this.commit('loggedIn');
+      console.log(newToken)
+      axios.post(process.env.VUE_APP_API_URL + 'returnuserdetails', { token : newToken})
+        .then((response)=>{
+            console.log(response)
+            state.first_name = response.data.first_name
+            state.last_name = response.data.last_name
+            state.group_level = response.data.group_level
+            state.group_name = response.data.group_name
+            state.user_id = response.data.user_id
+            localStorage.setItem('t', newToken);
+            state.jwt = newToken;
+            this.commit('loggedIn');
+          })
+        .catch((error)=>{
+            console.log(error);
+          })
+      
   },
   removeToken(state){
     localStorage.removeItem('t');
-    state.jwt = null;
+    state.jwt = '';
   }
 },
   actions: {
@@ -41,6 +67,8 @@ export default new Vuex.Store({
         username: loginInfo.username,
         password: loginInfo.password
       }
+      console.log(this.state.endpoints.obtainJWT)
+      console.log(payload)
       axios.post(this.state.endpoints.obtainJWT, payload)
         .then((response)=>{
             this.commit('updateToken', response.data.token);
