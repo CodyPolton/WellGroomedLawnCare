@@ -10,6 +10,11 @@
       <v-toolbar-title>Well Groomed Lawn Care</v-toolbar-title>
       <v-spacer />
       <v-btn
+      rounded
+      to="/contact">
+        Contact Us
+      </v-btn>
+      <v-btn
       icon
         v-if="!checkLoggedIn"
         link
@@ -82,7 +87,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        
+
         <v-list-item
           v-if='group_level == 1'
           to="/accounts"
@@ -172,7 +177,7 @@
             Configurations
           </v-list-item-content>
         </v-list-item>
-        
+
       </v-list>
     </v-navigation-drawer>
     <v-content>
@@ -219,7 +224,7 @@ return this.$store.getters.checkAuthentication;
     group_name: function(){
       return this.$store.state.group_name
     },
-    
+
   },
   mounted() {
     console.log(this.$store.state.first_name)

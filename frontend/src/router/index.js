@@ -15,6 +15,7 @@ import JobView from '../views/JobView.vue'
 import CrewView from '../views/CrewView.vue'
 import Timesheets from '../views/Timesheets.vue'
 import Unauthenticated from '../components/Unauthenticated.vue'
+import Contact from '../views/Contact.vue'
 import store from '../store'
 
 
@@ -133,6 +134,14 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+  path: '/contact',
+  name: 'Contact',
+  component: Contact,
+  meta: {
+    requiresAuth: false
+  }
   }
 ]
 
