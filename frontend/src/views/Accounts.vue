@@ -143,6 +143,7 @@ export default {
         l_name: null,
         address: null,
         zip_code: null,
+        balance: 0,
         city: null,
         state: null,
         phone_no: "",

@@ -1,14 +1,46 @@
 <template >
   <v-app style="width: 100%;">
     <v-btn @click="back">Back</v-btn>
-    active tab = {{activeTab}}
-    <v-tabs v-model='activeTab' background-color="grey accent-4" centered class="elevation-2" dark>
+    <v-tabs  background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details" name='Details'>Details</v-tab>
       <v-tab key="yards" name='Yards'>Yards</v-tab>
       <v-tab key="invoice" name='Invoices'>Invoices</v-tab>
       <v-tab key="edit" name='Edit'>Edit</v-tab>
 
-      <v-tab-item key="details">hi</v-tab-item>
+      <v-tab-item key="details">
+        Balance: ${{account.balance}}
+        <v-dialog v-model="dialog1" max-width="400px">
+          <template v-slot:activator="{ on }">
+            <v-btn color="blue" dark v-on="on">Make Payment</v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline">Payment amount</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-form ref="form1" v-model="valid2">
+                  <v-row>
+                    <v-col cols="12" sm="5" md="8">
+                      <v-text-field
+                        v-model="payment"
+                        :rules="rule"
+                        type="number"
+                        label="Payment Amount"
+                        required
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-form>
+              </v-container>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" :disabled='!valid2' text @click="makePayment">Make Payment</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-tab-item>
 
       <v-tab-item key="yards">
         <v-dialog v-model="dialog" max-width="600px">
@@ -144,6 +176,7 @@
             <template v-slot:label>Automatic Invoices</template>
           </v-checkbox>
           <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
+          <v-btn  color="red" class="mr-4" @click="deleteAccount">Delete Account</v-btn>
         </v-form>
       </v-tab-item>
     </v-tabs>
@@ -161,8 +194,10 @@ export default {
       invoices: [],
       loading: false,
       dialog: false,
+      dialog1: false,
       id: null,
       search: null,
+      payment: null,
       headers: [
         {
           text: "Address",
@@ -203,6 +238,7 @@ export default {
         days: ['None']
       },
       valid1: null,
+      valid2: null,
       yards: [],
       account: {},
       states: [
@@ -272,19 +308,9 @@ export default {
     };
   },
   computed: {
-    activeTab: {
-      set(val) {
-        let query = { ...this.$route.query };
-        query.tab = val;
-        this.$router.replace({ query: query }).catch(err => {});
-      },
-      get() {
-        return (this.$route.query.tab || "0");
-      }
-    }
+    
   },
   created() {
-    this.activeTab = this.$route.query.tab || "0"
     this.id = this.$route.params.id;
     this.yard.account = this.id;
     this.loading = true;
@@ -326,6 +352,40 @@ export default {
     handleInvoiceClick: function(value){
       this.$router.push('/invoice/' + value.invoiceid)
     },
+    makePayment: function(){
+      this.account.balance = parseInt(this.account.balance) + this.payment
+        axios
+        .put(process.env.VUE_APP_API_URL + "account/" + this.id + "/", this.account)
+        .then(response => {
+          this.account = response.data;
+          this.$notify({
+            group: "success",
+            title: "Payment Accounted for Succesfully",
+            type: "success"
+          });
+          this.dialog1 = false
+          this.payment = null
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.account) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error Making Payment. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
+    },
     back: function() {
       this.$router.go(-1);
     },
@@ -353,6 +413,39 @@ export default {
                   group: "error",
                   title:
                     "Error adding yard. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
+    },
+    deleteAccount: function() {
+        axios
+        .delete(
+          process.env.VUE_APP_API_URL + "account/" + this.id
+        )
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Deleted Account Succesfully",
+            type: "success"
+          });
+           this.$router.push("/accounts/");
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.expense) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error deleting account. " +
                     prop +
                     ": " +
                     error.response.data[prop],

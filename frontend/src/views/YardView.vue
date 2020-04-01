@@ -128,6 +128,7 @@
           >=</v-text-field>
 
           <v-btn :disabled="!yardEdit" color="success" class="mr-4" @click="save">Save</v-btn>
+          <v-btn :disabled="!yardEdit" color="red" class="mr-4" @click="deleteYard">Delete Yard</v-btn>
         </v-form>
       </v-tab-item>
     </v-tabs>
@@ -321,6 +322,39 @@ export default {
             });
           });
       }
+    },
+    deleteYard: function() {
+        axios
+        .delete(
+          process.env.VUE_APP_API_URL + "yard/" + this.yardid
+        )
+        .then(response => {
+          this.$notify({
+            group: "success",
+            title: "Deleted Yard Succesfully",
+            type: "success"
+          });
+           this.$router.push("/account/" + this.accountid);
+        })
+        .catch(error => {
+          if (error.response) {
+            for (var prop in this.expense) {
+              if (
+                Object.prototype.hasOwnProperty.call(error.response.data, prop)
+              ) {
+                this.$notify({
+                  group: "error",
+                  title:
+                    "Error deleting yard. " +
+                    prop +
+                    ": " +
+                    error.response.data[prop],
+                  type: "error"
+                });
+              }
+            }
+          }
+        });
     },
     back: function() {
       this.$router.go(-1);
