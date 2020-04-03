@@ -227,7 +227,7 @@ return this.$store.getters.checkAuthentication;
 
   },
   mounted() {
-    console.log(this.$store.state.first_name)
+
   },
   methods: {
     logout(){

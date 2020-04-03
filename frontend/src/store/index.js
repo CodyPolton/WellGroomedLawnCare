@@ -15,8 +15,8 @@ export default new Vuex.Store({
     group_level: null,
     user_id: null,
     endpoints: {
-      obtainJWT: process.env.VUE_APP_API_URL +'api-token-auth/',
-      refreshJWT: process.env.VUE_APP_API_URL + 'refresh_token/'
+      obtainJWT: process.env.VUE_APP_API_URL +'token/',
+      refreshJWT: process.env.VUE_APP_API_URL + 'token/refresh/'
     },
     authenticated: false
   },
@@ -38,22 +38,21 @@ export default new Vuex.Store({
 
     },
     updateToken(state, newToken){
-      console.log(newToken)
-      axios.post(process.env.VUE_APP_API_URL + 'returnuserdetails', { token : newToken})
-        .then((response)=>{
-            console.log(response)
-            state.first_name = response.data.first_name
-            state.last_name = response.data.last_name
-            state.group_level = response.data.group_level
-            state.group_name = response.data.group_name
-            state.user_id = response.data.user_id
+      // axios.post(process.env.VUE_APP_API_URL + 'returnuserdetails', { token : newToken})
+      //   .then((response)=>{
+            // console.log(response)
+            // state.first_name = response.data.first_name
+            // state.last_name = response.data.last_name
+            // state.group_level = response.data.group_level
+            // state.group_name = response.data.group_name
+            // state.user_id = response.data.user_id
             localStorage.setItem('t', newToken);
             state.jwt = newToken;
             this.commit('loggedIn');
-          })
-        .catch((error)=>{
-            console.log(error);
-          })
+        //   })
+        // .catch((error)=>{
+        //     console.log(error);
+        //   })
       
   },
   removeToken(state){
@@ -67,8 +66,6 @@ export default new Vuex.Store({
         username: loginInfo.username,
         password: loginInfo.password
       }
-      console.log(this.state.endpoints.obtainJWT)
-      console.log(payload)
       axios.post(this.state.endpoints.obtainJWT, payload)
         .then((response)=>{
             this.commit('updateToken', response.data.token);
