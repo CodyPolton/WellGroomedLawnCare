@@ -1,11 +1,13 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-row justify="center">
-      <v-flex xs12 class="text-center display-2 pt-5">Accounts</v-flex>
-      <v-flex xs12></v-flex>
-
-
-
+      <v-flex xs3 pt-5>
+        <v-card
+          class="pa-4 display-2 white--text d-flex justify-center font-weight-light"
+          color="primary"
+        >Accounts</v-card>
+      </v-flex>
+      <v-flex xs12>
         <v-dialog v-model="dialog" max-width="600">
           <v-card>
             <v-card-title>
@@ -100,31 +102,46 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-flex xs2 pt-5 mt-5>
-        <v-text-field v-model="search" filled append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
-        </v-flex>
-                <v-flex xs7></v-flex>
-        <v-flex xs1 pt-5 mt-5>
-                <v-btn color="primary" style="height: 100%" depressed tile block @click.stop="dialog = true">Add Account</v-btn>
-        </v-flex>
+        <v-layout row wrap>
+          <v-flex xs5 pt-5 mt-5>
+            <v-text-field
+              v-model="search"
+              filled
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs5></v-flex>
+          <v-flex xs2 pt-5 mt-5 class="d-flex justify-end">
+            <v-btn
+              class="subtitle-1"
+              color="primary"
+              style="height: 100%"
+              tile
+              depressed
+              @click.stop="dialog = true"
+            >Add Account</v-btn>
+          </v-flex>
 
-
-        <v-flex xs10>
-        <v-data-table
-          :loading="loading"
-          :headers="headers"
-          :items="accounts"
-          :search="search"
-          :items-per-page="15"
-          class="elevation-1"
-          @click:row="handleClick"
-        >
-          <template
-            v-slot:accounts.auto_invoice="{ item }"
-          >{{ accounts.auto_invoice? 'true' : 'false' }}</template>
-        </v-data-table>
-        </v-flex>
-
+          <v-flex xs12>
+            <v-data-table
+              :loading="loading"
+              :headers="headers"
+              :items="accounts"
+              :search="search"
+              :items-per-page="15"
+              class="elevation-1"
+              @click:row="handleClick"
+            >
+              <template
+                v-slot:accounts.auto_invoice="{ item }"
+              >{{ accounts.auto_invoice? 'true' : 'false' }}</template>
+            </v-data-table>
+          </v-flex>
+        </v-layout>
+      </v-flex>
     </v-row>
   </v-container>
 </template>

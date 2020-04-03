@@ -1,40 +1,116 @@
 <template>
-  <v-app style="width: 100%; ">
-    <v-btn @click="back">Back</v-btn>
-    <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
-      <v-tab key="add">Status</v-tab>
-      <v-tab-item key="add">
-        <v-btn v-if="timesheet.status =='No Entry' || timesheet.status =='Clocked Out'" @click="ClockIn">Clock In</v-btn>
-        <v-btn v-if="timesheet.status == 'Clocked In'" @click="pause">Break</v-btn>
-        <v-btn v-if="timesheet.status == 'Clocked In'" @click="clockout">Clock Out</v-btn>
-        <v-btn v-if="timesheet.status == 'Paused'" @click="ClockBackIn">Clock Back In</v-btn>
-        <h2 v-if="timesheet.status == 'Paused'">Clocked in at : {{timesheet.start_time}}</h2>
-        <h2 v-if="timesheet.status == 'Paused'">Hours : {{totalHours}}</h2>
-        <h2 v-if="timesheet.status == 'Paused'">Break Started at : {{timesheet.pause_time}}</h2>
-        <h2 v-if="timesheet.status == 'Clocked In'">Clocked in at : {{timesheet.start_time}}</h2>
-        <h2 v-if="timesheet.status == 'Clocked In'">Hours : {{totalHours}}</h2>
-      </v-tab-item>
-      <v-tab key="timesheets">Timesheets</v-tab>
+  <v-app>
+    <v-container>
+      <v-row justify="center">
+        <v-flex xs3 py-5>
+          <v-card
+            class="pa-4 display-2 white--text d-flex justify-center font-weight-light"
+            color="primary"
+          >Timesheet</v-card>
+        </v-flex>
+        <v-flex xs12 offset-xs0>
+          <v-layout row wrap>
+            <v-flex xs8 offset-xs2>
+              <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
+                <v-tab key="add">Status</v-tab>
+                <v-tab-item class="d-flex justify-center" key="add">
+                  <v-layout row wrap class="d-flex justify-center py-5">
+                    <v-flex xs4>
+                      <v-card
+                        v-if="timesheet.status == 'Paused'"
+                        class="d-flex justify-center pa-4 mb-4"
+                      >Clocked in at : {{timesheet.start_time}}</v-card>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-card
+                        class="d-flex justify-center pa-4 mb-4"
+                        v-if="timesheet.status == 'Paused'"
+                      >Break Started at : {{timesheet.pause_time}}</v-card>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-card
+                        class="d-flex justify-center pa-4 mb-4"
+                        v-if="timesheet.status == 'Clocked In'"
+                      >Clocked in at : {{timesheet.start_time}}</v-card>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-card
+                        class="d-flex justify-center pa-4 mb-4"
+                        v-if="timesheet.status == 'Clocked In'"
+                      >Hours : {{totalHours}}</v-card>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-btn
+                        block
+                        v-if="timesheet.status =='No Entry' || timesheet.status =='Clocked Out' || add"
+                        @click="ClockIn"
+                      >Clock In</v-btn>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-card
+                        class="d-flex justify-center pa-4 mb-4"
+                        v-if="timesheet.status == 'Paused'"
+                      >Hours : {{totalHours}}</v-card>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-btn tile block v-if="timesheet.status == 'Clocked In'" @click="pause">Break</v-btn>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-btn
+                        tile
+                        block
+                        v-if="timesheet.status == 'Clocked In'"
+                        @click="clockout"
+                      >Clock Out</v-btn>
+                    </v-flex>
+                    <v-flex xs12></v-flex>
+                    <v-flex xs4>
+                      <v-btn
+                        block
+                        tile
+                        v-if="timesheet.status == 'Paused'"
+                        @click="ClockBackIn"
+                      >Clock Back In</v-btn>
+                    </v-flex>
+                  </v-layout>
+                </v-tab-item>
+                <v-tab key="timesheets">Timesheets</v-tab>
 
-      <v-tab-item key="timesheets">
-        <h3>Payperiod {{payperiodstart}} - {{payperiodend}}</h3>
-        <v-data-table
-          :loading="loading"
-          :headers="headers"
-          :items="timesheets"
-          :search="search"
-          :items-per-page="15"
-          class="elevation-1"
-        >
-          <template slot="footer">
-            <td>
-              <strong>Total Hours:</strong>
-            </td>
-            <td class="text-xs-right">{{ totalHour }}</td>
-          </template>
-        </v-data-table>
-      </v-tab-item>
-    </v-tabs>
+                <v-tab-item key="timesheets">
+                  <v-toolbar color="primary">
+                    <v-toolbar-title
+                      class="white--text"
+                    >Payperiod {{payperiodstart}} - {{payperiodend}}</v-toolbar-title>
+                  </v-toolbar>
+                  <v-data-table
+                    :loading="loading"
+                    :headers="headers"
+                    :items="timesheets"
+                    :search="search"
+                    :items-per-page="15"
+                    class="elevation-1"
+                  >
+                    <template slot="footer">
+                      <td>
+                        <strong>Total Hours:</strong>
+                      </td>
+                      <td class="text-xs-right">{{ totalHour }}</td>
+                    </template>
+                  </v-data-table>
+                </v-tab-item>
+              </v-tabs>
+            </v-flex>
+          </v-layout>
+        </v-flex>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
@@ -99,7 +175,7 @@ export default {
       .get(process.env.VUE_APP_API_URL + "clockinstatus?userid=" + this.user_id)
       .then(response => {
         console.log(response.data);
-        if(response.data.status != 'Clocked Out'){
+        if (response.data.status != "Clocked Out") {
           if (response.data.timesheet) {
             this.timesheet = response.data.timesheet[0];
           }
@@ -125,16 +201,20 @@ export default {
           if (element.seconds_paused) {
             element.seconds_paused = element.seconds_paused / 60;
           }
-          if(element.hours){
-          element.hours =Math.round((element.hours - element.seconds_paused / 60 + Number.EPSILON) *100) / 100;
-          console.log(element.hours)
-          this.totalHour += element.hours;
-          console.log(this.totalHour);
+          if (element.hours) {
+            element.hours =
+              Math.round(
+                (element.hours - element.seconds_paused / 60 + Number.EPSILON) *
+                  100
+              ) / 100;
+            console.log(element.hours);
+            this.totalHour += element.hours;
+            console.log(this.totalHour);
           }
           this.timesheets.push(element);
         });
         console.log(this.timesheets);
-        this.totalHour = this.totalHour.toFixed(1)
+        this.totalHour = this.totalHour.toFixed(1);
       })
       .catch(error => {
         console.log(error);

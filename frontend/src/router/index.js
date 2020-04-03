@@ -15,7 +15,12 @@ import JobView from '../views/JobView.vue'
 import CrewView from '../views/CrewView.vue'
 import Timesheets from '../views/Timesheets.vue'
 import Unauthenticated from '../components/Unauthenticated.vue'
-import Contact from '../views/Contact.vue'
+import AboutusPage from '../views/AboutusPage.vue'
+import ContactPage from '../views/ContactPage.vue'
+import MowingPage from '../views/MowingPage.vue'
+import YardcarePage from '../views/YardcarePage.vue'
+import LandscapingPage from '../views/LandscapingPage.vue'
+import Dashboard from '../views/Dashboard.vue'
 import store from '../store'
 
 
@@ -136,13 +141,53 @@ const routes = [
     }
   },
   {
-  path: '/contact',
-  name: 'Contact',
-  component: Contact,
-  meta: {
-    requiresAuth: false
-  }
-  }
+    path: '/contact',
+    name: 'Contact Us',
+    component: ContactPage,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/landscaping',
+    name: 'Landscaping',
+    component: LandscapingPage,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/mowing',
+    name: 'Mowing',
+    component: MowingPage,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/about',
+    name: 'About Us',
+    component: AboutusPage,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/yardcare',
+    name: 'Yard Care',
+    component: YardcarePage,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/dashboard',
+    name: 'Management Dashboard',
+    component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
+  },
 ]
 
 const router = new VueRouter({
@@ -151,7 +196,7 @@ const router = new VueRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.checkAuthentication) {
       next()
       return
