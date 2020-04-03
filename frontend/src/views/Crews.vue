@@ -1,10 +1,21 @@
 <template>
   <v-container>
-    <v-layout>
-      <v-flex>
-        <v-btn @click="back">Back</v-btn>
-
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+    <v-layout row class="d-flex justify-center">
+      <v-flex xs3 py-5>
+        <v-card
+          class="pa-4 display-2 white--text d-flex justify-center font-weight-light"
+          color="primary"
+        >Crews</v-card>
+      </v-flex>
+      <v-flex xs12>
+        <v-text-field
+          v-model="search"
+          filled
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
         <v-data-table
           :loading="loading"
           :headers="headers"
@@ -15,13 +26,18 @@
           @click:row="handleClick"
         >
           <template v-slot:top>
-            <v-toolbar flat color="white">
-              <v-toolbar-title>Crews</v-toolbar-title>
-              <v-divider class="mx-4" inset vertical></v-divider>
+            <v-toolbar flat color="primary">
+              <v-toolbar-title class="white--text font-weight-light">Crews</v-toolbar-title>
+
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="300px">
                 <template v-slot:activator="{ on }">
-                  <v-btn v-if='group_level == 1' color="blue darken-1" text @click="dialog = true">Create Crew</v-btn>
+                  <v-btn
+                    tile
+                    v-if="group_level == 1"
+                    color="white"
+                    @click="dialog = true"
+                  >Create Crew</v-btn>
                 </template>
                 <v-card>
                   <v-card-title>
@@ -97,9 +113,9 @@ export default {
     });
   },
   computed: {
-    group_level: function(){
-      return this.$store.state.group_level
-    },
+    group_level: function() {
+      return this.$store.state.group_level;
+    }
   },
   methods: {
     addCrew: function() {

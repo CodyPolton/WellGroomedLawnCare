@@ -15,17 +15,17 @@ export default new Vuex.Store({
     group_level: null,
     user_id: null,
     endpoints: {
-      obtainJWT: process.env.VUE_APP_API_URL +'api-token-auth/',
-      refreshJWT: process.env.VUE_APP_API_URL + 'refresh_token/'
+      obtainJWT: process.env.VUE_APP_API_URL + 'token/',
+      refreshJWT: process.env.VUE_APP_API_URL + 'token/refresh/'
     },
     authenticated: false
   },
   mutations: {
-    loggedIn (state) {
+    loggedIn(state) {
       state.authenticated = true;
-      router.push('/')
+      router.push('/dashboard')
     },
-    logout(state){
+    logout(state) {
       this.commit('removeToken')
       state.first_name = ''
       state.last_name = ''
@@ -37,67 +37,64 @@ export default new Vuex.Store({
       router.push('/')
 
     },
-    updateToken(state, newToken){
-      console.log(newToken)
-      axios.post(process.env.VUE_APP_API_URL + 'returnuserdetails', { token : newToken})
-        .then((response)=>{
-            console.log(response)
-            state.first_name = response.data.first_name
-            state.last_name = response.data.last_name
-            state.group_level = response.data.group_level
-            state.group_name = response.data.group_name
-            state.user_id = response.data.user_id
-            localStorage.setItem('t', newToken);
-            state.jwt = newToken;
-            this.commit('loggedIn');
-          })
-        .catch((error)=>{
-            console.log(error);
-          })
-      
+    updateToken(state, newToken) {
+      axios.post(process.env.VUE_APP_API_URL + 'returnuserdetails', { token: newToken })
+        .then((response) => {
+          console.log(response)
+          state.first_name = response.data.first_name
+          state.last_name = response.data.last_name
+          state.group_level = response.data.group_level
+          state.group_name = response.data.group_name
+          state.user_id = response.data.user_id
+          localStorage.setItem('t', newToken);
+          state.jwt = newToken;
+          this.commit('loggedIn');
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+
+    },
+    removeToken(state) {
+      localStorage.removeItem('t');
+      state.jwt = '';
+    }
   },
-  removeToken(state){
-    localStorage.removeItem('t');
-    state.jwt = '';
-  }
-},
   actions: {
-    obtainToken(context, loginInfo){
+    obtainToken(context, loginInfo) {
       const payload = {
         username: loginInfo.username,
         password: loginInfo.password
       }
-      console.log(this.state.endpoints.obtainJWT)
-      console.log(payload)
       axios.post(this.state.endpoints.obtainJWT, payload)
-        .then((response)=>{
-            this.commit('updateToken', response.data.token);
-          })
-        .catch((error)=>{
-            console.log(error);
-          })
+        .then((response) => {
+          this.commit('updateToken', response.data.token);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     },
-    refreshToken(){
+    refreshToken() {
       const payload = {
         token: this.state.jwt
       }
       axios.post(this.state.endpoints.refreshJWT, payload)
-        .then((response)=>{
-            this.commit('updateToken', response.data.token)
-          })
-        .catch((error)=>{
-            console.log(error)
-          })
+        .then((response) => {
+          this.commit('updateToken', response.data.token)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
-    inspectToken(){
+    inspectToken() {
       const token = this.state.jwt;
-      if(token){
+      if (token) {
         const decoded = jwt_decode(token);
         const exp = decoded.exp
         const orig_iat = decode.orig_iat
-        if(exp - (Date.now()/1000) < 1800 && (Date.now()/1000) - orig_iat < 628200){
+        if (exp - (Date.now() / 1000) < 1800 && (Date.now() / 1000) - orig_iat < 628200) {
           this.dispatch('refreshToken')
-        } else if (exp -(Date.now()/1000) < 1800){
+        } else if (exp - (Date.now() / 1000) < 1800) {
           // DO NOTHING, DO NOT REFRESH
         } else {
           // PROMPT USER TO RE-LOGIN, THIS ELSE CLAUSE COVERS THE CONDITION WHERE A TOKEN IS EXPIRED AS WELL
@@ -114,8 +111,8 @@ export default new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-        getState: (key) => Cookie.getJSON(key),
-        setState: (key, state) => Cookie.set(key, state, { expires: 1, secure: false })
+      getState: (key) => Cookie.getJSON(key),
+      setState: (key, state) => Cookie.set(key, state, { expires: 1, secure: false })
     })
- ]
+  ]
 })
