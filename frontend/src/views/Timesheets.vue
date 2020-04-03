@@ -87,7 +87,7 @@ export default {
       if (this.timesheet.seconds_paused) {
         hours -= this.timesheet.seconds_paused / 3600;
       }
-
+      console.log(hours.toFixed(1))
       return hours.toFixed(1);
     }
   },
@@ -148,6 +148,13 @@ export default {
     pause: function() {
       console.log("Break");
       var d = new Date().toLocaleTimeString();
+      var full = d.split(" ")
+      var time = full[0].split(":")
+      if(full[1] == "PM" && time[0] != "12"){
+        time[0] = parseInt(time[0]) + 12
+        console.log("hi")
+      }
+      d = time[0]  + ":" + time[1] + ":" + time[2]
       console.log(d);
       this.timesheet.status = "Paused";
       this.timesheet.pause_time = d;
@@ -201,7 +208,13 @@ export default {
     },
     ClockIn: function() {
       var d = new Date().toLocaleTimeString();
-
+      var full = d.split(" ")
+      var time = full[0].split(":")
+      if(full[1] == "PM" && time[0] != "12"){
+        time[0] = parseInt(time[0]) + 12
+        console.log("hi")
+      }
+      d = time[0]  + ":" + time[1] + ":" + time[2]
       console.log(d);
 
       var newTimesheet = {
@@ -209,7 +222,8 @@ export default {
         dayofweek: this.dayofweek,
         userid: this.user_id,
         status: "Clocked In",
-        start_time: d
+        start_time: d,
+        hours: 0
       };
       console.log(newTimesheet);
       axios
@@ -222,6 +236,7 @@ export default {
             title: "You are now clocked in",
             type: "success"
           });
+          console.log(this.timesheet)
         })
         .catch(error => {
           console.log(error);
@@ -229,8 +244,16 @@ export default {
     },
     clockout: function() {
       this.timesheet.status = "Clocked Out";
+      var d = new Date().toLocaleTimeString();
+      var full = d.split(" ")
+      var time = full[0].split(":")
+      if(full[1] == "PM" && time[0] != "12"){
+        time[0] = parseInt(time[0]) + 12
+        console.log("hi")
+      }
+      d = time[0]  + ":" + time[1] + ":" + time[2]
       this.timesheet.hours = this.get_time_diff(this.timesheet.start_time, 1);
-      this.timesheet.end_time = new Date().toLocaleTimeString();
+      this.timesheet.end_time = d
       console.log(this.timesheet);
       axios
         .put(
@@ -252,9 +275,10 @@ export default {
             seconds_paused: null,
             pause_time: null,
             hours: null,
-            status: "No entry"
+            status: 'Clocked Out'
           };
-          console.log(this.timesheet);
+          this.timesheets.push(response.data)
+
           this.$notify({
             group: "success",
             title: "You are now off the clock",
@@ -266,17 +290,32 @@ export default {
         });
     },
     get_time_diff: function(datetimeone, mode) {
-      console.log(typeof datetimeone);
+      console.log("mode" + mode)
+      console.log(datetimeone);
       var split = datetimeone.split(":");
 
-      var d = new Date();
+      var d = new Date().toLocaleTimeString();
+      var full = d.split(" ")
+      var time = full[0].split(":")
+      if(full[1] == "PM" && time[0] != "12"){
+        time[0] = parseInt(time[0]) + 12
+        console.log("bumped the time" + time[0])
+      }
+
+      var time = full[0].split(":")
+      if(full[1] == "PM" && time[0] != "12"){
+        time[0] = parseInt(time[0]) + 12
+        console.log("bumped the time" + time[0])
+      }
 
       var d1 = new Date();
       var d2 = new Date();
       d1.setHours(split[0]);
       d1.setMinutes(split[1]);
-      d2.setHours(d.getHours());
-      d2.setMinutes(d.getMinutes());
+      d2.setHours(time[0]);
+      d2.setMinutes(time[1]);
+
+      console.log(d1 + " " + d2);
 
       var one = new Date(d1).getTime();
       var two = new Date(d2).getTime();
@@ -294,13 +333,14 @@ export default {
       } else {
         var milisec_diff = one - two;
       }
-
+      console.log(milisec_diff)
       if (mode == 1) {
         var hours = (milisec_diff / (1000 * 60 * 60)) % 24;
         return Math.round((hours + Number.EPSILON) * 100) / 100;
       } else {
         console.log("seconds");
         var seconds = milisec_diff / 1000;
+        console.log(seconds)
         return seconds;
       }
     },
