@@ -10,7 +10,19 @@
         >Contact</v-card>
       </v-flex>
       <v-flex xs12>
-        <v-card color="grey " class="white--text" height="600"></v-card>
+        <v-card color="grey " class="white--text" height="600">
+          <v-form ref="form" >
+          <span>Any question or concerns feel free to send us a message below!</span>
+          <v-textarea
+            v-model="description"
+            :rules="[v => !!v || 'Description is required']"
+            label="Questions/conerns here"
+            required
+          ></v-textarea>
+          
+          <v-btn :disabled="!description" color="success" class="mr-4" @click="save">Send Inquiry</v-btn>
+        </v-form>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
@@ -21,7 +33,19 @@ export default {
   name: "Contact",
 
   data() {
-    return {};
+    return {
+      description: null
+    };
+  },
+  methods: {
+    save: function() {
+      this.$notify({
+            group: "success",
+            title: "Inquiry has been sent",
+            type: "success"
+          })
+        
+    }
   }
 };
 </script>
