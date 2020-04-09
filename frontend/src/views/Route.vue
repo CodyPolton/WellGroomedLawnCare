@@ -1,7 +1,7 @@
 <template>
   <v-app style="width: 100%; ">
-    <v-btn @click="back">Back</v-btn>
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
+
       <v-tab key="map">Map</v-tab>
       <v-tab key="route">Route</v-tab>
       <v-tab-item key="map">

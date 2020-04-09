@@ -9,11 +9,22 @@
           height="64"
         >About Us</v-card>
       </v-flex>
-      <v-flex xs12>
-        <v-card color="grey " class="white--text" height="600">
-          <h1>About Us</h1>
+      <v-flex xs9></v-flex>
+      <v-flex xs8>
+
+          <v-layout row wrap class="px-3">
+            <v-card color="grey" class="pa-5">
+            <v-flex xs2>
+<v-card class="headline green darken-2 white--text text-center">About Us</v-card>
+            </v-flex>
+
+            <v-flex xs12>
+              <v-card class="px-4 py-2 mt-4">
           This bussiness started 5 years ago with a high school student named Landon Wisswal. Started off in his backyard and as he grew he recruited some friends to help him and now he is working all over town taking care of anything and everything lawncare related.
-        </v-card>
+</v-card>
+            </v-flex>
+            </v-card>
+          </v-layout>
       </v-flex>
     </v-layout>
   </v-container>

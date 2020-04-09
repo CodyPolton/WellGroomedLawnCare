@@ -1,6 +1,6 @@
 <template >
-  <v-app style="width: 100%;">
-    <v-btn @click="back">Back</v-btn>
+  <v-app>
+
     <v-tabs  background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="details" name='Details'>Details</v-tab>
       <v-tab key="yards" name='Yards'>Yards</v-tab>
@@ -8,8 +8,21 @@
       <v-tab key="edit" name='Edit'>Edit</v-tab>
 
       <v-tab-item key="details">
-        Balance: ${{account.balance}}
-        <v-dialog v-model="dialog1" max-width="400px">
+
+        <v-layout row wrap class="d-flex align-center my-5 py-5">
+          <v-flex xs6 offset-xs4 >
+                        <v-layout row wrap>
+
+
+                <v-flex xs4 offset-xs2 class="text-center headline">
+                  <v-card class="pa-5">
+Balance: ${{account.balance}}
+                  </v-card>
+
+                </v-flex>
+                <v-flex xs12 class="mt-5"></v-flex>
+                <v-flex xs4 offset-xs2 class="d-flex justify-center">
+<v-dialog v-model="dialog1" max-width="400px">
           <template v-slot:activator="{ on }">
             <v-btn color="blue" dark v-on="on">Make Payment</v-btn>
           </template>
@@ -40,10 +53,21 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+                </v-flex>
+
+
+
+                          </v-layout>
+          </v-flex>
+        </v-layout>
+
+
       </v-tab-item>
 
       <v-tab-item key="yards">
-        <v-dialog v-model="dialog" max-width="600px">
+        <v-layout row wrap>
+          <v-flex xs10 offset-xs1 class="mt-5">
+<v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on }">
             <v-btn color="primary" dark v-on="on">Add Yard</v-btn>
           </template>
@@ -106,7 +130,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+        <v-text-field filled v-model="search" append-icon="mdi-magnify" label="Search" single-line class="mt-5" hide-details></v-text-field>
         <v-data-table
           :loading="loading"
           :headers="headers"
@@ -116,10 +140,15 @@
           class="elevation-1"
           @click:row="handleClick"
         ></v-data-table>
+          </v-flex>
+        </v-layout>
+
       </v-tab-item>
 
-      <v-tab-item key="invoices">I
-        <v-data-table
+      <v-tab-item key="invoices">
+                <v-layout row wrap mt-5 pt-5>
+          <v-flex xs10 offset-xs1>
+<v-data-table
       :headers="invoiceheaders"
       :items="invoices"
       :search="invoicesearch"
@@ -127,10 +156,14 @@
       class="elevation-1"
       @click:row="handleInvoiceClick"
     ></v-data-table>
+          </v-flex>
+        </v-layout>
       </v-tab-item>
 
       <v-tab-item key="edit">
-        <v-form ref="form" v-model="valid">
+<v-layout row wrap mt-5 pt-5>
+<v-flex xs10 offset-xs1>
+<v-form ref="form" v-model="valid">
           <v-text-field
             v-model="account.f_name"
             ref="name"
@@ -178,6 +211,9 @@
           <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
           <v-btn  color="red" class="mr-4" @click="deleteAccount">Delete Account</v-btn>
         </v-form>
+</v-flex>
+</v-layout>
+
       </v-tab-item>
     </v-tabs>
   </v-app>
@@ -308,7 +344,7 @@ export default {
     };
   },
   computed: {
-    
+
   },
   created() {
     this.id = this.$route.params.id;
@@ -333,7 +369,7 @@ export default {
 
     axios.get(process.env.VUE_APP_API_URL + "accountinvoices?id=" + this.id).then(response => {
       if (response.data) {
-        
+
         response.data.forEach(item => {
           console.log(item)
           this.invoices.push(item);

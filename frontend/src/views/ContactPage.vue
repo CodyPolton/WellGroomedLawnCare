@@ -1,28 +1,41 @@
 <template>
   <v-container mt-5>
     <v-layout row wrap>
-      <v-flex xs3>
+      <v-flex xs3 offset-xs4>
         <v-card
-          shaped
           color="primary"
           class="white--text d-flex align-center justify-center display-1 pa-5 font-weight-light mb-2"
           height="64"
         >Contact</v-card>
       </v-flex>
-      <v-flex xs12>
-        <v-card color="grey " class="white--text" height="600">
+
+      <v-flex xs8 offset-xs2 class="mt-5">
+
+          <v-layout row wrap class="px-3">
+            <v-card color="grey" class="pa-5">
+            <v-flex xs12>
+<v-card class="headline px-2 green darken-2 white--text">Any question or concerns feel free to send us a message below!</v-card>
+            </v-flex>
+
+            <v-flex xs12>
+              <v-card class="px-4 py-2 mt-4">
           <v-form ref="form" >
-          <span>Any question or concerns feel free to send us a message below!</span>
           <v-textarea
             v-model="description"
             :rules="[v => !!v || 'Description is required']"
             label="Questions/conerns here"
             required
           ></v-textarea>
-          
+
           <v-btn :disabled="!description" color="success" class="mr-4" @click="save">Send Inquiry</v-btn>
         </v-form>
-        </v-card>
+</v-card>
+            </v-flex>
+            </v-card>
+          </v-layout>
+
+
+
       </v-flex>
     </v-layout>
   </v-container>
@@ -44,7 +57,7 @@ export default {
             title: "Inquiry has been sent",
             type: "success"
           })
-        
+
     }
   }
 };
