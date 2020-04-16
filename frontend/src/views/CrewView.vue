@@ -1,16 +1,27 @@
 <template>
   <v-app style="width: 100%;">
-    <v-btn @click="back">Back</v-btn>
+    <v-container>
+<v-row justify="center">
+        <v-flex xs4 pt-5 my-5>
+        <v-card
+          class="pa-4 display-2 white--text d-flex justify-center font-weight-light"
+          color="primary"
+        >Crew Schedule</v-card>
+      </v-flex>
+  <v-flex xs12>
     <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
       <v-tab key="schedule">Schedule</v-tab>
       <v-tab key="edit">Edit</v-tab>
       <v-tab-item key="schedule">
         <v-container>
           <v-layout class="d-flex flex-wrap">
-            <v-flex xs3>
-              <h2>Day 1 (Monday)</h2>
-              <v-btn @click="route(day1)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 1 (Monday)</v-toolbar-title>
+                </v-toolbar>
+                <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day1)">Route</v-btn>
+              <v-list tile dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day1" :key="i">
                     <v-list-item-content>
@@ -19,11 +30,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 2 (Tuesday)</h2>
-              <v-btn @click="route(day2)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                             <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 2 (Tuesday)</v-toolbar-title>
+                </v-toolbar>
+                              <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day2)">Route</v-btn>
+              <v-list tile dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day2" :key="i">
                     <v-list-item-content>
@@ -32,11 +47,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                              </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 3 (Wednesday)</h2>
-              <v-btn @click="route(day3)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                              <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 3 (Wednesday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day3)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day3" :key="i">
                     <v-list-item-content>
@@ -45,11 +64,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 4 (Thursday)</h2>
-              <v-btn @click="route(day4)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                             <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 4 (Thursday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day4)">Route</v-btn>
+              <v-list  tile dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day4" :key="i">
                     <v-list-item-content>
@@ -58,11 +81,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 5 (Friday)</h2>
-              <v-btn @click="route(day5)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 5 (Friday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day5)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day5" :key="i">
                     <v-list-item-content>
@@ -71,11 +98,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 6 (Saturday)</h2>
-              <v-btn @click="route(day6)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 6 (Saturday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day6)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day6" :key="i">
                     <v-list-item-content>
@@ -84,11 +115,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 7 (Monday)</h2>
-              <v-btn @click="route(day7)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                              <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 7 (Monday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day7)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day7" :key="i">
                     <v-list-item-content>
@@ -97,11 +132,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 8 (Tuesday)</h2>
-              <v-btn @click="route(day8)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                              <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 8 (Tuesday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day8)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day8" :key="i">
                     <v-list-item-content>
@@ -110,11 +149,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 9 (Wednesday)</h2>
-              <v-btn @click="route(day9)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                              <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 9 (Wednesday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day9)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day9" :key="i">
                     <v-list-item-content>
@@ -123,11 +166,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 10 (Thursday)</h2>
-              <v-btn @click="route(day10)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                             <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 10 (Thursday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day10)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day10" :key="i">
                     <v-list-item-content>
@@ -136,11 +183,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 11 (Friday)</h2>
-              <v-btn @click="route(day11)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                             <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 11 (Friday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day11)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day11" :key="i">
                     <v-list-item-content>
@@ -149,11 +200,15 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
-            <v-flex xs3>
-              <h2>Day 12 (Saturday)</h2>
-              <v-btn @click="route(day12)">Route</v-btn>
-              <v-list dense>
+            <v-flex xs3 class="px-3">
+                              <v-toolbar color="grey darken-1" class="white--text font-weight-light" dense>
+                  <v-toolbar-title>Day 12 (Saturday)</v-toolbar-title>
+                </v-toolbar>
+                                            <v-card tile color="grey" class="white--text">
+              <v-btn tile block color="green" class="white--text title" @click="route(day12)">Route</v-btn>
+              <v-list tile  dense>
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item disabled v-for="(item, i) in day12" :key="i">
                     <v-list-item-content>
@@ -162,12 +217,16 @@
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
+                                            </v-card>
             </v-flex>
           </v-layout>
         </v-container>
       </v-tab-item>
 
       <v-tab-item key="edit">
+        <v-container>
+          <v-layout>
+            <v-flex xs10 offset-xs1>
         <v-form ref="form" v-model="valid">
           <span>Enter yard information:</span>
           <v-text-field
@@ -182,8 +241,16 @@
 
           <v-btn :disabled="!valid" color="success" class="mr-4" @click="save">Save</v-btn>
         </v-form>
+        </v-flex>
+        </v-layout>
+        </v-container>
       </v-tab-item>
     </v-tabs>
+</v-flex>
+</v-row>
+
+
+    </v-container>
   </v-app>
 </template>
 

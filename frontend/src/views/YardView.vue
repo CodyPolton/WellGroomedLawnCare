@@ -1,12 +1,18 @@
 <template>
   <v-app style="width: 100%; ">
-    <v-btn @click="back">Back</v-btn>
-    <v-tabs background-color="grey accent-4" centered class="elevation-2" dark>
+    <v-tabs background-color="grey accent-4" centered class="elevation-4" dark>
       <v-tab key="details">Details</v-tab>
       <v-tab key="jobs">Jobs</v-tab>
       <v-tab key="edit">Edit</v-tab>
-      <v-tab-item key="details">]
-        <v-btn v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
+      <v-tab-item key="details">
+        <v-container>
+          <v-row justify="center">
+            <v-flex xs6>
+        <v-btn block x-large class="title  my-5" v-if="yard.mow_price!=null" color="primary" dark @click="yardMowed">Mowed</v-btn>
+            </v-flex>
+          </v-row>
+        </v-container>
+
         <v-dialog v-model="confirmMowDialog" persistent max-width="400">
           <v-card>
             <v-card-title class="headline">Yard Mowed Recently</v-card-title>
@@ -24,9 +30,12 @@
         </v-dialog>
       </v-tab-item>
       <v-tab-item key="jobs">
-        <v-dialog v-model="dialog" max-width="600px">
+        <v-container class="mt-5 pt-5">
+          <v-row justify="center">
+            <v-flex xs10>
+       <v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark v-on="on">Add Job</v-btn>
+            <v-btn class="my-3" tile depressed color="primary" dark v-on="on">Add Job</v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -70,11 +79,12 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" :disabled="valid" text @click="addJob">Save</v-btn>
+              <v-btn tile depressed color="blue darken-1" :disabled="valid" text @click="addJob">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+<v-text-field v-model="search" append-icon="mdi-magnify" placeholder="Search" single-line hide-details outlined class="mb-1"></v-text-field>
+<v-card>
         <v-data-table
           v-model="selected"
           :headers="headers"
@@ -84,17 +94,28 @@
           show-select
           item-key="jobid"
           :items-per-page="10"
-          class="elevation-1"
+          class="elevation-1 mt-3"
           @click:row="handleClick"
         >
           <template v-slot:top>
-            <v-btn color="primary" @click="generateInvoice">Invoice Selected</v-btn>
+            <v-btn tile depressed color="primary" @click="generateInvoice">Invoice Selected</v-btn>
           </template>
         </v-data-table>
+        </v-card>
+
+
+            </v-flex>
+          </v-row>
+        </v-container>
+
+
       </v-tab-item>
       <v-tab-item key="edit">
-        <v-form ref="form" v-model="yardEdit">
-          <span>Enter yard information:</span>
+        <v-container class="pt-5 mt-5">
+          <v-row justify="center">
+            <v-flex xs6>
+ <v-form ref="form" v-model="yardEdit">
+          <v-card class="pa-3 d-flex justify-center title white--text primary mb-5">Enter Yard Information</v-card>
           <v-text-field
             v-model="yard.address"
             focus
@@ -130,6 +151,10 @@
           <v-btn :disabled="!yardEdit" color="success" class="mr-4" @click="save">Save</v-btn>
           <v-btn :disabled="!yardEdit" color="red" class="mr-4" @click="deleteYard">Delete Yard</v-btn>
         </v-form>
+            </v-flex>
+          </v-row>
+        </v-container>
+
       </v-tab-item>
     </v-tabs>
   </v-app>
@@ -243,7 +268,7 @@ export default {
   components: {},
   created() {
     this.yardid = this.$route.params.yardid;
-    this.accountid = this.$route.params.accountid; 
+    this.accountid = this.$route.params.accountid;
     this.job.yard = this.yardid;
     this.job.account = this.accountid
 

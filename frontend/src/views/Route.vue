@@ -5,28 +5,45 @@
       <v-tab key="map">Map</v-tab>
       <v-tab key="route">Route</v-tab>
       <v-tab-item key="map">
-        <div style="width: 100%; height: 500px;">
+        <div style="width: 100%; height: 1000px;">
           <div id="map" style="width: 100%; height: 90%; position: absolute;">
             <div id="map-canvas" />
           </div>
         </div>
       </v-tab-item>
       <v-tab-item key="route">
-        <v-btn @click="route">route</v-btn>
-        <v-list dense>
+        <v-continer>
+          <v-layout row class="d-flex justify-center">
+<v-flex xs3 py-5>
+          <v-card
+            class="pa-4 display-2 white--text d-flex justify-center font-weight-light"
+            color="primary"
+          >Route</v-card>
+        </v-flex>
+            <v-flex xs12 class="px-5 mx-5">
+              <v-row justify="center">
+                <v-flex xs6>
+<v-list tile dense color="grey">
           <v-list-item-group v-model="item" color="primary">
             <v-list-item v-for="(item, i) in routeYards" :key="i" @click="goToYard(item)">
               <v-list-item-content>
-                <v-list-item-title v-text="item.address"></v-list-item-title>
+                <v-list-item-title class="white--text subtitle-1 pl-5 ml-5" v-text="item.address"></v-list-item-title>
               </v-list-item-content>
-              <v-list-item-action>
+              <v-list-item-action class="mr-5 pr-5">
                 <v-btn icon @click="individualRoute(item)">
-                  <v-icon color="blue lighten-1">mdi-google-maps</v-icon>
+                  <v-icon color="white">mdi-google-maps</v-icon>
                 </v-btn>
               </v-list-item-action>
             </v-list-item>
           </v-list-item-group>
         </v-list>
+                </v-flex>
+              </v-row>
+
+            </v-flex>
+          </v-layout>
+        </v-continer>
+
       </v-tab-item>
     </v-tabs>
   </v-app>

@@ -15,8 +15,8 @@ export default new Vuex.Store({
     group_level: null,
     user_id: null,
     endpoints: {
-      obtainJWT: process.env.VUE_APP_API_URL + 'token/',
-      refreshJWT: process.env.VUE_APP_API_URL + 'token/refresh/'
+      obtainJWT: process.env.VUE_APP_API_URL +'api-token-auth/',
+      refreshJWT: process.env.VUE_APP_API_URL + 'refresh_token/'
     },
     authenticated: false
   },
@@ -39,6 +39,7 @@ export default new Vuex.Store({
     },
     updateToken(state, newToken) {
       axios.post(process.env.VUE_APP_API_URL + 'returnuserdetails', { token: newToken })
+
         .then((response) => {
           console.log(response)
           state.first_name = response.data.first_name
@@ -62,6 +63,7 @@ export default new Vuex.Store({
   },
   actions: {
     obtainToken(context, loginInfo) {
+
       const payload = {
         username: loginInfo.username,
         password: loginInfo.password

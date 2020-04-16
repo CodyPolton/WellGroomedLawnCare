@@ -19,13 +19,13 @@
               tile
               height="200"
             >
-              <v-layout row wrap class="d-flex justify-center">
-                <v-flex xs2>
+              <v-row justify="center">
+                <v-flex xs12 class="text-center">
                   <v-icon x-large>mdi-account-multiple</v-icon>
                 </v-flex>
-                <v-flex xs12></v-flex>
-                <v-flex xs8 pt-1>Accounts</v-flex>
-              </v-layout>
+
+                <v-flex xs12 pt-1 class="text-center">Accounts</v-flex>
+              </v-row>
             </v-btn>
           </v-flex>
           <v-flex xs4>
@@ -38,13 +38,13 @@
               block
               height="200"
             >
-              <v-layout row wrap class="d-flex justify-center">
-                <v-flex xs2>
+              <v-row justify="center">
+                <v-flex xs12 class="text-center">
                   <v-icon x-large>mdi-clipboard-text</v-icon>
                 </v-flex>
-                <v-flex xs12></v-flex>
-                <v-flex xs8 pt-1>Timesheets</v-flex>
-              </v-layout>
+
+                <v-flex xs12 class="text-center">Timesheets</v-flex>
+              </v-row>
             </v-btn>
           </v-flex>
           <v-flex xs4>
@@ -58,13 +58,12 @@
               block
               height="200"
             >
-              <v-layout row wrap class="d-flex justify-center">
-                <v-flex xs2>
+              <v-row justify="center">
+                <v-flex xs12 class="text-center">
                   <v-icon x-large>mdi-account-multiple</v-icon>
                 </v-flex>
-                <v-flex xs12></v-flex>
-                <v-flex xs5 pt-1>Crews</v-flex>
-              </v-layout>
+                <v-flex xs12 class="text-center">Crews</v-flex>
+              </v-row>
             </v-btn>
           </v-flex>
           <v-flex xs4>
@@ -78,13 +77,13 @@
               block
               height="200"
             >
-              <v-layout row wrap class="d-flex justify-center">
-                <v-flex xs2>
+              <v-row justify="center">
+                <v-flex xs12 class="text-center">
                   <v-icon x-large>mdi-calendar</v-icon>
                 </v-flex>
-                <v-flex xs12></v-flex>
-                <v-flex xs8 pt-1>Schedules</v-flex>
-              </v-layout>
+
+                <v-flex xs12 class="text-center">Schedules</v-flex>
+              </v-row>
             </v-btn>
           </v-flex>
           <v-flex xs4>
@@ -98,13 +97,13 @@
               block
               height="200"
             >
-              <v-layout row wrap class="d-flex justify-center">
-                <v-flex xs2>
+              <v-row justify="center">
+                <v-flex xs12 class="text-center">
                   <v-icon x-large>mdi-receipt</v-icon>
                 </v-flex>
-                <v-flex xs12></v-flex>
-                <v-flex xs6 pt-1>Invoices</v-flex>
-              </v-layout>
+
+                <v-flex xs12 class="text-center">Invoices</v-flex>
+              </v-row>
             </v-btn>
           </v-flex>
           <v-flex xs4>
@@ -118,13 +117,13 @@
               block
               height="200"
             >
-              <v-layout row wrap class="d-flex justify-center">
-                <v-flex xs2>
+              <v-row justify="center">
+                <v-flex xs12 class="text-center">
                   <v-icon x-large>mdi-tools</v-icon>
                 </v-flex>
-                <v-flex xs12></v-flex>
-                <v-flex xs10 pt-1>Configurations</v-flex>
-              </v-layout>
+
+                <v-flex xs12 class="text-center">Configurations</v-flex>
+              </v-row>
             </v-btn>
           </v-flex>
         </v-layout>

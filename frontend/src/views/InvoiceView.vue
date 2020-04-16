@@ -1,9 +1,8 @@
 <template>
   <v-app style="width: 100%;">
-    <v-btn @click="back">Back</v-btn>
     <v-dialog v-model="deleteDialog" max-width="400px">
                 <template v-slot:activator="{ on }">
-                  <v-btn color="red" dark class="mb-2" v-on="on">Delete</v-btn>
+                  <v-btn tile x-large color="red lighten-1" dark class="title" v-on="on">Delete</v-btn>
                 </template>
                 <v-card v-if="deleteDialog">
                   <div>
@@ -21,8 +20,8 @@
       <v-tab key="details">View Invoice</v-tab>
       <v-tab-item>
         <div class="tab-item-wrapper">
-          <v-btn color='red' @click="approve" v-if='!invoice.approved'>Approve</v-btn>
-          <v-btn color='green'  @click="approve" v-if='invoice.approved'>Approved</v-btn>
+          <v-btn tile block color='red white--text' @click="approve" v-if='!invoice.approved'>Approve</v-btn>
+          <v-btn tile block color='green white--text'  @click="approve" v-if='invoice.approved'>Approved</v-btn>
           <v-btn color="red" v-if='invoice.approved && !invoice.billed' dark @click="emailDialog = true" >Email Invoice</v-btn>
           <v-dialog v-model="emailDialog" max-width="400px">
                 <v-card v-if="emailDialog">
@@ -42,7 +41,16 @@
       </v-tab-item>
 
       <v-tab key="yards">Jobs</v-tab>
-      <v-tab-item>Jobs
+      <v-tab-item>
+        <v-container>
+          <v-row justify="center">
+            <v-flex xs2>
+        <v-card color="primary" class="pa-4 d-flex justify-center white--text headline">
+          Jobs
+        </v-card>
+            </v-flex>
+            <v-flex xs12>
+              <v-card>
       <v-data-table
           :headers="headers"
           :items="jobs"
@@ -53,11 +61,22 @@
           @click:row="handleClick"
         >
         </v-data-table>
+        </v-card>
+            </v-flex>
+          </v-row>
+        </v-container>
+
+
       </v-tab-item>
       <v-tab key="upload">Upload</v-tab>
       <v-tab-item>
+        <v-container class="pt-5 mt-5">
+          <v-row justify="center" align="center">
         <input type="file" id="file" ref="file" v-on:change="onChangeFileUpload()"/>
-        <button v-on:click="submitForm()">Upload</button>
+        <v-btn color="primary white--text " outlined v-on:click="submitForm()">Upload</v-btn>
+          </v-row>
+        </v-container>
+
         <!-- <v-btn color="dark-green" :disabled="!file" dark @click="invoiceOveride">Replace Invoice</v-btn> -->
       </v-tab-item>
     </v-tabs>
@@ -234,7 +253,7 @@ export default {
             console.log(this.file)
             formData.append('id', this.id)
             formData.append('file', this.file);
-  
+
             axios.post(process.env.VUE_APP_API_URL + "overideinvoice/",
                 formData,
                 {
@@ -285,17 +304,17 @@ export default {
             type: "success"
           });
       this.$router.go(-1);
-          
+
     }).catch(error => {
-      
+
       this.$notify({
                   group: "error",
                   title: error.response.message,
                   type: "error"
                 });
-          
+
         });
-      
+
       this.deleteDialog = false
     }
   }
